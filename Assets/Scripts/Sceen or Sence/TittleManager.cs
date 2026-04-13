@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class TittleManager : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class TittleManager : MonoBehaviour
     public void OnclickStart()
     {
         Debug.Log("게임을 시작합니다");
+        
     }
     public void OnclickExit()
     {
