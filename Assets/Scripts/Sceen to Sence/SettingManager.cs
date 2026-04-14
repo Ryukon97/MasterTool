@@ -40,6 +40,17 @@ public class SettingManager : MonoBehaviour
         BrightnessSlider.onValueChanged.AddListener(SetBrightness);
         soundSlider.onValueChanged.AddListener(Setsound);
 
+        if (Settingpanel != null)
+        {
+            BrightnessSlider.value = savedBrightness;
+
+        }
+        if (soundSlider != null)
+        {
+            soundSlider.value = savedSound;
+            soundSlider.onValueChanged.AddListener(Setsound);
+        }
+
         if (Settingpanel != null) Settingpanel.SetActive(false);
     }
 
@@ -71,7 +82,16 @@ public class SettingManager : MonoBehaviour
         Debug.Log("설정값이 저장되었습니다!");
     }
 
- 
+    public void OpenSettingPanel()
+    {
+        if (Settingpanel != null) Settingpanel.SetActive(true);
+    }
+    public void CloseSettingPanel()
+    {
+        if (Settingpanel != null) Settingpanel.SetActive(false);
+    }
+
+
     public void StopIntroBGM()
     {
         if (IntroaudioSource != null)
