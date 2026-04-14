@@ -11,24 +11,42 @@ public class SettingManager : MonoBehaviour
     public Image BrightnessOverlay;
     public Slider BrightnessSlider;
 
-    [Header("Sound")] //사운드바
+    [Header("Sound Setting")] //사운드바
     public Slider soundSlider;
+    public AudioSource IntroaudioSource;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Settingpanel.SetActive(false);
-        BrightnessSlider.value = 0f;
-        soundSlider.value = AudioListener.volume;
+        float savedBrightness = PlayerPrefs.GetFloat("savedBrightness", 0f);
+        float savedSound = PlayerPrefs.GetFloat("SavedSound", 1.0f);
+
+        BrightnessSlider.value = savedBrightness;
+        soundSlider.value = savedSound; //UI에 적용
+
+        SetBrightness(savedBrightness);
+        Setsound(savedSound);//설정한 값을 저장
+
+
+        //Settingpanel.SetActive(false);
+        //BrightnessSlider.value = 0f;
+        //soundSlider.value = AudioListener.volume;
+
+
+
 
         BrightnessSlider.onValueChanged.AddListener(SetBrightness);
         soundSlider.onValueChanged.AddListener(Setsound);
+
+        if (Settingpanel != null) Settingpanel.SetActive(false);
     }
 
     public void ToggleSettingPanel(bool isActive)
     {
-        Settingpanel.SetActive(isActive);
+        //Settingpanel.SetActive(isActive);
+        if (Settingpanel != null) Settingpanel.SetActive(isActive);
     }
 
     public void SetBrightness(float value)
@@ -40,6 +58,11 @@ public class SettingManager : MonoBehaviour
             BrightnessOverlay.color = color;
         }
     }
+    public void Setsound(float value)
+    {
+        AudioListener.volume = value;
+    }
+
     public void SaveSettings()
     {
         PlayerPrefs.SetFloat("SavedBrightness", BrightnessSlider.value);
@@ -48,9 +71,13 @@ public class SettingManager : MonoBehaviour
         Debug.Log("설정값이 저장되었습니다!");
     }
 
-    public void Setsound(float value)
+ 
+    public void StopIntroBGM()
     {
-        AudioListener.volume = value;
+        if (IntroaudioSource != null)
+        {
+            IntroaudioSource.Stop();
+        }
     }
     public void GameExit()
     {
