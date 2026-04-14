@@ -20,7 +20,7 @@ public class SettingManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        float savedBrightness = PlayerPrefs.GetFloat("savedBrightness", 0f);
+        float savedBrightness = PlayerPrefs.GetFloat("SavedBrightness", 0f);
         float savedSound = PlayerPrefs.GetFloat("SavedSound", 1.0f);
 
         BrightnessSlider.value = savedBrightness;
