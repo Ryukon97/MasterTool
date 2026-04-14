@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 91137876}
   - component: {fileID: 91137875}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: TOUCH TO START(image)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -343,7 +343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &177630192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1328,8 +1328,9 @@ GameObject:
   - component: {fileID: 1296985622}
   - component: {fileID: 1296985624}
   - component: {fileID: 1296985623}
+  - component: {fileID: 1296985625}
   m_Layer: 5
-  m_Name: PRESS ANY BUTTON
+  m_Name: TOUCH TO START
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1351,7 +1352,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -21.381, y: -5}
+  m_AnchoredPosition: {x: -21.381, y: -4.9999695}
   m_SizeDelta: {x: 157.238, y: 19.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1296985623
@@ -1454,6 +1455,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296985621}
   m_CullTransparentMesh: 1
+--- !u!114 &1296985625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296985621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770da259d0461504abdd874666ed5bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BlinkText
+  BlinkSpeed: 1
 --- !u!1 &1327267750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,8 +1644,9 @@ GameObject:
   - component: {fileID: 1708152845}
   - component: {fileID: 1708152847}
   - component: {fileID: 1708152846}
+  - component: {fileID: 1708152848}
   m_Layer: 5
-  m_Name: PRESS ANY BUTTON
+  m_Name: TOUCH TO START(image)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1756,6 +1771,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708152844}
   m_CullTransparentMesh: 1
+--- !u!114 &1708152848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708152844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770da259d0461504abdd874666ed5bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BlinkText
+  BlinkSpeed: 1
 --- !u!1 &1712055000
 GameObject:
   m_ObjectHideFlags: 0
