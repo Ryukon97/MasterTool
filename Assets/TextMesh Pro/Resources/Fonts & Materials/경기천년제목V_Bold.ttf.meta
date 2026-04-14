@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 990d4e0453bf3534b87d1678763e8667
+guid: 5b92b95adeff29a489f98d033caa36d1
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - GyeonggiTitleOTF
+  - GyeonggiTitleV
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
