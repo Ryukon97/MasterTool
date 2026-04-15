@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class SettingManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class SettingManager : MonoBehaviour
     public Slider soundSlider;
     public AudioSource IntroaudioSource;
 
-
+    public ChatManager chatManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -54,6 +55,18 @@ public class SettingManager : MonoBehaviour
         if (Settingpanel != null) Settingpanel.SetActive(false);
     }
 
+    void Update()
+    {
+        //if (Input.GetMouseButton(0))
+        //{
+        //    if (EventSystem.current.IsPointerOverGameObject())
+        //    {
+        //        return;
+        //    }
+
+        //}
+
+    }
     public void ToggleSettingPanel(bool isActive)
     {
         //Settingpanel.SetActive(isActive);
@@ -84,11 +97,25 @@ public class SettingManager : MonoBehaviour
 
     public void OpenSettingPanel()
     {
-        if (Settingpanel != null) Settingpanel.SetActive(true);
+        if (Settingpanel != null)
+        {
+            Settingpanel.SetActive(true);
+            if (chatManager != null) chatManager.isPausedByMenu = true;
+            Debug.Log("메뉴오픈 대사클릭잠금상태" + chatManager.isPausedByMenu);
+        }
+        else 
+        {
+            Debug.LogError("디버그: ChatManager가 연결되지 않았습니다 ");
+        }
     }
     public void CloseSettingPanel()
     {
-        if (Settingpanel != null) Settingpanel.SetActive(false);
+        if (Settingpanel != null)
+        {
+            Settingpanel.SetActive(false);
+           if(chatManager !=null) chatManager.isPausedByMenu = false;
+            Debug.Log("디버그:메뉴닫힘!"+ chatManager.isPausedByMenu);
+        }
     }
 
 

@@ -249,6 +249,7 @@ MonoBehaviour:
   BrightnessSlider: {fileID: 1596202861}
   soundSlider: {fileID: 1010884066}
   IntroaudioSource: {fileID: 1283217442}
+  chatManager: {fileID: 909799602}
 --- !u!114 &60676346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,19 +296,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 60676345}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
-        m_MethodName: ToggleSettingPanel
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 60676345}
-        m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
-        m_MethodName: SaveSettings
+        m_MethodName: OpenSettingPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -315,19 +304,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 60676345}
-        m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
-        m_MethodName: ToggleSettingPanel
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &60676347
 MonoBehaviour:
@@ -2417,6 +2394,7 @@ MonoBehaviour:
   choiceButtonsText:
   - {fileID: 1116404565}
   - {fileID: 458461745}
+  isPausedByMenu: 0
 --- !u!1 &954147405
 GameObject:
   m_ObjectHideFlags: 0
@@ -2903,8 +2881,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 60676345}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
-        m_MethodName: ToggleSettingPanel
-        m_Mode: 6
+        m_MethodName: CloseSettingPanel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

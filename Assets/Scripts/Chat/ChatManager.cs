@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -36,6 +37,7 @@ public class ChatManager : MonoBehaviour
 
     private DialogueList dialogueData;
     private int selectedNextId;
+    public bool isPausedByMenu = false;
 
     void Start()
     {
@@ -115,14 +117,26 @@ public class ChatManager : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
 
-        // 대사 출력 후 한 프레임을 쉬어야 클릭 감지가 정확해집니다.
+
         yield return null;
 
         yield return new WaitUntil(() =>
-             (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
-             (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame));
+        {
+           
+            bool isInput = (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
+                           (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame);
 
-        // 클릭 소리가 중복 인식되지 않게 다시 한 프레임 대기
+            if (isInput)
+            {
+                
+                if (isPausedByMenu) return false;
+
+              
+                return true;
+            }
+
+            return false;
+        });
         yield return null;
     }
 }
