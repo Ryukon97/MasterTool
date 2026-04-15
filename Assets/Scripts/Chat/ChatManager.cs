@@ -108,7 +108,15 @@ public class ChatManager : MonoBehaviour
 
     IEnumerator NormalChat(string narrator, string narration)
     {
-        CharacterName.text = narrator;
+        if (narrator == "나")
+        {
+            CharacterName.text = " ";
+        }
+        else
+        {
+            
+            CharacterName.text = narrator;
+        }
         ChatText.text = "";
 
         foreach (char letter in narration.ToCharArray())
