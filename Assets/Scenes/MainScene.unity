@@ -2409,7 +2409,7 @@ GameObject:
   - component: {fileID: 941290623}
   - component: {fileID: 941290622}
   m_Layer: 5
-  m_Name: IllustManager
+  m_Name: "IllustManager(\uD50C\uB808\uC774\uD560\uB550 \uACA8\uC57C\uD568)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2430,6 +2430,8 @@ MonoBehaviour:
   IlustDisplay: {fileID: 941290623}
   IllustGallery:
   - illustKey: "\uCCAB\uBC88\uC9F8\uB9CC\uB0A8"
+    illustSprite: {fileID: 21300000, guid: 5d4ed3790671e6c4dae0570f9c1bf047, type: 3}
+  - illustKey: "\uB450\uBC88\uC9F8\uB9CC\uB0A8"
     illustSprite: {fileID: 21300000, guid: 5d4ed3790671e6c4dae0570f9c1bf047, type: 3}
 --- !u!114 &941290623
 MonoBehaviour:
@@ -4063,7 +4065,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1699082743}
   m_Layer: 0
-  m_Name: Chat UI
+  m_Name: "Chat UI(\uD50C\uB808\uC774\uD560\uB588 \uCF1C\uC57C\uD568)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
