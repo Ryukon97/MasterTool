@@ -10,6 +10,7 @@ public class ButtonAnimation : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     [Header("설정")]
     public float animationSpeed = 10f; // 크기 변화 속도 (높을수록 빠름)
     public float transitionDelay = 1.4f; // 애니메이션 후 대기 시간
+    public SoundEffect soundEffect;
 
     private Vector3 targetScale;
     private Coroutine transitionRoutine;
@@ -30,6 +31,11 @@ public class ButtonAnimation : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public void OnPointerDown(PointerEventData eventData)
     {
         targetScale = originalScale * 0.9f;
+
+        if(soundEffect !=null)
+        {
+            soundEffect.PlayClick();
+        }
     }
 
     // 마우스에서 손을 떼는 순간
