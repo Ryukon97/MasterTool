@@ -250,6 +250,7 @@ MonoBehaviour:
   soundSlider: {fileID: 1010884066}
   IntroaudioSource: {fileID: 1283217442}
   chatManager: {fileID: 909799602}
+  Achoice: {fileID: 1205986433}
 --- !u!114 &60676346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2500,7 +2501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 954147406}
   m_Layer: 5
-  m_Name: MenuPanel
+  m_Name: "MenuPanel(\uD50C\uB808\uC774\uD560\uB550 \uCF1C\uC57C\uD568)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3348,6 +3349,7 @@ GameObject:
   - component: {fileID: 1205986432}
   - component: {fileID: 1205986431}
   - component: {fileID: 1205986430}
+  - component: {fileID: 1205986433}
   m_Layer: 5
   m_Name: Achoice
   m_TagString: Untagged
@@ -3394,7 +3396,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3419,13 +3421,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 60676345}
+        m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
+        m_MethodName: OnButtonTouch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3469,6 +3471,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205986428}
   m_CullTransparentMesh: 1
+--- !u!95 &1205986433
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205986428}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea353ec7df90a9748b24176dc0e5f467, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1249484522
 GameObject:
   m_ObjectHideFlags: 0

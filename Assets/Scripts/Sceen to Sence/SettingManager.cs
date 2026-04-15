@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class SettingManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class SettingManager : MonoBehaviour
     public AudioSource IntroaudioSource;
 
     public ChatManager chatManager;
+    public Animator Achoice;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -116,6 +118,24 @@ public class SettingManager : MonoBehaviour
            if(chatManager !=null) chatManager.isPausedByMenu = false;
             Debug.Log("디버그:메뉴닫힘!"+ chatManager.isPausedByMenu);
         }
+    }
+    public void OnButtonTouch()
+    {
+        if (Achoice != null)
+        {
+            Button btn = Achoice.GetComponent<Button>();
+            if(btn != null) btn.interactable = false;
+
+            Achoice.SetTrigger("OnClick");
+
+            StartCoroutine(WaitAndNextRoute(1.0f, btn));
+        }
+    }
+    IEnumerator WaitAndNextRoute(float delay, Button btn)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if( btn != null ) btn.interactable = true;
     }
 
 
