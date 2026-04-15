@@ -19,6 +19,8 @@ public class Dialogue
     public string character;
     public string text;
     public int nextId;
+    public string IllustName;
+    public int illustIndex = -1;
     public Choice[] choices;
 }
 
@@ -70,6 +72,11 @@ public class ChatManager : MonoBehaviour
             Dialogue Line = System.Array.Find(dialogueData.dialogues, d => d.id == currentId);
             if (Line == null) break;
 
+            if(IllustManager.Instance != null)
+            {
+                IllustManager.Instance.ChangeIllustByIndex(Line.illustIndex);
+            }
+
             yield return StartCoroutine(NormalChat(Line.character, Line.text));
 
             if (Line.choices != null && Line.choices.Length > 0)
@@ -110,7 +117,7 @@ public class ChatManager : MonoBehaviour
     {
         if (narrator == "나")
         {
-            CharacterName.text = " ";
+            CharacterName.text =" ";
         }
         else
         {
@@ -147,4 +154,5 @@ public class ChatManager : MonoBehaviour
         });
         yield return null;
     }
+    
 }

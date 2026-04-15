@@ -2628,8 +2628,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uB2E4\uB78C\uC950\uD5CC\uCCC7\uBC14\uD034\uC5D0\uB3CC\uACE0\uD30C1234567890"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 811b103df1af2c34ab228fb9a6fc0a34, type: 2}
-  m_sharedMaterial: {fileID: 1855798557508943593, guid: 811b103df1af2c34ab228fb9a6fc0a34, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c6c9e9cf2dc8eac49aa6649c1eb0fa8e, type: 2}
+  m_sharedMaterial: {fileID: 476165992912469084, guid: c6c9e9cf2dc8eac49aa6649c1eb0fa8e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
