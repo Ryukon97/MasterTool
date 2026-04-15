@@ -72,13 +72,14 @@
             "character": "???",
             "text": "왜, 부족해? 다른거 더 말해줄까?",
             "nextId": 7,
-            "illustName": "첫 일러스트"
+            "illustName": "첫번째만남"
         },
         {
             "id": 7,
             "character": "나",
             "text": "(평소같으면 놀라 자빠질 일이지만 지금은 그런 리액션을 해줄기운도 없다)",
-            "nextId": 8
+            "nextId": 8,
+            "illustName": "첫번째만남"
         }
     ]
 }

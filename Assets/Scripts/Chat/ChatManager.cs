@@ -19,8 +19,8 @@ public class Dialogue
     public string character;
     public string text;
     public int nextId;
-    public string IllustName;
-    public int illustIndex = -1;
+    public string illustName;
+
     public Choice[] choices;
 }
 
@@ -74,7 +74,7 @@ public class ChatManager : MonoBehaviour
 
             if(IllustManager.Instance != null)
             {
-                IllustManager.Instance.ChangeIllustByIndex(Line.illustIndex);
+               IllustManager.Instance.ChangeIllust(Line.illustName);
             }
 
             yield return StartCoroutine(NormalChat(Line.character, Line.text));
