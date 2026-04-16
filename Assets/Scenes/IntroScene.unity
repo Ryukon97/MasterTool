@@ -526,7 +526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175.74011, y: -178.79999}
+  m_AnchoredPosition: {x: -170.1, y: -179.1}
   m_SizeDelta: {x: 324.3158, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &234898384
@@ -1762,7 +1762,7 @@ GameObject:
   - component: {fileID: 590240728}
   - component: {fileID: 590240727}
   m_Layer: 5
-  m_Name: Panel_Voulme
+  m_Name: Panel_Voulme(Silder)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2872,7 +2872,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -301.69992, y: -193.09998}
+  m_AnchoredPosition: {x: -297.7, y: -192.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &972765321
@@ -3570,7 +3570,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1960434078}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
         m_MethodName: SaveSettings
         m_Mode: 1
@@ -4354,7 +4354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 135.79999, y: 15.282013}
+  m_AnchoredPosition: {x: 131.8, y: 21.3}
   m_SizeDelta: {x: 332.9115, y: 30.563}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1305839290
@@ -5655,7 +5655,7 @@ GameObject:
   - component: {fileID: 1908507013}
   - component: {fileID: 1908507015}
   m_Layer: 5
-  m_Name: Panel_other
+  m_Name: Panel_other(Silder)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
