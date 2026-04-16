@@ -3474,6 +3474,8 @@ MonoBehaviour:
     illustSprite: {fileID: 21300000, guid: 5d4ed3790671e6c4dae0570f9c1bf047, type: 3}
   - illustKey: "\uB450\uBC88\uC9F8\uB9CC\uB0A8"
     illustSprite: {fileID: 21300000, guid: 5d4ed3790671e6c4dae0570f9c1bf047, type: 3}
+  - illustKey: "\uB450\uBC88\uC9F8\uB9CC\uB0A8"
+    illustSprite: {fileID: 21300000, guid: 5d4ed3790671e6c4dae0570f9c1bf047, type: 3}
 --- !u!114 &941290623
 MonoBehaviour:
   m_ObjectHideFlags: 0
