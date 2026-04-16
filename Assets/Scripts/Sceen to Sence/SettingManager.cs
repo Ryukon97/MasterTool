@@ -46,7 +46,7 @@ public class SettingManager : MonoBehaviour
         soundSlider.onValueChanged.AddListener(Setsound);
         if (sfxSlider != null) sfxSlider.onValueChanged.AddListener(SetSFXVolume);
 
-   
+        ShowVolumeTab();
         if (panelVolume != null) panelVolume.SetActive(true);
         if (panelOther != null) panelOther.SetActive(true);
         if (Settingpanel != null) Settingpanel.SetActive(false);
@@ -66,12 +66,13 @@ public class SettingManager : MonoBehaviour
   
      public void ShowOtherTab()
     {
-        if (panelVolume != null) panelVolume.SetActive(false); // 음량 칸 숨기기
-        if (panelOther != null)
-        {
-            panelOther.SetActive(true); // 드디어 기타 칸 등장!
-            panelOther.transform.SetAsLastSibling(); // 혹시 모르니 맨 앞으로 소환!
-        }
+        if (panelVolume != null) panelVolume.SetActive(false); // 음량 슬라이더들 퇴장!
+        if (panelOther != null) panelOther.SetActive(true);    // 기타 슬라이더들 등장!
+
+        // 마스타! 만약 레이어 순서 때문에 안 보인다면 아래 줄을 유지하세요.
+        panelOther.transform.SetAsLastSibling();
+
+        Debug.Log("Master! 기타 슬라이더로 교체했습니다.");
     }
 
 
