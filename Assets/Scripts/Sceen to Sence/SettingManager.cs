@@ -60,7 +60,7 @@ public class SettingManager : MonoBehaviour
 
     public void ShowOtherTab()
     {
-        if (panelVolume != null) panelVolume.SetActive(false);
+        if (panelVolume != null) panelVolume.SetActive(false); 
         if (panelOther != null) panelOther.SetActive(true);
     }
 
