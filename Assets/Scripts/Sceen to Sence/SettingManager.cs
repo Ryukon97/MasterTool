@@ -9,9 +9,9 @@ public class SettingManager : MonoBehaviour
     public GameObject panelVolume;   // 1. 음량 탭 콘텐츠 (Panel_Volume)
     public GameObject panelOther;    // 2. 기타 탭 콘텐츠 (Panel_other)
 
-    [Header("Content Panels (Only Sliders)")]
-    public GameObject volumeContent;
-    public GameObject otherContent;
+    //[Header("Content Panels (Only Sliders)")]
+    //public GameObject volumeContent;
+    //public GameObject otherContent;
 
     [Header("Brightness")]
     public Image BrightnessOverlay;  // BrightOverlay 이미지
