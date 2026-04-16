@@ -24,6 +24,10 @@ public class SettingManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log($"<color=cyan>[Start] 연결 확인 - PanelOther: {panelOther != null}, SettingPanel: {Settingpanel != null}</color>");
+
+        if (panelOther == null) Debug.LogError("마스타! panelOther 변수가 인스펙터에서 비어있습니다!");
+
         float savedBrightness = PlayerPrefs.GetFloat("SavedBrightness", 0f); //사운드 입력값
         float savedSound = PlayerPrefs.GetFloat("SavedSound", 1.0f);
         float savedSFX = PlayerPrefs.GetFloat("SavedSFX", 1.0f);
@@ -42,8 +46,9 @@ public class SettingManager : MonoBehaviour
         soundSlider.onValueChanged.AddListener(Setsound);
         if (sfxSlider != null) sfxSlider.onValueChanged.AddListener(SetSFXVolume);
 
-        ShowVolumeTab();
-
+   
+        if (panelVolume != null) panelVolume.SetActive(true);
+        if (panelOther != null) panelOther.SetActive(true);
         if (Settingpanel != null) Settingpanel.SetActive(false);
     }
 
@@ -58,11 +63,17 @@ public class SettingManager : MonoBehaviour
         if (panelOther != null) panelOther.SetActive(false);
     }
 
-    public void ShowOtherTab()
+  
+     public void ShowOtherTab()
     {
-        if (panelVolume != null) panelVolume.SetActive(false); 
-        if (panelOther != null) panelOther.SetActive(true);
+        if (panelVolume != null) panelVolume.SetActive(false); // 음량 칸 숨기기
+        if (panelOther != null)
+        {
+            panelOther.SetActive(true); // 드디어 기타 칸 등장!
+            panelOther.transform.SetAsLastSibling(); // 혹시 모르니 맨 앞으로 소환!
+        }
     }
+
 
     public void SetBrightness(float value)
     {
