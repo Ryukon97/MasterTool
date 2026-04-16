@@ -36,6 +36,22 @@ public class SettingManager : MonoBehaviour
         float savedSound = PlayerPrefs.GetFloat("SavedSound", 1.0f);
         float savedSFX = PlayerPrefs.GetFloat("SavedSFX", 1.0f);
         float savedVoice = PlayerPrefs.GetFloat("SavedVoice", 1.0f);
+        if (BrightnessSlider != null)
+        {
+            BrightnessSlider.value = savedBrightness;
+            // 리스너를 추가하기 전에 기존 리스너를 제거 (중복 방지)
+            BrightnessSlider.onValueChanged.RemoveAllListeners();
+            BrightnessSlider.onValueChanged.AddListener(SetBrightness);
+            Debug.Log($"<color=white>[Init] 밝기 슬라이더 값 동기화 완료: {savedBrightness}</color>");
+        }
+
+        if (soundSlider != null)
+        {
+            soundSlider.value = savedSound;
+            soundSlider.onValueChanged.RemoveAllListeners();
+            soundSlider.onValueChanged.AddListener(Setsound);
+            Debug.Log($"<color=white>[Init] 음량 슬라이더 값 동기화 완료: {savedSound}</color>");
+        }
 
         BrightnessSlider.value = savedBrightness; // 슬라이더 총괄
         soundSlider.value = savedSound;
@@ -46,12 +62,14 @@ public class SettingManager : MonoBehaviour
         Setsound(savedSound);
         SetSFXVolume(savedSFX);
 
+
         BrightnessSlider.onValueChanged.AddListener(SetBrightness);
         soundSlider.onValueChanged.AddListener(Setsound);
         if (sfxSlider != null) sfxSlider.onValueChanged.AddListener(SetSFXVolume);
 
         
         if (panelVolume != null) panelVolume.SetActive(false);
+
         if (panelOther != null) panelOther.SetActive(false);
         if (Settingpanel != null) Settingpanel.SetActive(false);
         ShowVolumeTab();
@@ -88,12 +106,18 @@ public class SettingManager : MonoBehaviour
             Color color = BrightnessOverlay.color;
             color.a = value;
             BrightnessOverlay.color = color;
+            Debug.Log($"<color=yellow>[Live Edit] 밝기 변경됨: {value} (Overlay Alpha: {color.a})</color>");
+        }
+        else
+        {
+            Debug.LogWarning("[Warning] BrightnessOverlay 오브젝트가 비어있습니다!");
         }
     }
 
     public void Setsound(float value) //사운드 조절
     {
         AudioListener.volume = value;
+        Debug.Log($"<color=lime>[Live Edit] 전체 볼륨 변경됨: {value}</color>");
     }
 
     public void SetSFXVolume(float value) //효과음조절
