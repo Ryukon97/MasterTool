@@ -286,7 +286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 32.099976}
   m_SizeDelta: {x: 1845.6378, y: 684.2544}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &91137875
@@ -1176,7 +1176,7 @@ GameObject:
   - component: {fileID: 382415595}
   - component: {fileID: 382415594}
   m_Layer: 5
-  m_Name: Config_Opne_setting
+  m_Name: Config_All_Setting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4167,7 +4167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -21.381, y: -4.9999695}
+  m_AnchoredPosition: {x: -21.381, y: 27.1}
   m_SizeDelta: {x: 157.238, y: 19.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1296985623
@@ -4190,7 +4190,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TOUCH TO START
+  m_text: TOUCH TO HERE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1166c0f4313ea994aa0e21d023249eb7, type: 2}
   m_sharedMaterial: {fileID: 3163755282350192766, guid: 1166c0f4313ea994aa0e21d023249eb7, type: 2}
@@ -4217,15 +4217,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.3
-  m_fontSizeBase: 16.3
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -5858,8 +5858,6 @@ MonoBehaviour:
   Settingpanel: {fileID: 1488005476}
   panelVolume: {fileID: 590240725}
   panelOther: {fileID: 1908507012}
-  volumeContent: {fileID: 1614455277}
-  otherContent: {fileID: 283077263}
   BrightnessOverlay: {fileID: 1290509701}
   BrightnessSlider: {fileID: 234898384}
   soundSlider: {fileID: 1653335296}
@@ -6247,7 +6245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2064610853
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6266,8 +6264,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39.162506, y: -358.53445}
-  m_SizeDelta: {x: 688.1475, y: 140.2386}
+  m_AnchoredPosition: {x: 28.264, y: -554.8525}
+  m_SizeDelta: {x: 689.9296, y: 87.6702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2064610854
 MonoBehaviour:
