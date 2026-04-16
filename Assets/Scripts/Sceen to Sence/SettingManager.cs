@@ -9,6 +9,10 @@ public class SettingManager : MonoBehaviour
     public GameObject panelVolume;   // 1. 음량 탭 콘텐츠 (Panel_Volume)
     public GameObject panelOther;    // 2. 기타 탭 콘텐츠 (Panel_other)
 
+    [Header("Content Panels (Only Sliders)")]
+    public GameObject volumeContent;
+    public GameObject otherContent;
+
     [Header("Brightness")]
     public Image BrightnessOverlay;  // BrightOverlay 이미지
     public Slider BrightnessSlider;  // 화면밝기 슬라이더
@@ -46,10 +50,11 @@ public class SettingManager : MonoBehaviour
         soundSlider.onValueChanged.AddListener(Setsound);
         if (sfxSlider != null) sfxSlider.onValueChanged.AddListener(SetSFXVolume);
 
-        ShowVolumeTab();
-        if (panelVolume != null) panelVolume.SetActive(true);
-        if (panelOther != null) panelOther.SetActive(true);
+        
+        if (panelVolume != null) panelVolume.SetActive(false);
+        if (panelOther != null) panelOther.SetActive(false);
         if (Settingpanel != null) Settingpanel.SetActive(false);
+        ShowVolumeTab();
     }
 
     public void ToggleSettingPanel(bool isActive)
