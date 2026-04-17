@@ -15,6 +15,7 @@ public class ChatManager : MonoBehaviour
     public TextMeshProUGUI CharacterName;
     public GameObject choicePanel;
     public TextMeshProUGUI[] choiceButtonsText;
+    public Image CharacterImage;
 
     private DialogueEntry currentEntry;
     public bool isPausedByMenu = false;
@@ -38,7 +39,17 @@ public class ChatManager : MonoBehaviour
 
         while (currentEntry != null)
         {
-            
+            if (CharacterImage != null)
+            {
+                CharacterImage.gameObject.SetActive(true);
+                CharacterImage.sprite = currentEntry.characterIllust;
+
+            }
+
+            else
+            {
+                CharacterImage.gameObject.SetActive(false);
+            }
             yield return StartCoroutine(NormalChatOnlyText(currentEntry.speakerName, currentEntry.dialogueText));
 
           
@@ -94,8 +105,7 @@ public class ChatManager : MonoBehaviour
                 btn.onClick.RemoveAllListeners();
                 btn.onClick.AddListener(() =>
                 {
-                    nextIDResult = targetID; 
-                    choicePanel.SetActive(false);
+                   StartCoroutine(OnchoieClicked(targetID));
                 });
             }
             else
@@ -105,6 +115,14 @@ public class ChatManager : MonoBehaviour
         }
        
         yield return new WaitUntil(() => nextIDResult != -1);
+    }
+
+    IEnumerator OnchoieClicked(int targetID)
+    {
+        yield return new WaitForSecondsRealtime(0.15f);
+
+        nextIDResult = targetID;
+        choicePanel.SetActive(false);
     }
 
     IEnumerator NormalChatOnlyText(string narrator, string narration)

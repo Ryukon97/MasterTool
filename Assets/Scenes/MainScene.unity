@@ -3437,7 +3437,6 @@ MonoBehaviour:
   - {fileID: 1116404565}
   - {fileID: 458461745}
   isPausedByMenu: 0
-  settingManager: {fileID: 0}
 --- !u!1 &941290621
 GameObject:
   m_ObjectHideFlags: 0
