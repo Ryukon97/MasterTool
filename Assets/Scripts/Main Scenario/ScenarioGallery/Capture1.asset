@@ -37,3 +37,12 @@ MonoBehaviour:
       choiceIndex: 0
     - choiceText: "\uB098\uAC00\uAC00\uC9C0 \uC54A\uB294\uB2E4 "
       choiceIndex: 0
+  - speakerName: "\uB098"
+    dialogueText: "\uB9C8\uC74C\uC774 \uBB34\uAC70\uC6CC\uC9C4\uB2E4 \uBC16\uC5D0
+      \uB098\uAC08\uAE4C?"
+    characterIllust: {fileID: 0}
+    choices:
+    - choiceText: "\uB098\uAC04\uB2E4"
+      choiceIndex: 0
+    - choiceText: "\uB098\uAC00\uAC00\uC9C0 \uC54A\uB294\uB2E4 "
+      choiceIndex: 0
