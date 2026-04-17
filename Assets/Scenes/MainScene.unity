@@ -3429,6 +3429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ad2d1240442854e95dbc6a51be5b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChatManager
+  currentScenario: {fileID: 11400000, guid: 9324fe8bf0e1b7e4496f22889f14d11f, type: 2}
   ChatText: {fileID: 984630787}
   CharacterName: {fileID: 1558901556}
   choicePanel: {fileID: 72045048}
@@ -3455,7 +3456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &941290622
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,145 +4,74 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-// --- 데이터 구조 클래스들 (에러 발생 원인 해결) ---
-[System.Serializable]
-public class Choice
-{
-    public string text;
-    public int nextId;
-}
-
-[System.Serializable]
-public class Dialogue
-{
-    public int id;
-    public string character;
-    public string text;
-    public int nextId;
-    public string illustName;
-    public Choice[] choices;
-}
-
-[System.Serializable]
-public class DialogueList
-{
-    public Dialogue[] dialogues;
-}
-// ---------------------------------------------
-
 public class ChatManager : MonoBehaviour
 {
+    [Header("Data Source")]
+    // JSON 대신 우리가 만든 SO를 연결합니다!
+    public DialogueDataSO currentScenario;
+
+    [Header("UI References")]
     public TextMeshProUGUI ChatText;
     public TextMeshProUGUI CharacterName;
     public GameObject choicePanel;
     public TextMeshProUGUI[] choiceButtonsText;
 
-    private DialogueList dialogueData;
-    private int selectedNextId;
+    private int currentIndex = 0; // 이제 ID 대신 리스트의 Index를 사용합니다.
     public bool isPausedByMenu = false;
     public SettingManager settingManager;
 
     void Start()
     {
-        LoadDialogue();
-        if (dialogueData != null && dialogueData.dialogues.Length > 0)
+        // 로딩 과정이 필요 없습니다! 바로 시작합니다.
+        if (currentScenario != null && currentScenario.entries.Count > 0)
         {
             StartCoroutine(PlayDialogue());
         }
-    }
-
-    void LoadDialogue()
-    {
-        // Resources/dialogue.json 파일을 로드합니다.
-        TextAsset jsonData = Resources.Load<TextAsset>("dialogue");
-        if (jsonData != null)
-        {
-            dialogueData = JsonUtility.FromJson<DialogueList>(jsonData.text);
-        }
         else
         {
-            Debug.LogError("마스타! Resources 폴더에 dialogue 제이슨 파일이 있는지 확인해 주세요!");
+            Debug.LogError("마스타! 인스펙터에서 Scenario Data를 연결했는지 확인해 주세요!");
         }
     }
 
     IEnumerator PlayDialogue()
     {
-        int currentId = 0;
+        currentIndex = 0;
 
-        while (currentId != -1)
+        // 리스트의 끝에 도달할 때까지 반복합니다.
+        while (currentIndex < currentScenario.entries.Count)
         {
-            Dialogue Line = System.Array.Find(dialogueData.dialogues, d => d.id == currentId);
-            if (Line == null) break;
+            var entry = currentScenario.entries[currentIndex];
 
-            if (IllustManager.Instance != null)
+            // 일러스트 변경 (SO에 연결된 스프라이트를 직접 전달)
+            if (IllustManager.Instance != null && entry.characterIllust != null)
             {
-                IllustManager.Instance.ChangeIllust(Line.illustName);
+                // IllustManager의 ChangeIllust가 Sprite를 받도록 수정되거나, 
+                // 기존처럼 이름을 쓰려면 entry.characterIllust.name을 전달하세요.
+                IllustManager.Instance.ChangeIllust(entry.characterIllust.name);
             }
 
             // 대사 텍스트 출력
-            yield return StartCoroutine(NormalChatOnlyText(Line.character, Line.text));
+            yield return StartCoroutine(NormalChatOnlyText(entry.speakerName, entry.dialogueText));
 
-            if (Line.choices != null && Line.choices.Length > 0)
-            {
-                // 선택지가 있는 경우: 바로 선택지 창 활성화
-                yield return StartCoroutine(ShowChoices(Line.choices));
-                currentId = selectedNextId;
-            }
-            else
-            {
-                // 선택지가 없는 경우: 클릭 입력 대기 후 다음으로
-                yield return StartCoroutine(WaitForInput());
-                currentId = Line.nextId;
-            }
-        }
-    }
-
-    IEnumerator ShowChoices(Choice[] choices)
-    {
-        choicePanel.SetActive(true);
-
-        for (int i = 0; i < choices.Length; i++)
-        {
-            if (i >= choiceButtonsText.Length) break;
-            choiceButtonsText[i].text = choices[i].text;
-
-            int next = choices[i].nextId;
-            Button btn = choiceButtonsText[i].GetComponentInParent<Button>();
-
-            // 우리가 만든 스크립트 가져오기
-            var btnAnim = btn.GetComponent<ButtonAnimation>();
-
-            btn.onClick.RemoveAllListeners();
-            btn.onClick.AddListener(() => {
-                // 중복 클릭 방지
-                btn.interactable = false;
-
-                if (btnAnim != null)
-                {
-                    // 애니메이션과 1.4초 대기 후 실행될 로직 전달
-                    btnAnim.ExecuteAfterAnimation(() => {
-                        selectedNextId = next;
-                        choicePanel.SetActive(false);
-                    });
-                }
-                else
-                {
-                    // 스크립트가 없다면 예외처리로 즉시 이동
-                    selectedNextId = next;
-                    choicePanel.SetActive(false);
-                }
-            });
+            // [참고] 현재 마스타의 SO 구조에는 선택지가 DialogueEntry 안에 아직 없으므로 
+            // 일단은 클릭 입력 대기 후 다음 인덱스로 넘어가게 구성합니다.
+            yield return StartCoroutine(WaitForInput());
+            currentIndex++;
         }
 
-        yield return new WaitUntil(() => !choicePanel.activeSelf);
+        Debug.Log("마스타! 챕터 1 데모 분량이 끝났습니다!");
     }
 
     IEnumerator NormalChatOnlyText(string narrator, string narration)
     {
+        // "나"인 경우 이름을 비워두는 마스타의 센스 유지!
         CharacterName.text = (narrator == "나") ? " " : narrator;
         ChatText.text = "";
+
         foreach (char letter in narration.ToCharArray())
         {
+            if (isPausedByMenu) yield return new WaitUntil(() => !isPausedByMenu);
+
             ChatText.text += letter;
             yield return new WaitForSeconds(0.05f);
         }
@@ -150,6 +79,7 @@ public class ChatManager : MonoBehaviour
 
     IEnumerator WaitForInput()
     {
+        // 마스타가 만드신 입력 대기 로직 유지
         yield return new WaitUntil(() =>
         {
             if (isPausedByMenu) return false;
