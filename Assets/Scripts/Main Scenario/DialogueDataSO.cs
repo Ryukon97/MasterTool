@@ -18,6 +18,8 @@ public class DialogueEntry
     public Sprite characterIllust;
 
     public List<ChoiceData> choices = new List<ChoiceData> ();
+
+    [Header()]
 }
 
 [System.Serializable]

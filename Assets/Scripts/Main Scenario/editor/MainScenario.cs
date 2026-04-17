@@ -43,6 +43,19 @@ public class MainScenario : EditorWindow
             serializedObject.Update(); // 최신 데이터로 업데이트
 
             SerializedProperty entriesProperty = serializedObject.FindProperty("entries");
+            for (int i = 0; i < entriesProperty.arraySize; i++) // 선택지를위한 보기용 코드
+            {
+                SerializedProperty element = entriesProperty.GetArrayElementAtIndex(i);
+
+             
+                EditorGUILayout.BeginVertical("box"); 
+                EditorGUILayout.LabelField($" [ID: {i}] 번 대사 구역", EditorStyles.boldLabel);
+
+                EditorGUILayout.PropertyField(element, true);
+
+                EditorGUILayout.EndVertical();
+                EditorGUILayout.Space(5);
+            }
             if (entriesProperty != null)
             {
                 EditorGUILayout.PropertyField(entriesProperty, true);

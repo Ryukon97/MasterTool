@@ -29,11 +29,16 @@ MonoBehaviour:
     characterIllust: {fileID: 0}
     choices:
     - choiceText: "\uB098\uAC04\uB2E4"
-      choiceIndex: 5
+      choiceIndex: 3
     - choiceText: "\uB098\uAC00\uAC00\uC9C0 \uC54A\uB294\uB2E4 "
-      choiceIndex: 6
+      choiceIndex: 4
   - speakerName: "\uB098"
-    dialogueText: "4\uC6D4\uC774\uC9C0\uB9CC \uBC14\uB78C\uC774 \uCC28\uAC11\uAC8C
-      \uB290\uAEF4\uC9C4\uB2E4 "
+    dialogueText: "4\uC6D4\uC774\uC9C0\uB9CC \uBC24\uBC14\uB78C\uC740 \uC544\uC9C1
+      \uC300\uC300\uD558\uB2E4 "
+    characterIllust: {fileID: 0}
+    choices: []
+  - speakerName: "\uB098"
+    dialogueText: "\uAC00\uB9CC\uD788 \uC788\uC5B4\uB3C4 \uBD88\uD3B8\uD560 \uBFD0\uC774\uB2E4
+      \uB098\uAC08\uAE4C?"
     characterIllust: {fileID: 0}
     choices: []
