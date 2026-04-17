@@ -8,12 +8,21 @@ public class DialogueDataSO : ScriptableObject
     public List<DialogueEntry> entries = new List<DialogueEntry>();
 }
 
+
 [System.Serializable]
 public class DialogueEntry
 {
     public string speakerName;
     [TextArea(3, 10)]
     public string dialogueText;
-    public Sprite characterIllust; // JSON의 스트링 대신 직접 스프라이트 연결!
-    // 여기에 선택지나 보이스 등을 추가하시면 됩니다.
+    public Sprite characterIllust;
+
+    public List<ChoiceData> choices = new List<ChoiceData> ();
+}
+
+[System.Serializable]
+public class ChoiceData
+{
+    public string choiceText;
+    public int choiceIndex;
 }
