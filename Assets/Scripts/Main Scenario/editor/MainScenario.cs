@@ -60,9 +60,9 @@ public class MainScenario : EditorWindow
 
                 for (int i = 0; i < entriesProperty.arraySize; i++)
                 {
-                    // 여기서 'element'와 'idProp'을 선언해야 해당 { } 안에서 사용할 수 있습니다!
+                   
                     SerializedProperty element = entriesProperty.GetArrayElementAtIndex(i);
-                    SerializedProperty idProp = element.FindPropertyRelative("id"); // SO에 넣은 'id' 변수 찾기
+                    SerializedProperty idProp = element.FindPropertyRelative("id");
                     SerializedProperty nameProp = element.FindPropertyRelative("speakerName");
 
                     int displayID = (idProp != null) ? idProp.intValue : i;
@@ -75,7 +75,7 @@ public class MainScenario : EditorWindow
                     {
                         EditorGUI.indentLevel++;
 
-                        // --- 마스타가 원하시던 ID 입력 칸! ---
+                       
                         if (idProp != null)
                         {
                             EditorGUILayout.PropertyField(idProp, new GUIContent("고유 ID (직접 입력)"));
@@ -88,6 +88,7 @@ public class MainScenario : EditorWindow
                         EditorGUILayout.PropertyField(nameProp);
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("dialogueText"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("characterIllust"));
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("BackgroundSprite"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("choices"), true);
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("nextIndexOverride"));
 

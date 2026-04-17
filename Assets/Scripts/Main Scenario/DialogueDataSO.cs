@@ -17,6 +17,7 @@ public class DialogueEntry
     [TextArea(3, 10)]
     public string dialogueText;
     public Sprite characterIllust;
+    public Sprite BackGroundSprit;
 
     public List<ChoiceData> choices = new List<ChoiceData> ();
 

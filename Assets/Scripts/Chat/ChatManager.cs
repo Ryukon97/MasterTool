@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+//using UnityEngine.UIElements;
 
 public class ChatManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class ChatManager : MonoBehaviour
     public GameObject choicePanel;
     public TextMeshProUGUI[] choiceButtonsText;
     public Image CharacterImage;
+    public Image BackgroundImage;
 
     private DialogueEntry currentEntry;
     public bool isPausedByMenu = false;
@@ -41,10 +43,11 @@ public class ChatManager : MonoBehaviour
            
             if (CharacterImage != null)
             {
-                if (currentEntry.characterIllust != null)
+                if (currentEntry.characterIllust != null && currentEntry.BackGroundSprit != null)
                 {
                     CharacterImage.gameObject.SetActive(true);
                     CharacterImage.sprite = currentEntry.characterIllust;
+                    BackgroundImage.sprite = currentEntry.BackGroundSprit;
                 }
                 else 
                 {
@@ -76,7 +79,7 @@ public class ChatManager : MonoBehaviour
             {
              
                 if (CharacterImage != null) CharacterImage.gameObject.SetActive(false);
-                Debug.Log("<color=yellow>마스타! 시나리오가 끝났습니다!</color>");
+                Debug.Log("<color=yellow> 시나리오가 끝났습니다!</color>");
                 break;
             }
         }
