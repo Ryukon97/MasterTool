@@ -55,40 +55,84 @@ MonoBehaviour:
   - id: 5
     speakerName: "\uB098"
     dialogueText: "\uB098\uB294 \uC18C\uB9AC\uAC00 \uB098\uB294 \uCABD\uC73C\uB85C
-      \uACE0\uAC1C\uB97C \uD2C0\uC5C8"
-    characterIllust: {fileID: 0}
+      \uACE0\uAC1C\uB97C \uD2C0\uC5C8\uB2E4"
+    characterIllust: {fileID: 21300000, guid: 5d4ed3790671e6c4dae0570f9c1bf047, type: 3}
     choices: []
     nextIndexOverride: -1
   - id: 6
     speakerName: ???
     dialogueText: "\uC65C? \uB354 \uB9D0\uD574\uC918? \uC774\uC815\uB3C4\uBA74 \uCDA9\uBD84\uD55C\uAC70\uAC19\uC740\uB370"
-    characterIllust: {fileID: 0}
+    characterIllust: {fileID: 21300000, guid: 5d4ed3790671e6c4dae0570f9c1bf047, type: 3}
     choices: []
     nextIndexOverride: -1
   - id: 7
     speakerName: "\uB098"
-    dialogueText: "(\uD3C9\uC18C\uB77C\uBA74 "
-    characterIllust: {fileID: 0}
+    dialogueText: "(\uD3C9\uC18C\uB77C\uBA74 \uB180\uB77C \uB118\uC5B4\uC9C8 \uC77C\uC774\uC9C0\uB9CC
+      \uB098\uB294 \uADF8\uB7F4\uC0DD\uAC01\uB3C4 \uB9AC\uC561\uC158\uD560 \uD798\uB3C4
+      \uC5C6\uB2E4)"
+    characterIllust: {fileID: 21300000, guid: 5d4ed3790671e6c4dae0570f9c1bf047, type: 3}
     choices: []
     nextIndexOverride: -1
   - id: 8
-    speakerName: "\uB098"
-    dialogueText: "\uAC00\uB9CC\uD788 \uC788\uC5B4\uB3C4 \uBD88\uD3B8\uD560 \uBFD0\uC774\uB2E4
-      \uB098\uAC08\uAE4C?"
-    characterIllust: {fileID: 0}
+    speakerName: ???
+    dialogueText: "\uC774 \uB140\uC11D \uBB3C\uAC74\uC774\uB124?"
+    characterIllust: {fileID: 21300000, guid: 5d4ed3790671e6c4dae0570f9c1bf047, type: 3}
     choices: []
     nextIndexOverride: -1
   - id: 9
-    speakerName: "\uB098"
-    dialogueText: "\uAC00\uB9CC\uD788 \uC788\uC5B4\uB3C4 \uBD88\uD3B8\uD560 \uBFD0\uC774\uB2E4
-      \uB098\uAC08\uAE4C?"
+    speakerName: ???
+    dialogueText: "\uC5B4\uCC28\uD53C \uB108\uB3C4 \uC774\uC81C \uACE0\uC544\uC9C0?"
+    characterIllust: {fileID: 0}
+    choices: []
+    nextIndexOverride: -1
+  - id: 10
+    speakerName: ???
+    dialogueText: "\uAC70\uB450\uC808\uBBF8\uD558\uACE0 \uBA3C\uC800 \uC790\uAE30\uC18C\uAC1C
+      \uD558\uC790\uBA74 \uB0B4 \uC774\uB984\uC740 \"\uD55C\uC11C\uC544\" "
+    characterIllust: {fileID: 0}
+    choices: []
+    nextIndexOverride: -1
+  - id: 11
+    speakerName: "\uD55C\uC11C\uC544"
+    dialogueText: "\uC6D0\uB798 \uBCD1\uC6D0\uC5D0\uC11C \uB098\uC654\uC744\uB54C
+      \uD45C\uC84D \uC369\uCC3D\uC778 \uC560\uB4E4\uC774 \uB300\uB2E4\uC218\uAC00
+      \uAC13\uACE0\uC544\uAC00 \uB41C \uC0AC\uB78C\uB4E4\uC774\uC9C0"
+    characterIllust: {fileID: 0}
+    choices: []
+    nextIndexOverride: -1
+  - id: 12
+    speakerName: "\uD55C\uC11C\uC544"
+    dialogueText: "\uC5B4\uB584 \uC5B4\uCC28\uD53C \uAC19\uC740 \uACE0\uC544\uAC00
+      \uB410\uB294\uB370 \uAC08\uACF3\uC5C6\uC73C\uBA74 \uB098\uB791 \uC77C\uC774\uB098
+      \uD560\uB798?"
     characterIllust: {fileID: 0}
     choices: []
     nextIndexOverride: -1
   - id: 100
     speakerName: "\uB098"
-    dialogueText: "\uAC00\uB9CC\uD788 \uC788\uC5B4\uB3C4 \uBD88\uD3B8\uD560 \uBFD0\uC774\uB2E4
-      \uB098\uAC08\uAE4C?"
+    dialogueText: ...
     characterIllust: {fileID: 0}
     choices: []
+    nextIndexOverride: -1
+  - id: 101
+    speakerName: "\uB098"
+    dialogueText: "\uC5B4\uCC28\uD53C \uC548\uC5D0\uC788\uC5B4\uB3C4 \uB531\uD788
+      \uD560\uAC74 \uC5C6\uB2E4 \uB098\uAC08\uAE4C?"
+    characterIllust: {fileID: 0}
+    choices:
+    - choiceText: "\uB098\uAC04\uB2E4"
+      choiceIndex: 3
+    - choiceText: "\uB098\uAC00\uC9C0 \uC54A\uB294\uB2E4"
+      choiceIndex: 102
+    nextIndexOverride: -1
+  - id: 102
+    speakerName: "\uB098"
+    dialogueText: "\uACB0\uAD6D \uC544\uBB34\uC77C\uB3C4 \uC77C\uC5B4\uB098\uC9C0
+      \uC54A\uC558\uB2E4 (BadEnding)"
+    characterIllust: {fileID: 0}
+    choices:
+    - choiceText: "\uB2E4\uC2DC"
+      choiceIndex: 1
+    - choiceText: "\uB418\uB3CC\uC544\uAC04\uB2E4"
+      choiceIndex: 1
     nextIndexOverride: -1
