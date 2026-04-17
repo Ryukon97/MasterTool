@@ -19,7 +19,8 @@ public class DialogueEntry
 
     public List<ChoiceData> choices = new List<ChoiceData> ();
 
-    [Header()]
+    [Header("이 대사 이후 이동할 번호 (기본 값 -1은 순차진행)")]
+    public int nextIndexOverride = -1;
 }
 
 [System.Serializable]

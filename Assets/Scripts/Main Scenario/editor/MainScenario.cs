@@ -43,6 +43,8 @@ public class MainScenario : EditorWindow
             serializedObject.Update(); // 최신 데이터로 업데이트
 
             SerializedProperty entriesProperty = serializedObject.FindProperty("entries");
+
+
             for (int i = 0; i < entriesProperty.arraySize; i++) // 선택지를위한 보기용 코드
             {
                 SerializedProperty element = entriesProperty.GetArrayElementAtIndex(i);
