@@ -92,7 +92,7 @@ public class SettingManager : MonoBehaviour
         if (panelVolume != null) panelVolume.SetActive(false); // 음량 슬라이더들 퇴장!
         if (panelOther != null) panelOther.SetActive(true);    // 기타 슬라이더들 등장!
 
-        // 마스타! 만약 레이어 순서 때문에 안 보인다면 아래 줄을 유지하세요.
+      
         panelOther.transform.SetAsLastSibling();
 
         Debug.Log("Master! 기타 슬라이더로 교체했습니다.");

@@ -27,22 +27,13 @@ MonoBehaviour:
     dialogueText: "\uB9C8\uC74C\uC774 \uBB34\uAC70\uC6CC\uC9C4\uB2E4 \uBC16\uC5D0
       \uB098\uAC08\uAE4C?"
     characterIllust: {fileID: 0}
+    choices:
+    - choiceText: "\uB098\uAC04\uB2E4"
+      choiceIndex: 5
+    - choiceText: "\uB098\uAC00\uAC00\uC9C0 \uC54A\uB294\uB2E4 "
+      choiceIndex: 6
+  - speakerName: "\uB098"
+    dialogueText: "4\uC6D4\uC774\uC9C0\uB9CC \uBC14\uB78C\uC774 \uCC28\uAC11\uAC8C
+      \uB290\uAEF4\uC9C4\uB2E4 "
+    characterIllust: {fileID: 0}
     choices: []
-  - speakerName: "\uB098"
-    dialogueText: "\uB9C8\uC74C\uC774 \uBB34\uAC70\uC6CC\uC9C4\uB2E4 \uBC16\uC5D0
-      \uB098\uAC08\uAE4C?"
-    characterIllust: {fileID: 0}
-    choices:
-    - choiceText: "\uB098\uAC04\uB2E4"
-      choiceIndex: 0
-    - choiceText: "\uB098\uAC00\uAC00\uC9C0 \uC54A\uB294\uB2E4 "
-      choiceIndex: 0
-  - speakerName: "\uB098"
-    dialogueText: "\uB9C8\uC74C\uC774 \uBB34\uAC70\uC6CC\uC9C4\uB2E4 \uBC16\uC5D0
-      \uB098\uAC08\uAE4C?"
-    characterIllust: {fileID: 0}
-    choices:
-    - choiceText: "\uB098\uAC04\uB2E4"
-      choiceIndex: 0
-    - choiceText: "\uB098\uAC00\uAC00\uC9C0 \uC54A\uB294\uB2E4 "
-      choiceIndex: 0

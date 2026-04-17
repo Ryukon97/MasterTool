@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic; // List를 사용하기 위해 필수!
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-// 주의: 혹시 상단에 using NUnit.Framework; 가 있다면 삭제해주세요!
 
 public class ChatManager : MonoBehaviour
 {
@@ -42,10 +41,9 @@ public class ChatManager : MonoBehaviour
                 IllustManager.Instance.ChangeIllust(entry.characterIllust.name);
             }
 
-            // 대사 텍스트 출력
+            
             yield return StartCoroutine(NormalChatOnlyText(entry.speakerName, entry.dialogueText));
 
-            // 선택지 체크
             if (entry.choices != null && entry.choices.Count > 0)
             {
                 yield return StartCoroutine(ShowScenarioChoices(entry.choices));
@@ -59,7 +57,7 @@ public class ChatManager : MonoBehaviour
         Debug.Log("마스타! 시나리오가 끝났습니다!");
     }
 
-    // --- 여기부터 함수들의 중괄호 { } 배치를 잘 확인해주세요! ---
+  
 
     IEnumerator ShowScenarioChoices(System.Collections.Generic.List<ChoiceData> choices)
     {
@@ -87,7 +85,7 @@ public class ChatManager : MonoBehaviour
             }
         }
         yield return new WaitUntil(() => !choicePanel.activeSelf);
-    } // <-- 함수 종료 중괄호 확인!
+    } 
 
     IEnumerator NormalChatOnlyText(string narrator, string narration)
     {

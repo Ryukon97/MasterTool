@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-// [주의] 파일 이름이 반드시 DialogueDataSO.cs 여야 합니다!
+
 [CreateAssetMenu(fileName = "NewScenario", menuName = "Scenario/DialogueData")]
 public class DialogueDataSO : ScriptableObject
 {
