@@ -10,10 +10,9 @@ public class DialogueDataSO : ScriptableObject
 
 
 [System.Serializable]
-
 public class DialogueEntry
 {
-
+    public int id;
     public string speakerName;
     [TextArea(3, 10)]
     public string dialogueText;

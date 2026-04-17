@@ -1,27 +1,22 @@
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.WSA;
 using System.Collections.Generic;
 
 public class MainScenario : EditorWindow
 {
     private DialogueDataSO currentSO;
-    private SerializedObject so;
-    private SerializedProperty entriesProperty;
     private Vector2 scrollpos;
 
     [MenuItem("MasterTools/Scenario Editor")]
     public static void ShowWindow()
     {
         GetWindow<MainScenario>("시나리오 에디터");
-
     }
+
     void OnGUI()
     {
-
         GUILayout.Label("시나리오 편집 모드", EditorStyles.boldLabel);
         currentSO = (DialogueDataSO)EditorGUILayout.ObjectField("편집할 파일", currentSO, typeof(DialogueDataSO), false);
-
 
         if (currentSO == null)
         {
@@ -37,59 +32,70 @@ public class MainScenario : EditorWindow
         serializedObject.Update();
 
         SerializedProperty entriesProperty = serializedObject.FindProperty("entries");
-      
+
         if (entriesProperty != null)
         {
-          
-            entriesProperty.isExpanded = EditorGUILayout.Foldout(entriesProperty.isExpanded, "Entries", true);
+            // 1. 상단 리스트 컨트롤 (Size 조절)
+            EditorGUILayout.BeginHorizontal();
+            {
+                entriesProperty.isExpanded = EditorGUILayout.Foldout(entriesProperty.isExpanded, "전체 대사 리스트 (Entries)", true);
+                GUILayout.FlexibleSpace();
 
+                int currentSize = entriesProperty.arraySize;
+                EditorGUILayout.LabelField("Size", GUILayout.Width(35));
+                int newSize = EditorGUILayout.IntField(currentSize, GUILayout.Width(50));
+
+                if (GUILayout.Button("+", GUILayout.Width(25))) newSize++;
+                if (GUILayout.Button("-", GUILayout.Width(25)) && newSize > 0) newSize--;
+
+                if (newSize != currentSize) entriesProperty.arraySize = newSize;
+            }
+            EditorGUILayout.EndHorizontal();
+
+            // 2. 리스트 내용 표시
             if (entriesProperty.isExpanded)
             {
-                EditorGUI.indentLevel++;
-                EditorGUILayout.BeginHorizontal();
-                {
-                    int currentSize = entriesProperty.arraySize;
-                    int Newsize = EditorGUILayout.IntField("Size", currentSize);
-
-                    if (GUILayout.Button("+", GUILayout.Width(30))) Newsize++;
-                    if (GUILayout.Button("-", GUILayout.Width(30)) && Newsize > 0) Newsize--;
-                    if(Newsize != currentSize) entriesProperty.arraySize = Newsize;
-
-                }
-
-                EditorGUILayout.EndHorizontal();
                 EditorGUILayout.Space(5);
-              
-                //int newSize = EditorGUILayout.IntField("Size", entriesProperty.arraySize);
-                //if (newSize != entriesProperty.arraySize) entriesProperty.arraySize = newSize;
+                EditorGUI.indentLevel++;
 
                 for (int i = 0; i < entriesProperty.arraySize; i++)
                 {
+                    // 여기서 'element'와 'idProp'을 선언해야 해당 { } 안에서 사용할 수 있습니다!
                     SerializedProperty element = entriesProperty.GetArrayElementAtIndex(i);
+                    SerializedProperty idProp = element.FindPropertyRelative("id"); // SO에 넣은 'id' 변수 찾기
+                    SerializedProperty nameProp = element.FindPropertyRelative("speakerName");
 
-                   
-                    string sName = element.FindPropertyRelative("speakerName").stringValue;
-                    string label = $"[ID: {i}] " + (string.IsNullOrEmpty(sName) ? "이름 없음" : sName);
+                    int displayID = (idProp != null) ? idProp.intValue : i;
+                    string sName = (nameProp != null) ? nameProp.stringValue : "";
+                    string label = $"[ID: {displayID}] " + (string.IsNullOrEmpty(sName) ? "이름 없음" : sName);
 
-                  
                     element.isExpanded = EditorGUILayout.Foldout(element.isExpanded, label, true);
 
                     if (element.isExpanded)
                     {
-                        EditorGUI.indentLevel++; 
+                        EditorGUI.indentLevel++;
 
-                        
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("speakerName"));
+                        // --- 마스타가 원하시던 ID 입력 칸! ---
+                        if (idProp != null)
+                        {
+                            EditorGUILayout.PropertyField(idProp, new GUIContent("고유 ID (직접 입력)"));
+                        }
+                        else
+                        {
+                            EditorGUILayout.HelpBox("DialogueEntry에 'id' 변수가 없습니다!", MessageType.Warning);
+                        }
+
+                        EditorGUILayout.PropertyField(nameProp);
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("dialogueText"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("characterIllust"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("choices"), true);
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("nextIndexOverride"));
 
-                        EditorGUI.indentLevel--; 
-                        EditorGUILayout.Space(2);
+                        EditorGUI.indentLevel--;
+                        EditorGUILayout.Space(5);
                     }
                 }
-                EditorGUI.indentLevel--; // 부모 종료
+                EditorGUI.indentLevel--;
             }
         }
 
@@ -98,7 +104,6 @@ public class MainScenario : EditorWindow
 
         EditorGUILayout.Space();
 
-
         if (GUILayout.Button("저장(Force Save)", GUILayout.Height(30)))
         {
             EditorUtility.SetDirty(currentSO);
@@ -106,39 +111,25 @@ public class MainScenario : EditorWindow
             Debug.Log("<color=cyan>시나리오 데이터 저장 완료!</color>");
         }
     }
+
     private void CreateNewSO()
     {
         DialogueDataSO asset = ScriptableObject.CreateInstance<DialogueDataSO>();
-
-
         string folderPath = "Assets/Scripts/Main Scenario/ScenarioGallery";
-
-
         string fileName = "NewScenario.asset";
-
-
         string fullPath = folderPath + "/" + fileName;
-
 
         if (!AssetDatabase.IsValidFolder(folderPath))
         {
-            Debug.LogWarning($"<color=orange>{folderPath} 폴더가 없어서 Assets 루트에 생성합니다.</color>");
             fullPath = "Assets/" + fileName;
         }
 
-
         fullPath = AssetDatabase.GenerateUniqueAssetPath(fullPath);
-
-
         AssetDatabase.CreateAsset(asset, fullPath);
-
         AssetDatabase.SaveAssets();
         currentSO = asset;
 
-
-        EditorUtility.FocusProjectWindow();
         Selection.activeObject = asset;
-
         Debug.Log($"<color=green>새 시나리오 생성 완료: {fullPath}</color>");
     }
 }

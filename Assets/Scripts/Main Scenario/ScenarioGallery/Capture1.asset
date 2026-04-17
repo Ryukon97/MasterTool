@@ -13,19 +13,22 @@ MonoBehaviour:
   m_Name: Capture1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueDataSO
   entries:
-  - speakerName: "\uB098"
+  - id: 0
+    speakerName: "\uB098"
     dialogueText: "2020\uB144 4\uC6D44\uC77C \uB098\uB294 \uC624\uB298 \uC5B4\uBA38\uB2C8\uB97C
       \uBCF4\uB0B4\uB4DC\uB838\uB2E4"
     characterIllust: {fileID: 0}
     choices: []
     nextIndexOverride: -1
-  - speakerName: "\uB098"
+  - id: 1
+    speakerName: "\uB098"
     dialogueText: "\uB098\uC758 \uC5B4\uB9B0\uC2DC\uC808\uC744 \uAE30\uC5B5\uD574\uC8FC\uB294
       \uC0AC\uB78C\uC740 \uC774\uC138\uC0C1\uC5D0 \uC544\uBB34\uB3C4 \uC5C6\uB2E4"
     characterIllust: {fileID: 0}
     choices: []
     nextIndexOverride: -1
-  - speakerName: "\uB098"
+  - id: 2
+    speakerName: "\uB098"
     dialogueText: "\uB9C8\uC74C\uC774 \uBB34\uAC70\uC6CC\uC9C4\uB2E4 \uBC16\uC5D0
       \uB098\uAC08\uAE4C?"
     characterIllust: {fileID: 0}
@@ -33,45 +36,57 @@ MonoBehaviour:
     - choiceText: "\uB098\uAC04\uB2E4"
       choiceIndex: 3
     - choiceText: "\uB098\uAC00\uAC00\uC9C0 \uC54A\uB294\uB2E4 "
-      choiceIndex: 4
+      choiceIndex: 100
     nextIndexOverride: -1
-  - speakerName: "\uB098"
+  - id: 3
+    speakerName: "\uB098"
     dialogueText: "4\uC6D4\uC774\uC9C0\uB9CC \uBC24\uBC14\uB78C\uC740 \uC544\uC9C1
       \uC300\uC300\uD558\uB2E4 "
     characterIllust: {fileID: 0}
     choices: []
     nextIndexOverride: -1
-  - speakerName: "\uB098"
+  - id: 4
+    speakerName: ???
+    dialogueText: "2020\uB1444\uC6D44\uC77C,\uC624\uD6C48\uC2DC12\uBD8414\uCD08,\uBCD1\uC2E4516\uD638,\uC774\uB984
+      \uC815\uBA85\uD76C,\uC0AC\uC778 \uB300\uC7A5\uC554,\uCD1D6\uAC1C\uC6D4 \uD22C\uBCD1\uD558\uC600\uC74C..."
+    characterIllust: {fileID: 0}
+    choices: []
+    nextIndexOverride: -1
+  - id: 5
+    speakerName: "\uB098"
+    dialogueText: "\uB098\uB294 \uC18C\uB9AC\uAC00 \uB098\uB294 \uCABD\uC73C\uB85C
+      \uACE0\uAC1C\uB97C \uD2C0\uC5C8"
+    characterIllust: {fileID: 0}
+    choices: []
+    nextIndexOverride: -1
+  - id: 6
+    speakerName: ???
+    dialogueText: "\uC65C? \uB354 \uB9D0\uD574\uC918? \uC774\uC815\uB3C4\uBA74 \uCDA9\uBD84\uD55C\uAC70\uAC19\uC740\uB370"
+    characterIllust: {fileID: 0}
+    choices: []
+    nextIndexOverride: -1
+  - id: 7
+    speakerName: "\uB098"
+    dialogueText: "(\uD3C9\uC18C\uB77C\uBA74 "
+    characterIllust: {fileID: 0}
+    choices: []
+    nextIndexOverride: -1
+  - id: 8
+    speakerName: "\uB098"
     dialogueText: "\uAC00\uB9CC\uD788 \uC788\uC5B4\uB3C4 \uBD88\uD3B8\uD560 \uBFD0\uC774\uB2E4
       \uB098\uAC08\uAE4C?"
     characterIllust: {fileID: 0}
     choices: []
     nextIndexOverride: -1
-  - speakerName: "\uB098"
+  - id: 9
+    speakerName: "\uB098"
     dialogueText: "\uAC00\uB9CC\uD788 \uC788\uC5B4\uB3C4 \uBD88\uD3B8\uD560 \uBFD0\uC774\uB2E4
       \uB098\uAC08\uAE4C?"
     characterIllust: {fileID: 0}
     choices: []
     nextIndexOverride: -1
-  - speakerName: "\uB098"
-    dialogueText: "\uAC00\uB9CC\uD788 \uC788\uC5B4\uB3C4 \uBD88\uD3B8\uD560 \uBFD0\uC774\uB2E4
-      \uB098\uAC08\uAE4C?"
-    characterIllust: {fileID: 0}
-    choices: []
-    nextIndexOverride: -1
-  - speakerName: "\uB098"
-    dialogueText: "\uAC00\uB9CC\uD788 \uC788\uC5B4\uB3C4 \uBD88\uD3B8\uD560 \uBFD0\uC774\uB2E4
-      \uB098\uAC08\uAE4C?"
-    characterIllust: {fileID: 0}
-    choices: []
-    nextIndexOverride: -1
-  - speakerName: "\uB098"
-    dialogueText: "\uAC00\uB9CC\uD788 \uC788\uC5B4\uB3C4 \uBD88\uD3B8\uD560 \uBFD0\uC774\uB2E4
-      \uB098\uAC08\uAE4C?"
-    characterIllust: {fileID: 0}
-    choices: []
-    nextIndexOverride: -1
-  - speakerName: "\uB098"
+  - id: 100
+    speakerName: "\uB098"
     dialogueText: "\uAC00\uB9CC\uD788 \uC788\uC5B4\uB3C4 \uBD88\uD3B8\uD560 \uBFD0\uC774\uB2E4
       \uB098\uAC08\uAE4C?"
     characterIllust: {fileID: 0}
