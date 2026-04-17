@@ -2286,7 +2286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &527861812
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3437,6 +3437,7 @@ MonoBehaviour:
   - {fileID: 1116404565}
   - {fileID: 458461745}
   CharacterImage: {fileID: 941290623}
+  BackgroundImage: {fileID: 941290623}
   isPausedByMenu: 0
 --- !u!1 &941290621
 GameObject:

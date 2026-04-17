@@ -60,7 +60,7 @@ public class MainScenario : EditorWindow
 
                 for (int i = 0; i < entriesProperty.arraySize; i++)
                 {
-                   
+
                     SerializedProperty element = entriesProperty.GetArrayElementAtIndex(i);
                     SerializedProperty idProp = element.FindPropertyRelative("id");
                     SerializedProperty nameProp = element.FindPropertyRelative("speakerName");
@@ -75,41 +75,40 @@ public class MainScenario : EditorWindow
                     {
                         EditorGUI.indentLevel++;
 
-                       
-                        if (idProp != null)
-                        {
-                            EditorGUILayout.PropertyField(idProp, new GUIContent("고유 ID (직접 입력)"));
-                        }
-                        else
-                        {
-                            EditorGUILayout.HelpBox("DialogueEntry에 'id' 변수가 없습니다!", MessageType.Warning);
-                        }
+                        if (idProp != null) EditorGUILayout.PropertyField(idProp, new GUIContent("고유 ID"));
 
                         EditorGUILayout.PropertyField(nameProp);
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("dialogueText"));
+
+                        // 마스타! 여기 변수 이름들이 SO에 정의된 것과 정확히 일치해야 합니다!
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("characterIllust"));
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("BackgroundSprite"));
+
+                        // [중요] BackGroundSprit (오타 주의! SO에 Sprit라고 적으셨어요)
+                        SerializedProperty bgProp = element.FindPropertyRelative("BackGroundSprit");
+                        if (bgProp != null)
+                        {
+                            EditorGUILayout.PropertyField(bgProp);
+                        }
+
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("choices"), true);
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("nextIndexOverride"));
 
                         EditorGUI.indentLevel--;
-                        EditorGUILayout.Space(5);
                     }
                 }
-                EditorGUI.indentLevel--;
+
+                serializedObject.ApplyModifiedProperties();
+                EditorGUILayout.EndScrollView();
+
+                EditorGUILayout.Space();
+
+                if (GUILayout.Button("저장(Force Save)", GUILayout.Height(30)))
+                {
+                    EditorUtility.SetDirty(currentSO);
+                    AssetDatabase.SaveAssets();
+                    Debug.Log("<color=cyan>시나리오 데이터 저장 완료!</color>");
+                }
             }
-        }
-
-        serializedObject.ApplyModifiedProperties();
-        EditorGUILayout.EndScrollView();
-
-        EditorGUILayout.Space();
-
-        if (GUILayout.Button("저장(Force Save)", GUILayout.Height(30)))
-        {
-            EditorUtility.SetDirty(currentSO);
-            AssetDatabase.SaveAssets();
-            Debug.Log("<color=cyan>시나리오 데이터 저장 완료!</color>");
         }
     }
 

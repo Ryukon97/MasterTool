@@ -40,16 +40,21 @@ public class ChatManager : MonoBehaviour
 
         while (currentEntry != null)
         {
-           
+
+            if (BackgroundImage != null && currentEntry.BackGroundSprit != null)
+            {
+                BackgroundImage.sprite = currentEntry.BackGroundSprit;
+            }
+
+      
             if (CharacterImage != null)
             {
-                if (currentEntry.characterIllust != null && currentEntry.BackGroundSprit != null)
+                if (currentEntry.characterIllust != null)
                 {
                     CharacterImage.gameObject.SetActive(true);
                     CharacterImage.sprite = currentEntry.characterIllust;
-                    BackgroundImage.sprite = currentEntry.BackGroundSprit;
                 }
-                else 
+                else
                 {
                     CharacterImage.gameObject.SetActive(false);
                 }
