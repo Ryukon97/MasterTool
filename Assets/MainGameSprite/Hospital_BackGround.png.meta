@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f0c77ac0bded1664c90fcda3758cbf41
+guid: 02a49419a1e3e594ea6c04c2320fa689
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7857070580444948183
-    second: Hospitalization-room5_0
+      213: 6919469891305825980
+    second: 45c2b960-44bd-415e-9c7d-2a48a3fc7bc7_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hospitalization-room5_0
+      name: 45c2b960-44bd-415e-9c7d-2a48a3fc7bc7_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2000
-        height: 1333
+        width: 1536
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 92918658fe316f290800000000000000
-      internalID: -7857070580444948183
+      spriteID: cb66b498435e60060800000000000000
+      internalID: 6919469891305825980
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Hospitalization-room5_0: -7857070580444948183
+      45c2b960-44bd-415e-9c7d-2a48a3fc7bc7_0: 6919469891305825980
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
