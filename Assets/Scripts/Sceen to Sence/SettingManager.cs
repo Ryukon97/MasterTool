@@ -30,7 +30,7 @@ public class SettingManager : MonoBehaviour
     {
         Debug.Log($"<color=cyan>[Start] 연결 확인 - PanelOther: {panelOther != null}, SettingPanel: {Settingpanel != null}</color>");
 
-        if (panelOther == null) Debug.LogError("마스타! panelOther 변수가 인스펙터에서 비어있습니다!");
+        if (panelOther == null) Debug.LogError("panelOther 변수가 인스펙터에서 비어있습니다!");
 
         float savedBrightness = PlayerPrefs.GetFloat("SavedBrightness", 0f); //사운드 입력값
         float savedSound = PlayerPrefs.GetFloat("SavedSound", 1.0f);
@@ -95,7 +95,7 @@ public class SettingManager : MonoBehaviour
       
         panelOther.transform.SetAsLastSibling();
 
-        Debug.Log("Master! 기타 슬라이더로 교체했습니다.");
+        Debug.Log(" 기타 슬라이더로 교체했습니다.");
     }
 
 
