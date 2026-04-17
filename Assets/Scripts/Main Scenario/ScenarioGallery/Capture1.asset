@@ -47,3 +47,33 @@ MonoBehaviour:
     characterIllust: {fileID: 0}
     choices: []
     nextIndexOverride: -1
+  - speakerName: "\uB098"
+    dialogueText: "\uAC00\uB9CC\uD788 \uC788\uC5B4\uB3C4 \uBD88\uD3B8\uD560 \uBFD0\uC774\uB2E4
+      \uB098\uAC08\uAE4C?"
+    characterIllust: {fileID: 0}
+    choices: []
+    nextIndexOverride: -1
+  - speakerName: "\uB098"
+    dialogueText: "\uAC00\uB9CC\uD788 \uC788\uC5B4\uB3C4 \uBD88\uD3B8\uD560 \uBFD0\uC774\uB2E4
+      \uB098\uAC08\uAE4C?"
+    characterIllust: {fileID: 0}
+    choices: []
+    nextIndexOverride: -1
+  - speakerName: "\uB098"
+    dialogueText: "\uAC00\uB9CC\uD788 \uC788\uC5B4\uB3C4 \uBD88\uD3B8\uD560 \uBFD0\uC774\uB2E4
+      \uB098\uAC08\uAE4C?"
+    characterIllust: {fileID: 0}
+    choices: []
+    nextIndexOverride: -1
+  - speakerName: "\uB098"
+    dialogueText: "\uAC00\uB9CC\uD788 \uC788\uC5B4\uB3C4 \uBD88\uD3B8\uD560 \uBFD0\uC774\uB2E4
+      \uB098\uAC08\uAE4C?"
+    characterIllust: {fileID: 0}
+    choices: []
+    nextIndexOverride: -1
+  - speakerName: "\uB098"
+    dialogueText: "\uAC00\uB9CC\uD788 \uC788\uC5B4\uB3C4 \uBD88\uD3B8\uD560 \uBFD0\uC774\uB2E4
+      \uB098\uAC08\uAE4C?"
+    characterIllust: {fileID: 0}
+    choices: []
+    nextIndexOverride: -1

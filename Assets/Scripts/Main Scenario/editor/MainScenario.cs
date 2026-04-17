@@ -37,79 +37,55 @@ public class MainScenario : EditorWindow
         serializedObject.Update();
 
         SerializedProperty entriesProperty = serializedObject.FindProperty("entries");
-
-
-        //try
-        //{
-
-        //    SerializedObject serializedObject = new SerializedObject(currentSO);
-        //    serializedObject.Update(); // 최신 데이터로 업데이트
-
-        //    SerializedProperty entriesProperty = serializedObject.FindProperty("entries");
-
-
-        //    for (int i = 0; i < entriesProperty.arraySize; i++) // 선택지를위한 보기용 코드
-        //    {
-        //        SerializedProperty element = entriesProperty.GetArrayElementAtIndex(i);
-
-
-        //        EditorGUILayout.BeginVertical("box");
-        //        EditorGUILayout.LabelField($" [ID: {i}] 번 대사 구역", EditorStyles.boldLabel);
-
-        //        EditorGUILayout.PropertyField(element, true);
-
-        //        EditorGUILayout.EndVertical();
-        //        EditorGUILayout.Space(5);
-        //    }
-        //    if (entriesProperty != null)
-        //    {
-        //        EditorGUILayout.PropertyField(entriesProperty, true);
-        //    }
-
-        //    serializedObject.ApplyModifiedProperties();
-        //}
-        //catch (System.Exception e)
-        //{
-
-        //    Debug.LogWarning("데이터를 표시하는 중 오류 발생: " + e.Message);
-        //}
+      
         if (entriesProperty != null)
         {
-            // 1. 최상위 부모 (Entries) - 삼각형으로 리스트 전체 접기/펴기 가능
+          
             entriesProperty.isExpanded = EditorGUILayout.Foldout(entriesProperty.isExpanded, "Entries", true);
 
             if (entriesProperty.isExpanded)
             {
-                EditorGUI.indentLevel++; // 부모 안쪽으로 들여쓰기
+                EditorGUI.indentLevel++;
+                EditorGUILayout.BeginHorizontal();
+                {
+                    int currentSize = entriesProperty.arraySize;
+                    int Newsize = EditorGUILayout.IntField("Size", currentSize);
 
-                // 리스트 개수 조절 필드 (오른쪽 상단 숫자칸)
-                int newSize = EditorGUILayout.IntField("Size", entriesProperty.arraySize);
-                if (newSize != entriesProperty.arraySize) entriesProperty.arraySize = newSize;
+                    if (GUILayout.Button("+", GUILayout.Width(30))) Newsize++;
+                    if (GUILayout.Button("-", GUILayout.Width(30)) && Newsize > 0) Newsize--;
+                    if(Newsize != currentSize) entriesProperty.arraySize = Newsize;
+
+                }
+
+                EditorGUILayout.EndHorizontal();
+                EditorGUILayout.Space(5);
+              
+                //int newSize = EditorGUILayout.IntField("Size", entriesProperty.arraySize);
+                //if (newSize != entriesProperty.arraySize) entriesProperty.arraySize = newSize;
 
                 for (int i = 0; i < entriesProperty.arraySize; i++)
                 {
                     SerializedProperty element = entriesProperty.GetArrayElementAtIndex(i);
 
-                    // --- 마스타가 원하신 핵심 포인트: 이름표 커스텀 ---
-                    // [ID: 0] 나 와 같은 형식으로 이름표를 만듭니다.
+                   
                     string sName = element.FindPropertyRelative("speakerName").stringValue;
                     string label = $"[ID: {i}] " + (string.IsNullOrEmpty(sName) ? "이름 없음" : sName);
 
-                    // 2. 자식 이름표 및 접기 버튼
+                  
                     element.isExpanded = EditorGUILayout.Foldout(element.isExpanded, label, true);
 
                     if (element.isExpanded)
                     {
-                        EditorGUI.indentLevel++; // 자식 내용 안쪽으로 들여쓰기
+                        EditorGUI.indentLevel++; 
 
-                        // 자식의 내부 데이터들 (ID 번호 이름표 바로 아래 나열됨)
+                        
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("speakerName"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("dialogueText"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("characterIllust"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("choices"), true);
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("nextIndexOverride"));
 
-                        EditorGUI.indentLevel--; // 자식 내용 종료
+                        EditorGUI.indentLevel--; 
                         EditorGUILayout.Space(2);
                     }
                 }
