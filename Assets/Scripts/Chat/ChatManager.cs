@@ -5,11 +5,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-
 public class ChatManager : MonoBehaviour
 {
     [Header("Data Source")]
-    public DialogueDataSO currentScenario;
+    public DialogueDataSO currentScenario; 
 
     [Header("UI References")]
     public TextMeshProUGUI ChatText;
@@ -17,51 +16,70 @@ public class ChatManager : MonoBehaviour
     public GameObject choicePanel;
     public TextMeshProUGUI[] choiceButtonsText;
 
-    private int currentIndex = 0;
+    private DialogueEntry currentEntry;
     public bool isPausedByMenu = false;
+    private int nextIDResult = -1; 
 
     void Start()
     {
+        
         if (currentScenario != null && currentScenario.entries.Count > 0)
         {
-            StartCoroutine(PlayDialogue());
+            
+            int firstID = currentScenario.entries[0].id;
+            StartCoroutine(PlayDialogue(firstID));
         }
     }
 
-    IEnumerator PlayDialogue()
+    IEnumerator PlayDialogue(int startID)
     {
-        currentIndex = 0;
+        
+        currentEntry = currentScenario.entries.Find(x => x.id == startID);
 
-        while (currentIndex < currentScenario.entries.Count)
+        while (currentEntry != null)
         {
-            var entry = currentScenario.entries[currentIndex];
+            
+            yield return StartCoroutine(NormalChatOnlyText(currentEntry.speakerName, currentEntry.dialogueText));
 
-            if (IllustManager.Instance != null && entry.characterIllust != null)
-            {
-                IllustManager.Instance.ChangeIllust(entry.characterIllust.name);
-            }
+          
+            yield return StartCoroutine(WaitForInput());
+
+            int nextID = -1;
 
             
-            yield return StartCoroutine(NormalChatOnlyText(entry.speakerName, entry.dialogueText));
-
-            if (entry.choices != null && entry.choices.Count > 0)
+            if (currentEntry.choices != null && currentEntry.choices.Count > 0)
             {
-                yield return StartCoroutine(ShowScenarioChoices(entry.choices));
+              
+                yield return StartCoroutine(ShowScenarioChoices(currentEntry.choices));
+                nextID = nextIDResult; 
+            }
+            else if (currentEntry.nextIndexOverride != -1)
+            {
+                
+                nextID = currentEntry.nextIndexOverride;
             }
             else
             {
-                yield return StartCoroutine(WaitForInput());
-                currentIndex++;
+                
+                nextID = currentEntry.id + 1;
+            }
+
+         
+            currentEntry = currentScenario.entries.Find(x => x.id == nextID);
+
+            if (currentEntry == null)
+            {
+                Debug.Log("<color=yellow>마스타! 시나리오가 끝났습니다!</color>");
+                break;
             }
         }
-        Debug.Log("마스타! 시나리오가 끝났습니다!");
     }
 
-  
-
-    IEnumerator ShowScenarioChoices(System.Collections.Generic.List<ChoiceData> choices)
+    IEnumerator ShowScenarioChoices(List<ChoiceData> choices)
     {
+        nextIDResult = -1;
         choicePanel.SetActive(true);
+
         for (int i = 0; i < choiceButtonsText.Length; i++)
         {
             if (i < choices.Count)
@@ -69,13 +87,14 @@ public class ChatManager : MonoBehaviour
                 choiceButtonsText[i].gameObject.transform.parent.gameObject.SetActive(true);
                 choiceButtonsText[i].text = choices[i].choiceText;
 
-                int targetIndex = choices[i].choiceIndex;
+             
+                int targetID = choices[i].choiceIndex;
                 Button btn = choiceButtonsText[i].GetComponentInParent<Button>();
 
                 btn.onClick.RemoveAllListeners();
                 btn.onClick.AddListener(() =>
                 {
-                    currentIndex = targetIndex;
+                    nextIDResult = targetID; 
                     choicePanel.SetActive(false);
                 });
             }
@@ -84,8 +103,9 @@ public class ChatManager : MonoBehaviour
                 choiceButtonsText[i].gameObject.transform.parent.gameObject.SetActive(false);
             }
         }
-        yield return new WaitUntil(() => !choicePanel.activeSelf);
-    } 
+       
+        yield return new WaitUntil(() => nextIDResult != -1);
+    }
 
     IEnumerator NormalChatOnlyText(string narrator, string narration)
     {
@@ -102,6 +122,7 @@ public class ChatManager : MonoBehaviour
 
     IEnumerator WaitForInput()
     {
+        yield return new WaitForSeconds(0.1f); 
         yield return new WaitUntil(() =>
         {
             if (isPausedByMenu) return false;

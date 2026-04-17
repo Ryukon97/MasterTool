@@ -132,4 +132,7 @@ public class MainScenario : EditorWindow
         Selection.activeObject = asset;
         Debug.Log($"<color=green>새 시나리오 생성 완료: {fullPath}</color>");
     }
+
+   
+
 }
