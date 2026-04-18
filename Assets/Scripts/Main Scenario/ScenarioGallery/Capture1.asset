@@ -21,6 +21,7 @@ MonoBehaviour:
     CharacterPNG: {fileID: 0}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
+    MoveDuration: 0.5
     choices: []
     nextIndexOverride: -1
   - id: 1
@@ -31,6 +32,7 @@ MonoBehaviour:
     CharacterPNG: {fileID: 0}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
+    MoveDuration: 0.5
     choices: []
     nextIndexOverride: -1
   - id: 2
@@ -41,6 +43,7 @@ MonoBehaviour:
     CharacterPNG: {fileID: 0}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
+    MoveDuration: 0.5
     choices:
     - choiceText: "\uB098\uAC04\uB2E4"
       choiceIndex: 3
@@ -55,6 +58,7 @@ MonoBehaviour:
     CharacterPNG: {fileID: 0}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
+    MoveDuration: 0.5
     choices: []
     nextIndexOverride: -1
   - id: 4
@@ -65,6 +69,7 @@ MonoBehaviour:
     CharacterPNG: {fileID: 0}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
+    MoveDuration: 0.5
     choices: []
     nextIndexOverride: -1
   - id: 5
@@ -75,6 +80,7 @@ MonoBehaviour:
     CharacterPNG: {fileID: 0}
     BackGroundSprit: {fileID: 0}
     CharacterPos: {x: 0, y: -100}
+    MoveDuration: 0.5
     choices: []
     nextIndexOverride: -1
   - id: 6
@@ -84,6 +90,7 @@ MonoBehaviour:
     CharacterPNG: {fileID: 0}
     BackGroundSprit: {fileID: 0}
     CharacterPos: {x: 0, y: -100}
+    MoveDuration: 0.5
     choices: []
     nextIndexOverride: -1
   - id: 7
@@ -95,6 +102,7 @@ MonoBehaviour:
     CharacterPNG: {fileID: 0}
     BackGroundSprit: {fileID: 0}
     CharacterPos: {x: 0, y: -100}
+    MoveDuration: 0.5
     choices: []
     nextIndexOverride: -1
   - id: 8
@@ -103,7 +111,8 @@ MonoBehaviour:
     characterIllust: {fileID: 21300000, guid: 5d4ed3790671e6c4dae0570f9c1bf047, type: 3}
     CharacterPNG: {fileID: 0}
     BackGroundSprit: {fileID: 0}
-    CharacterPos: {x: 0, y: -100}
+    CharacterPos: {x: 0, y: -200}
+    MoveDuration: 1.692
     choices: []
     nextIndexOverride: -1
   - id: 9
@@ -113,6 +122,7 @@ MonoBehaviour:
     CharacterPNG: {fileID: -4297706649009758931, guid: 18311393cfa780342830ef2f76b8e62c, type: 3}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
+    MoveDuration: 0.241
     choices: []
     nextIndexOverride: -1
   - id: 10
@@ -123,6 +133,7 @@ MonoBehaviour:
     CharacterPNG: {fileID: -4297706649009758931, guid: 18311393cfa780342830ef2f76b8e62c, type: 3}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
+    MoveDuration: 0.179
     choices: []
     nextIndexOverride: -1
   - id: 11
@@ -134,6 +145,7 @@ MonoBehaviour:
     CharacterPNG: {fileID: -4297706649009758931, guid: 18311393cfa780342830ef2f76b8e62c, type: 3}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
+    MoveDuration: 0.5
     choices: []
     nextIndexOverride: -1
   - id: 12
@@ -144,7 +156,8 @@ MonoBehaviour:
     characterIllust: {fileID: 0}
     CharacterPNG: {fileID: -4297706649009758931, guid: 18311393cfa780342830ef2f76b8e62c, type: 3}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
-    CharacterPos: {x: 0, y: -100}
+    CharacterPos: {x: 2000, y: -100}
+    MoveDuration: 0.098
     choices: []
     nextIndexOverride: -1
   - id: 100
@@ -154,6 +167,7 @@ MonoBehaviour:
     CharacterPNG: {fileID: 0}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
+    MoveDuration: 0.5
     choices: []
     nextIndexOverride: -1
   - id: 101
@@ -164,6 +178,7 @@ MonoBehaviour:
     CharacterPNG: {fileID: 0}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
+    MoveDuration: 0.5
     choices:
     - choiceText: "\uB098\uAC04\uB2E4"
       choiceIndex: 3
@@ -178,6 +193,7 @@ MonoBehaviour:
     CharacterPNG: {fileID: 0}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
+    MoveDuration: 0.5
     choices:
     - choiceText: "\uB2E4\uC2DC"
       choiceIndex: 1

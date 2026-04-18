@@ -26,8 +26,12 @@ public class DialogueEntry
     public Sprite BackGroundSprit;
 
 
-    [Header("캐릭터 위치확인용")]
+    [Header("캐릭터 애니메이션칸 X는 +하면 오른쪽으로이동 Y는+하면 위로이동합니다 ")]
     public Vector2 CharacterPos = new Vector2(0, -100);
+    [Header(" 왼쪽에 가까우면 속도가 빨라지고 오른쪽에 당기면 속도가 느려집니다")]
+    [Range(0f, 2f)]
+    public float MoveDuration = 0.5f;
+    [Header("캐릭터의 회전을 넣을 수있습니다")]
 
     [Header(" 선택지 전용칸 해당 id숫자를 넣으면 클릭시 이동합니다")]
     public List<ChoiceData> choices = new List<ChoiceData> ();

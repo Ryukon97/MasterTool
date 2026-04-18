@@ -89,6 +89,10 @@ public class MainScenario : EditorWindow
                       
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("characterIllust"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPNG"));
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPos"));
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("MoveDuration"));
+                        EditorGUILayout.Space(5);
+
 
 
                         SerializedProperty bgProp = element.FindPropertyRelative("BackGroundSprit");

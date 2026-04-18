@@ -54,7 +54,7 @@ public class ChatManager : MonoBehaviour
                     CharacterImage.SetNativeSize();
 
                     if (CharacterMoveCoroutine != null) StopCoroutine(CharacterMoveCoroutine);
-                    CharacterMoveCoroutine = StartCoroutine(AnimateCharacter(currentEntry.CharacterPos));
+                    CharacterMoveCoroutine = StartCoroutine(AnimateCharacter(currentEntry.CharacterPos,currentEntry.MoveDuration));
                 }
                 else if (currentEntry.characterIllust != null)
                 {
@@ -103,12 +103,18 @@ public class ChatManager : MonoBehaviour
 
    
 
-    IEnumerator AnimateCharacter(Vector2 TargetPos)
+    IEnumerator AnimateCharacter(Vector2 TargetPos,float duration)
     {
         RectTransform rect = CharacterImage.rectTransform;
         Vector2 startPos = rect.anchoredPosition;
         float elapsed = 0f;
-        float duration = 0.5f;
+
+
+        if (duration <= 0f)
+        {
+            rect.anchoredPosition = TargetPos;
+            yield break;
+        }
 
         while (elapsed < duration)
         {
