@@ -35,6 +35,8 @@ public class MainScenario : EditorWindow
 
         scrollpos = EditorGUILayout.BeginScrollView(scrollpos);
 
+      
+
         SerializedProperty entriesProperty = serializedObject.FindProperty("entries");
 
         if (entriesProperty != null)
@@ -108,6 +110,10 @@ public class MainScenario : EditorWindow
                 EditorGUILayout.Space();
 
 
+                if(serializedObject.hasModifiedProperties)
+                {
+                    serializedObject.ApplyModifiedProperties();
+                }
                 if (GUILayout.Button("저장(Force Save)", GUILayout.Height(30)))
                 {
                     EditorUtility.SetDirty(currentSO);

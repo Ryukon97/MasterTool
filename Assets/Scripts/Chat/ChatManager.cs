@@ -4,7 +4,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-//using UnityEngine.UIElements;
 
 public class ChatManager : MonoBehaviour
 {
@@ -19,16 +18,15 @@ public class ChatManager : MonoBehaviour
     public Image CharacterImage;
     public Image BackgroundImage;
 
+    private Coroutine CharacterMoveCoroutine;
     private DialogueEntry currentEntry;
     public bool isPausedByMenu = false;
     private int nextIDResult = -1;
 
     void Start()
     {
-
         if (currentScenario != null && currentScenario.entries.Count > 0)
         {
-
             int firstID = currentScenario.entries[0].id;
             StartCoroutine(PlayDialogue(firstID));
         }
@@ -40,30 +38,29 @@ public class ChatManager : MonoBehaviour
 
         while (currentEntry != null)
         {
-
-            if (BackgroundImage != null)
+    
+            if (BackgroundImage != null && currentEntry.BackGroundSprit != null)
             {
-                if (currentEntry.BackGroundSprit != null)
-                {
-                    BackgroundImage.gameObject.SetActive(true);
-                    BackgroundImage.sprite = currentEntry.BackGroundSprit;
-                }
+                BackgroundImage.sprite = currentEntry.BackGroundSprit;
             }
 
+         
             if (CharacterImage != null)
             {
                 if (currentEntry.CharacterPNG != null)
                 {
                     CharacterImage.gameObject.SetActive(true);
                     CharacterImage.sprite = currentEntry.CharacterPNG;
-
                     CharacterImage.SetNativeSize();
-                    CharacterImage.rectTransform.anchoredPosition = currentEntry.CharacterPos;
+
+                    if (CharacterMoveCoroutine != null) StopCoroutine(CharacterMoveCoroutine);
+                    CharacterMoveCoroutine = StartCoroutine(AnimateCharacter(currentEntry.CharacterPos));
                 }
                 else if (currentEntry.characterIllust != null)
                 {
                     CharacterImage.gameObject.SetActive(true);
                     CharacterImage.sprite = currentEntry.characterIllust;
+             
                     CharacterImage.rectTransform.anchoredPosition = Vector2.zero;
                 }
                 else
@@ -71,24 +68,12 @@ public class ChatManager : MonoBehaviour
                     CharacterImage.gameObject.SetActive(false);
                 }
             }
-                
-            if (CharacterImage != null)
-            {
-                if (currentEntry.characterIllust != null)
-                {
-                    CharacterImage.gameObject.SetActive(true);
-                    CharacterImage.sprite = currentEntry.characterIllust;
 
-                }
-                else
-                {
-                    CharacterImage.gameObject.SetActive(false);
-                }
-            }
-
+           
             yield return StartCoroutine(NormalChatOnlyText(currentEntry.speakerName, currentEntry.dialogueText));
             yield return StartCoroutine(WaitForInput());
 
+          
             int nextID = -1;
             if (currentEntry.choices != null && currentEntry.choices.Count > 0)
             {
@@ -104,16 +89,34 @@ public class ChatManager : MonoBehaviour
                 nextID = currentEntry.id + 1;
             }
 
+         
             currentEntry = currentScenario.entries.Find(x => x.id == nextID);
 
             if (currentEntry == null)
             {
-             
                 if (CharacterImage != null) CharacterImage.gameObject.SetActive(false);
-                Debug.Log("<color=yellow> 시나리오가 끝났습니다!</color>");
+                Debug.Log("<color=yellow>시나리오가 끝났습니다!</color>");
                 break;
             }
         }
+    }
+
+   
+
+    IEnumerator AnimateCharacter(Vector2 TargetPos)
+    {
+        RectTransform rect = CharacterImage.rectTransform;
+        Vector2 startPos = rect.anchoredPosition;
+        float elapsed = 0f;
+        float duration = 0.5f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            rect.anchoredPosition = Vector2.Lerp(startPos, TargetPos, elapsed / duration);
+            yield return null;
+        }
+        rect.anchoredPosition = TargetPos;
     }
 
     IEnumerator ShowScenarioChoices(List<ChoiceData> choices)
@@ -127,7 +130,6 @@ public class ChatManager : MonoBehaviour
             {
                 choiceButtonsText[i].gameObject.transform.parent.gameObject.SetActive(true);
                 choiceButtonsText[i].text = choices[i].choiceText;
-
 
                 int targetID = choices[i].choiceIndex;
                 Button btn = choiceButtonsText[i].GetComponentInParent<Button>();
@@ -143,14 +145,12 @@ public class ChatManager : MonoBehaviour
                 choiceButtonsText[i].gameObject.transform.parent.gameObject.SetActive(false);
             }
         }
-
         yield return new WaitUntil(() => nextIDResult != -1);
     }
 
     IEnumerator OnchoieClicked(int targetID)
     {
         yield return new WaitForSecondsRealtime(0.15f);
-
         nextIDResult = targetID;
         choicePanel.SetActive(false);
     }
@@ -178,4 +178,4 @@ public class ChatManager : MonoBehaviour
                    (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame);
         });
     }
-}
+} // 클래스 닫는 중괄호는 맨 마지막에 딱 하나!
