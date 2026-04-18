@@ -157,9 +157,9 @@ MonoBehaviour:
     characterIllust: {fileID: 0}
     CharacterPNG: {fileID: -4297706649009758931, guid: 18311393cfa780342830ef2f76b8e62c, type: 3}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
-    CharacterPos: {x: 0, y: -100}
-    moveDuration: 0.5
-    CharacterRotation: 10
+    CharacterPos: {x: 0, y: -600}
+    moveDuration: 1.049
+    CharacterRotation: 90
     EffectSprite: {fileID: 0}
     EffectPos: {x: 0, y: 0}
     EffectScale: 1
@@ -173,7 +173,7 @@ MonoBehaviour:
     CharacterPNG: {fileID: -4297706649009758931, guid: 18311393cfa780342830ef2f76b8e62c, type: 3}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
-    moveDuration: 0.5
+    moveDuration: 1.133
     CharacterRotation: 0
     EffectSprite: {fileID: 0}
     EffectPos: {x: 0, y: 0}
