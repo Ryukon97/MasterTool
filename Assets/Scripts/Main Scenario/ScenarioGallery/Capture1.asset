@@ -110,7 +110,7 @@ MonoBehaviour:
     speakerName: ???
     dialogueText: "\uC5B4\uCC28\uD53C \uB108\uB3C4 \uC774\uC81C \uACE0\uC544\uC9C0?"
     characterIllust: {fileID: 0}
-    CharacterPNG: {fileID: 0}
+    CharacterPNG: {fileID: -4297706649009758931, guid: 18311393cfa780342830ef2f76b8e62c, type: 3}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
     choices: []
@@ -120,7 +120,7 @@ MonoBehaviour:
     dialogueText: "\uAC70\uB450\uC808\uBBF8\uD558\uACE0 \uBA3C\uC800 \uC790\uAE30\uC18C\uAC1C
       \uD558\uC790\uBA74 \uB0B4 \uC774\uB984\uC740 \"\uD55C\uC11C\uC544\" "
     characterIllust: {fileID: 0}
-    CharacterPNG: {fileID: 0}
+    CharacterPNG: {fileID: -4297706649009758931, guid: 18311393cfa780342830ef2f76b8e62c, type: 3}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
     choices: []
@@ -131,7 +131,7 @@ MonoBehaviour:
       \uD45C\uC84D \uC369\uCC3D\uC778 \uC560\uB4E4\uC774 \uB300\uB2E4\uC218\uAC00
       \uAC13\uACE0\uC544\uAC00 \uB41C \uC0AC\uB78C\uB4E4\uC774\uC9C0"
     characterIllust: {fileID: 0}
-    CharacterPNG: {fileID: 0}
+    CharacterPNG: {fileID: -4297706649009758931, guid: 18311393cfa780342830ef2f76b8e62c, type: 3}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
     choices: []
@@ -142,7 +142,7 @@ MonoBehaviour:
       \uB410\uB294\uB370 \uAC08\uACF3\uC5C6\uC73C\uBA74 \uB098\uB791 \uC77C\uC774\uB098
       \uD560\uB798?"
     characterIllust: {fileID: 0}
-    CharacterPNG: {fileID: 0}
+    CharacterPNG: {fileID: -4297706649009758931, guid: 18311393cfa780342830ef2f76b8e62c, type: 3}
     BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
     CharacterPos: {x: 0, y: -100}
     choices: []
