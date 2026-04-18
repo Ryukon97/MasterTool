@@ -20,22 +20,26 @@ public class MainScenario : EditorWindow
 
         if (currentSO == null)
         {
-            EditorGUILayout.HelpBox("편집할 다이얼로그 데이터 SO를 드래그하거나 새로 생성하세요.", MessageType.Info);
+            //EditorGUILayout.HelpBox("편집할 다이얼로그 데이터 SO를 드래그하거나 새로 생성하세요.", MessageType.Info);
             if (GUILayout.Button("새 시나리오 파일 생성")) CreateNewSO();
             return;
         }
 
-        EditorGUILayout.Space();
-        scrollpos = EditorGUILayout.BeginScrollView(scrollpos);
+        //EditorGUILayout.Space();
+        //scrollpos = EditorGUILayout.BeginScrollView(scrollpos);
 
+        //SerializedObject serializedObject = new SerializedObject(currentSO);
+        //serializedObject.Update();
         SerializedObject serializedObject = new SerializedObject(currentSO);
         serializedObject.Update();
+
+        scrollpos = EditorGUILayout.BeginScrollView(scrollpos);
 
         SerializedProperty entriesProperty = serializedObject.FindProperty("entries");
 
         if (entriesProperty != null)
         {
-            // 1. 상단 리스트 컨트롤 (Size 조절)
+          
             EditorGUILayout.BeginHorizontal();
             {
                 entriesProperty.isExpanded = EditorGUILayout.Foldout(entriesProperty.isExpanded, "전체 대사 리스트 (Entries)", true);
@@ -52,7 +56,6 @@ public class MainScenario : EditorWindow
             }
             EditorGUILayout.EndHorizontal();
 
-            // 2. 리스트 내용 표시
             if (entriesProperty.isExpanded)
             {
                 EditorGUILayout.Space(5);
@@ -60,6 +63,7 @@ public class MainScenario : EditorWindow
 
                 for (int i = 0; i < entriesProperty.arraySize; i++)
                 {
+
 
                     SerializedProperty element = entriesProperty.GetArrayElementAtIndex(i);
                     SerializedProperty idProp = element.FindPropertyRelative("id");
@@ -80,10 +84,11 @@ public class MainScenario : EditorWindow
                         EditorGUILayout.PropertyField(nameProp);
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("dialogueText"));
 
-                        // 마스타! 여기 변수 이름들이 SO에 정의된 것과 정확히 일치해야 합니다!
+                      
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("characterIllust"));
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPNG"));
 
-                        // [중요] BackGroundSprit (오타 주의! SO에 Sprit라고 적으셨어요)
+
                         SerializedProperty bgProp = element.FindPropertyRelative("BackGroundSprit");
                         if (bgProp != null)
                         {
@@ -97,10 +102,11 @@ public class MainScenario : EditorWindow
                     }
                 }
 
-                serializedObject.ApplyModifiedProperties();
+            
                 EditorGUILayout.EndScrollView();
 
                 EditorGUILayout.Space();
+
 
                 if (GUILayout.Button("저장(Force Save)", GUILayout.Height(30)))
                 {

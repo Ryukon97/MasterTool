@@ -18,6 +18,9 @@ MonoBehaviour:
     dialogueText: "2020\uB144 4\uC6D44\uC77C \uB098\uB294 \uC624\uB298 \uC5B4\uBA38\uB2C8\uB97C
       \uBCF4\uB0B4\uB4DC\uB838\uB2E4"
     characterIllust: {fileID: 0}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
+    CharacterPos: {x: 0, y: -100}
     choices: []
     nextIndexOverride: -1
   - id: 1
@@ -25,6 +28,9 @@ MonoBehaviour:
     dialogueText: "\uB098\uC758 \uC5B4\uB9B0\uC2DC\uC808\uC744 \uAE30\uC5B5\uD574\uC8FC\uB294
       \uC0AC\uB78C\uC740 \uC774\uC138\uC0C1\uC5D0 \uC544\uBB34\uB3C4 \uC5C6\uB2E4"
     characterIllust: {fileID: 0}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
+    CharacterPos: {x: 0, y: -100}
     choices: []
     nextIndexOverride: -1
   - id: 2
@@ -32,6 +38,9 @@ MonoBehaviour:
     dialogueText: "\uB9C8\uC74C\uC774 \uBB34\uAC70\uC6CC\uC9C4\uB2E4 \uBC16\uC5D0
       \uB098\uAC08\uAE4C?"
     characterIllust: {fileID: 0}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
+    CharacterPos: {x: 0, y: -100}
     choices:
     - choiceText: "\uB098\uAC04\uB2E4"
       choiceIndex: 3
@@ -43,6 +52,9 @@ MonoBehaviour:
     dialogueText: "4\uC6D4\uC774\uC9C0\uB9CC \uBC24\uBC14\uB78C\uC740 \uC544\uC9C1
       \uC300\uC300\uD558\uB2E4 "
     characterIllust: {fileID: 0}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
+    CharacterPos: {x: 0, y: -100}
     choices: []
     nextIndexOverride: -1
   - id: 4
@@ -50,6 +62,9 @@ MonoBehaviour:
     dialogueText: "2020\uB1444\uC6D44\uC77C,\uC624\uD6C48\uC2DC12\uBD8414\uCD08,\uBCD1\uC2E4516\uD638,\uC774\uB984
       \uC815\uBA85\uD76C,\uC0AC\uC778 \uB300\uC7A5\uC554,\uCD1D6\uAC1C\uC6D4 \uD22C\uBCD1\uD558\uC600\uC74C..."
     characterIllust: {fileID: 0}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
+    CharacterPos: {x: 0, y: -100}
     choices: []
     nextIndexOverride: -1
   - id: 5
@@ -57,12 +72,18 @@ MonoBehaviour:
     dialogueText: "\uB098\uB294 \uC18C\uB9AC\uAC00 \uB098\uB294 \uCABD\uC73C\uB85C
       \uACE0\uAC1C\uB97C \uD2C0\uC5C8\uB2E4"
     characterIllust: {fileID: 21300000, guid: 5d4ed3790671e6c4dae0570f9c1bf047, type: 3}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 0}
+    CharacterPos: {x: 0, y: -100}
     choices: []
     nextIndexOverride: -1
   - id: 6
     speakerName: ???
     dialogueText: "\uC65C? \uB354 \uB9D0\uD574\uC918? \uC774\uC815\uB3C4\uBA74 \uCDA9\uBD84\uD55C\uAC70\uAC19\uC740\uB370"
     characterIllust: {fileID: 21300000, guid: 5d4ed3790671e6c4dae0570f9c1bf047, type: 3}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 0}
+    CharacterPos: {x: 0, y: -100}
     choices: []
     nextIndexOverride: -1
   - id: 7
@@ -71,18 +92,27 @@ MonoBehaviour:
       \uB098\uB294 \uADF8\uB7F4\uC0DD\uAC01\uB3C4 \uB9AC\uC561\uC158\uD560 \uD798\uB3C4
       \uC5C6\uB2E4)"
     characterIllust: {fileID: 21300000, guid: 5d4ed3790671e6c4dae0570f9c1bf047, type: 3}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 0}
+    CharacterPos: {x: 0, y: -100}
     choices: []
     nextIndexOverride: -1
   - id: 8
     speakerName: ???
     dialogueText: "\uC774 \uB140\uC11D \uBB3C\uAC74\uC774\uB124?"
     characterIllust: {fileID: 21300000, guid: 5d4ed3790671e6c4dae0570f9c1bf047, type: 3}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 0}
+    CharacterPos: {x: 0, y: -100}
     choices: []
     nextIndexOverride: -1
   - id: 9
     speakerName: ???
     dialogueText: "\uC5B4\uCC28\uD53C \uB108\uB3C4 \uC774\uC81C \uACE0\uC544\uC9C0?"
     characterIllust: {fileID: 0}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
+    CharacterPos: {x: 0, y: -100}
     choices: []
     nextIndexOverride: -1
   - id: 10
@@ -90,6 +120,9 @@ MonoBehaviour:
     dialogueText: "\uAC70\uB450\uC808\uBBF8\uD558\uACE0 \uBA3C\uC800 \uC790\uAE30\uC18C\uAC1C
       \uD558\uC790\uBA74 \uB0B4 \uC774\uB984\uC740 \"\uD55C\uC11C\uC544\" "
     characterIllust: {fileID: 0}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
+    CharacterPos: {x: 0, y: -100}
     choices: []
     nextIndexOverride: -1
   - id: 11
@@ -98,6 +131,9 @@ MonoBehaviour:
       \uD45C\uC84D \uC369\uCC3D\uC778 \uC560\uB4E4\uC774 \uB300\uB2E4\uC218\uAC00
       \uAC13\uACE0\uC544\uAC00 \uB41C \uC0AC\uB78C\uB4E4\uC774\uC9C0"
     characterIllust: {fileID: 0}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
+    CharacterPos: {x: 0, y: -100}
     choices: []
     nextIndexOverride: -1
   - id: 12
@@ -106,12 +142,18 @@ MonoBehaviour:
       \uB410\uB294\uB370 \uAC08\uACF3\uC5C6\uC73C\uBA74 \uB098\uB791 \uC77C\uC774\uB098
       \uD560\uB798?"
     characterIllust: {fileID: 0}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
+    CharacterPos: {x: 0, y: -100}
     choices: []
     nextIndexOverride: -1
   - id: 100
     speakerName: "\uB098"
     dialogueText: ...
     characterIllust: {fileID: 0}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
+    CharacterPos: {x: 0, y: -100}
     choices: []
     nextIndexOverride: -1
   - id: 101
@@ -119,6 +161,9 @@ MonoBehaviour:
     dialogueText: "\uC5B4\uCC28\uD53C \uC548\uC5D0\uC788\uC5B4\uB3C4 \uB531\uD788
       \uD560\uAC74 \uC5C6\uB2E4 \uB098\uAC08\uAE4C?"
     characterIllust: {fileID: 0}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
+    CharacterPos: {x: 0, y: -100}
     choices:
     - choiceText: "\uB098\uAC04\uB2E4"
       choiceIndex: 3
@@ -130,6 +175,9 @@ MonoBehaviour:
     dialogueText: "\uACB0\uAD6D \uC544\uBB34\uC77C\uB3C4 \uC77C\uC5B4\uB098\uC9C0
       \uC54A\uC558\uB2E4 (BadEnding)"
     characterIllust: {fileID: 0}
+    CharacterPNG: {fileID: 0}
+    BackGroundSprit: {fileID: 6919469891305825980, guid: 02a49419a1e3e594ea6c04c2320fa689, type: 3}
+    CharacterPos: {x: 0, y: -100}
     choices:
     - choiceText: "\uB2E4\uC2DC"
       choiceIndex: 1

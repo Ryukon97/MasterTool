@@ -41,18 +41,44 @@ public class ChatManager : MonoBehaviour
         while (currentEntry != null)
         {
 
-            if (BackgroundImage != null && currentEntry.BackGroundSprit != null)
+            if (BackgroundImage != null)
             {
-                BackgroundImage.sprite = currentEntry.BackGroundSprit;
+                if (currentEntry.BackGroundSprit != null)
+                {
+                    BackgroundImage.gameObject.SetActive(true);
+                    BackgroundImage.sprite = currentEntry.BackGroundSprit;
+                }
             }
 
-      
+            if (CharacterImage != null)
+            {
+                if (currentEntry.CharacterPNG != null)
+                {
+                    CharacterImage.gameObject.SetActive(true);
+                    CharacterImage.sprite = currentEntry.CharacterPNG;
+
+                    CharacterImage.SetNativeSize();
+                    CharacterImage.rectTransform.anchoredPosition = currentEntry.CharacterPos;
+                }
+                else if (currentEntry.characterIllust != null)
+                {
+                    CharacterImage.gameObject.SetActive(true);
+                    CharacterImage.sprite = currentEntry.characterIllust;
+                    CharacterImage.rectTransform.anchoredPosition = Vector2.zero;
+                }
+                else
+                {
+                    CharacterImage.gameObject.SetActive(false);
+                }
+            }
+                
             if (CharacterImage != null)
             {
                 if (currentEntry.characterIllust != null)
                 {
                     CharacterImage.gameObject.SetActive(true);
                     CharacterImage.sprite = currentEntry.characterIllust;
+
                 }
                 else
                 {
