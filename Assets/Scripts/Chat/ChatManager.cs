@@ -19,6 +19,7 @@ public class ChatManager : MonoBehaviour
     public Image BackgroundImage;
     public Image EffectImage;
 
+    private Coroutine RotationCoroutine;
     private Coroutine CharacterMoveCoroutine;
     private DialogueEntry currentEntry;
     public bool isPausedByMenu = false;
@@ -62,8 +63,11 @@ public class ChatManager : MonoBehaviour
                   
                     CharacterImage.rectTransform.localRotation = Quaternion.Euler(0, 0, currentEntry.CharacterRotation);
 
-                    if (CharacterMoveCoroutine != null) StopCoroutine(CharacterMoveCoroutine);
+                    if (CharacterMoveCoroutine != null) StopCoroutine(CharacterMoveCoroutine); // XY축으로 움직이는거
                     CharacterMoveCoroutine = StartCoroutine(AnimateCharacter(currentEntry.CharacterPos, currentEntry.moveDuration));
+
+                    if(RotationCoroutine != null) StopCoroutine(RotationCoroutine);
+                    RotationCoroutine = StartCoroutine(AnimationRotation(currentEntry.CharacterRotation,currentEntry.moveDuration));
                 }
                 else if (currentEntry.characterIllust != null) 
                 {
@@ -153,6 +157,27 @@ public class ChatManager : MonoBehaviour
         rect.anchoredPosition = TargetPos;
     }
 
+    IEnumerator AnimationRotation(float TragetZRotation, float Duration)
+    {
+        RectTransform rect = CharacterImage.rectTransform;
+        Quaternion StartRot = rect.localRotation;
+        Quaternion TargetRot = Quaternion.Euler(0, 0, TragetZRotation);
+        float elapsed = 0f;
+
+        if (Duration <= 0f)
+        {
+            rect.localRotation = TargetRot;
+            yield break;
+        }
+        while (elapsed < Duration)
+        {
+            elapsed += Time.deltaTime;
+            rect.localRotation = Quaternion.Lerp(StartRot, TargetRot, elapsed / Duration);
+            yield return null;
+        }
+        rect.localRotation = TargetRot;
+    }
+
     IEnumerator ShowScenarioChoices(List<ChoiceData> choices)
     {
         nextIDResult = -1;
@@ -212,4 +237,4 @@ public class ChatManager : MonoBehaviour
                    (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame);
         });
     }
-} // 클래스 닫는 중괄호는 맨 마지막에 딱 하나!
+} 
