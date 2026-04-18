@@ -81,28 +81,32 @@ public class MainScenario : EditorWindow
                     {
                         EditorGUI.indentLevel++;
 
+                        
                         if (idProp != null) EditorGUILayout.PropertyField(idProp, new GUIContent("고유 ID"));
+                        EditorGUILayout.PropertyField(nameProp, new GUIContent("화자 이름"));
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("dialogueText"), new GUIContent("대사 내용"));
 
-                        EditorGUILayout.PropertyField(nameProp);
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("dialogueText"));
+                        EditorGUILayout.Space(10);
+          
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("characterIllust"), new GUIContent("캐릭터 통 일러스트"));
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPNG"), new GUIContent("캐릭터 전용 PNG"));
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("BackGroundSprit"), new GUIContent("배경 이미지"));
 
-                      
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("characterIllust"));
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPNG"));
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPos"));
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("MoveDuration"));
-                        EditorGUILayout.Space(5);
+                        EditorGUILayout.Space(10);
+                   
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPos"), new GUIContent("위치 (X, Y)"));
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterRotation"), new GUIContent("회전 (Z축)"));
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("moveDuration"), new GUIContent("이동 시간(초)"));
 
+                        EditorGUILayout.Space(10);
+                     
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSprite"), new GUIContent("이펙트 PNG"));
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectPos"), new GUIContent("이펙트 위치"));
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectScale"), new GUIContent("이펙트 크기"));
 
-
-                        SerializedProperty bgProp = element.FindPropertyRelative("BackGroundSprit");
-                        if (bgProp != null)
-                        {
-                            EditorGUILayout.PropertyField(bgProp);
-                        }
-
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("choices"), true);
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("nextIndexOverride"));
+                        EditorGUILayout.Space(10);
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("choices"), new GUIContent("분기점 선택지"), true);
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("nextIndexOverride"), new GUIContent("강제 이동 ID"));
 
                         EditorGUI.indentLevel--;
                     }

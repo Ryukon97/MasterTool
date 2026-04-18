@@ -30,9 +30,13 @@ public class DialogueEntry
     public Vector2 CharacterPos = new Vector2(0, -100);
     [Header(" 왼쪽에 가까우면 속도가 빨라지고 오른쪽에 당기면 속도가 느려집니다")]
     [Range(0f, 2f)]
-    public float MoveDuration = 0.5f;
+    public float moveDuration = 0.5f;
     [Header("캐릭터의 회전을 넣을 수있습니다")]
-
+    public float CharacterRotation;
+    [Header("이펙트 설정(PNG만 가능)")]
+    public Sprite EffectSprite;
+    public Vector2 EffectPos;
+    public float EffectScale = 1f;
     [Header(" 선택지 전용칸 해당 id숫자를 넣으면 클릭시 이동합니다")]
     public List<ChoiceData> choices = new List<ChoiceData> ();
 

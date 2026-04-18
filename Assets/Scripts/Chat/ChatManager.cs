@@ -17,6 +17,7 @@ public class ChatManager : MonoBehaviour
     public TextMeshProUGUI[] choiceButtonsText;
     public Image CharacterImage;
     public Image BackgroundImage;
+    public Image EffectImage;
 
     private Coroutine CharacterMoveCoroutine;
     private DialogueEntry currentEntry;
@@ -38,42 +39,69 @@ public class ChatManager : MonoBehaviour
 
         while (currentEntry != null)
         {
-    
-            if (BackgroundImage != null && currentEntry.BackGroundSprit != null)
+       
+            if (BackgroundImage != null)
             {
-                BackgroundImage.sprite = currentEntry.BackGroundSprit;
+                if (currentEntry.BackGroundSprit != null)
+                {
+                    BackgroundImage.gameObject.SetActive(true);
+                    BackgroundImage.sprite = currentEntry.BackGroundSprit;
+                }
+               
             }
 
-         
+          
             if (CharacterImage != null)
             {
-                if (currentEntry.CharacterPNG != null)
+                if (currentEntry.CharacterPNG != null) 
                 {
                     CharacterImage.gameObject.SetActive(true);
                     CharacterImage.sprite = currentEntry.CharacterPNG;
                     CharacterImage.SetNativeSize();
 
+                  
+                    CharacterImage.rectTransform.localRotation = Quaternion.Euler(0, 0, currentEntry.CharacterRotation);
+
                     if (CharacterMoveCoroutine != null) StopCoroutine(CharacterMoveCoroutine);
-                    CharacterMoveCoroutine = StartCoroutine(AnimateCharacter(currentEntry.CharacterPos,currentEntry.MoveDuration));
+                    CharacterMoveCoroutine = StartCoroutine(AnimateCharacter(currentEntry.CharacterPos, currentEntry.moveDuration));
                 }
-                else if (currentEntry.characterIllust != null)
+                else if (currentEntry.characterIllust != null) 
                 {
                     CharacterImage.gameObject.SetActive(true);
                     CharacterImage.sprite = currentEntry.characterIllust;
-             
+
+                   
                     CharacterImage.rectTransform.anchoredPosition = Vector2.zero;
+                    CharacterImage.rectTransform.localRotation = Quaternion.identity;
                 }
-                else
+                else 
                 {
                     CharacterImage.gameObject.SetActive(false);
                 }
             }
 
-           
+      
+            if (EffectImage != null)
+            {
+                if (currentEntry.EffectSprite != null)
+                {
+                    EffectImage.gameObject.SetActive(true);
+                    EffectImage.sprite = currentEntry.EffectSprite;
+                    EffectImage.rectTransform.anchoredPosition = currentEntry.EffectPos;
+                    EffectImage.rectTransform.localScale = Vector3.one * currentEntry.EffectScale;
+                    EffectImage.SetNativeSize();
+                }
+                else
+                {
+                    EffectImage.gameObject.SetActive(false);
+                }
+            }
+
+            
             yield return StartCoroutine(NormalChatOnlyText(currentEntry.speakerName, currentEntry.dialogueText));
             yield return StartCoroutine(WaitForInput());
 
-          
+
             int nextID = -1;
             if (currentEntry.choices != null && currentEntry.choices.Count > 0)
             {
