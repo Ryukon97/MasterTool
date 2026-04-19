@@ -2,11 +2,30 @@ using UnityEngine;
 using System.Collections.Generic;
 
 
-[CreateAssetMenu(fileName = "NewScenario", menuName = "Scenario/DialogueData")]
+[CreateAssetMenu(fileName = "NewScenario", menuName = "Scenario/DialogueData")] //t시나리오 에디터
 public class DialogueDataSO : ScriptableObject
 {
     public List<DialogueEntry> entries = new List<DialogueEntry>();
 }
+
+[CreateAssetMenu(fileName = "NewSoiundData",menuName = "Scenario/SoundData")]
+public class SoundDataSO : ScriptableObject
+{
+    public List<BGMEvent> BGMEvents = new List<BGMEvent>();
+}
+
+[System.Serializable]
+public class  BGMEvent
+{
+    public string eventName;
+    public int StartID;
+    public int endID;
+    public int bgmIndex;
+    public float FadeDuration = 1.5f;
+}
+
+
+
 
 
 [System.Serializable]

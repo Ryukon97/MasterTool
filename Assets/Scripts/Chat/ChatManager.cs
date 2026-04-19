@@ -9,6 +9,7 @@ public class ChatManager : MonoBehaviour
 {
     [Header("Data Source")]
     public DialogueDataSO currentScenario;
+    public SoundDataSO bgmSetting;
 
     [Header("UI References")]
     public TextMeshProUGUI ChatText;
@@ -236,5 +237,15 @@ public class ChatManager : MonoBehaviour
             return (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
                    (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame);
         });
+    }
+
+    void CheckBGMEvent(int currentID)
+    {
+
+        var bgmEvent = bgmSetting.BGMEvents.Find(e => currentID >= e.StartID && currentID <= e.endID);
+        if(bgmEvent !=null)
+        {
+            BGMManager.instance.PlayBGMByIndex(bgmEvent.bgmIndex, bgmEvent.FadeDuration);
+        }
     }
 } 
