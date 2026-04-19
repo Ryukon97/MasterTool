@@ -15,7 +15,7 @@ public class SoundManagerEditor : EditorWindow
     {
         GUILayout.Label("배경음 ID 관리자", EditorStyles.boldLabel);
 
-        EditorGUI.EndChangeCheck();
+        EditorGUI.BeginChangeCheck();
         SoundData = (SoundDataSO)EditorGUILayout.ObjectField("Sound Data SO", SoundData, typeof(SoundDataSO), false);
         if(EditorGUI.EndChangeCheck())
         {
@@ -48,7 +48,12 @@ public class SoundManagerEditor : EditorWindow
             if (GUILayout.Button("X", GUILayout.Width(20)))
             {
                 SoundData.BGMEvents.RemoveAt(i);
-                break;
+               
+                EditorUtility.SetDirty(SoundData);
+                AssetDatabase.SaveAssets(); 
+                EditorGUILayout.EndHorizontal();
+                EditorGUILayout.EndVertical();
+                return;
             }
             EditorGUILayout.EndHorizontal();
 
@@ -65,12 +70,12 @@ public class SoundManagerEditor : EditorWindow
             EditorGUILayout.EndVertical();
             EditorGUILayout.Space(5);
         }
-        if (GUI.changed)
+        if (EditorGUI.EndChangeCheck())
         {
             EditorUtility.SetDirty(SoundData);
-            AssetDatabase.SaveAssets();
+            //AssetDatabase.SaveAssets();
         }
-        if (Event.current.type == EventType.DragUpdated || Event.current.type == EventType.DragPerform)
+        if (Event.current.type == EventType.DragPerform)
         {
             Repaint();
         }
