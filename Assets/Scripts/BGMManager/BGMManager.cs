@@ -1,20 +1,20 @@
 using System.Collections;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BGMManager : MonoBehaviour
 {
-    public GameObject SettingPanel;
-
     public static BGMManager instance;
-    public AudioClip[] bgmList;
 
+    [Header("데이터 연결")]
+    public SoundDataSO SoundData; 
+
+    [Header("오디오 소스")]
     public AudioSource SourceA;
     public AudioSource SourceB;
+
     private bool isSourceAActive = true;
-
-    private int currentPlayingIndex = -1;
-
+    private AudioClip currentPlayingClip; 
 
     void Awake()
     {
@@ -22,16 +22,36 @@ public class BGMManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public void PlayBGMByIndex(int index, float FadeTime)
+ 
+    public void CheckAndPlayBGM(int currentID)
     {
-        if (currentPlayingIndex == index) return;
+        if (SoundData == null)
+        {
+            Debug.LogWarning("BGMManager: SoundDataSO가 연결되지 않았습니다!");
+            return;
+        }
 
-        currentPlayingIndex = index;
-        AudioClip clip = bgmList[index];
-        StartCoroutine(CrossFade(clip, FadeTime));
+     
+        foreach (var bgmEvent in SoundData.BGMEvents)
+        {
+            if (currentID >= bgmEvent.StartID && currentID <= bgmEvent.EndID)
+            {
+               
+                Debug.Log($"[BGM] ID {currentID} 발견! '{bgmEvent.EventName}' 재생 시도");
+
+                if (currentPlayingClip == bgmEvent.BGMClip) return;
+
+                currentPlayingClip = bgmEvent.BGMClip;
+                StartCoroutine(CrossFade(bgmEvent.BGMClip, bgmEvent.FadeDuration));
+                return;
+            }
+        }
     }
+
     IEnumerator CrossFade(AudioClip clip, float Duration)
     {
+        if (clip == null) yield break;
+
         AudioSource Active = isSourceAActive ? SourceA : SourceB;
         AudioSource Next = isSourceAActive ? SourceB : SourceA;
 
@@ -48,8 +68,8 @@ public class BGMManager : MonoBehaviour
             Next.volume = percent;
             yield return null;
         }
+
         Active.Stop();
         isSourceAActive = !isSourceAActive;
     }
-   
 }

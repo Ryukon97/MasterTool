@@ -41,7 +41,8 @@ public class ChatManager : MonoBehaviour
 
         while (currentEntry != null)
         {
-       
+
+            CheckBGMEvent(currentEntry.id);
             if (BackgroundImage != null)
             {
                 if (currentEntry.BackGroundSprit != null)
@@ -245,7 +246,7 @@ public class ChatManager : MonoBehaviour
         var bgmEvent = bgmSetting.BGMEvents.Find(e => currentID >= e.StartID && currentID <= e.EndID);
         if(bgmEvent !=null)
         {
-            BGMManager.instance.PlayBGMByIndex(bgmEvent.BGMIndex, bgmEvent.FadeDuration);
+            BGMManager.instance.CheckAndPlayBGM(currentID);
         }
     }
 } 
