@@ -80,13 +80,13 @@ public class MainScenario : EditorWindow
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPNG"), new GUIContent("캐릭터 전용 PNG"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("BackGroundSprit"), new GUIContent("배경 이미지"));
 
-                        // --- [여기에 사운드 연출 칸 추가!] ---
+                        
                         EditorGUILayout.Space(5);
                         EditorGUILayout.LabelField("사운드 연출", EditorStyles.boldLabel);
                         
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSound"), new GUIContent("효과음(SE)"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("seVolune"), new GUIContent("SE 볼륨"));
-                        // ------------------------------------
+                    
 
                         EditorGUILayout.Space(10);
 
@@ -117,10 +117,12 @@ public class MainScenario : EditorWindow
                 {
                     serializedObject.ApplyModifiedProperties();
                 }
+
                 if (GUILayout.Button("저장(Force Save)", GUILayout.Height(30)))
                 {
                     EditorUtility.SetDirty(currentSO);
                     AssetDatabase.SaveAssets();
+                
                     Debug.Log("<color=cyan>시나리오 데이터 저장 완료!</color>");
                 }
             }
