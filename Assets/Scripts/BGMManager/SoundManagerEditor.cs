@@ -11,29 +11,39 @@ public class SoundManagerEditor : EditorWindow
     {
         GetWindow<SoundManagerEditor>("BGM Manager");
     }
+
     private void OnGUI()
     {
         GUILayout.Label("배경음 ID 관리자", EditorStyles.boldLabel);
 
+        // 1. 데이터 소스 체크 시작
         EditorGUI.BeginChangeCheck();
         SoundData = (SoundDataSO)EditorGUILayout.ObjectField("Sound Data SO", SoundData, typeof(SoundDataSO), false);
-        if(EditorGUI.EndChangeCheck())
+        if (EditorGUI.EndChangeCheck())
         {
             Repaint();
         }
+
         if (SoundData == null)
         {
             EditorGUILayout.HelpBox("SoundDataSO 파일을 드래그해서 넣어주세요", MessageType.Warning);
             return;
         }
+
+        SerializedObject so = new SerializedObject(SoundData);
+        so.Update();
+
         EditorGUILayout.Space(10);
+
+   
+        EditorGUI.BeginChangeCheck();
+
         if (GUILayout.Button("새 BGM이벤트 추가"))
         {
             if (SoundData.BGMEvents == null)
                 SoundData.BGMEvents = new List<BGMEvent>();
 
             SoundData.BGMEvents.Add(new BGMEvent());
-
             EditorUtility.SetDirty(SoundData);
         }
 
@@ -48,14 +58,15 @@ public class SoundManagerEditor : EditorWindow
             if (GUILayout.Button("X", GUILayout.Width(20)))
             {
                 SoundData.BGMEvents.RemoveAt(i);
-               
                 EditorUtility.SetDirty(SoundData);
-                AssetDatabase.SaveAssets(); 
+                AssetDatabase.SaveAssets();
                 EditorGUILayout.EndHorizontal();
                 EditorGUILayout.EndVertical();
-                return;
+                return; 
             }
             EditorGUILayout.EndHorizontal();
+
+            e.BGMClip = (AudioClip)EditorGUILayout.ObjectField("BGM파일", e.BGMClip, typeof(AudioClip), false);
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("ID범위", GUILayout.Width(50));
@@ -70,11 +81,24 @@ public class SoundManagerEditor : EditorWindow
             EditorGUILayout.EndVertical();
             EditorGUILayout.Space(5);
         }
+        if (so.hasModifiedProperties)
+        {
+            so.ApplyModifiedProperties();
+        }
+
+       
+        if (GUILayout.Button("사운드 설정 저장(Force Save)", GUILayout.Height(30)))
+        {
+            EditorUtility.SetDirty(SoundData); 
+            AssetDatabase.SaveAssets();     
+            Debug.Log("<color=lime>사운드 데이터 저장 완료!</color>");
+        }
+
         if (EditorGUI.EndChangeCheck())
         {
             EditorUtility.SetDirty(SoundData);
-            //AssetDatabase.SaveAssets();
         }
+
         if (Event.current.type == EventType.DragPerform)
         {
             Repaint();

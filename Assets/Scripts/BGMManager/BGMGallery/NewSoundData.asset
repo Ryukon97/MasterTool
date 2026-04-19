@@ -13,8 +13,15 @@ MonoBehaviour:
   m_Name: NewSoundData
   m_EditorClassIdentifier: Assembly-CSharp::SoundDataSO
   BGMEvents:
-  - EventName: 
-    StartID: 0
-    EndID: 0
-    BGMIndex: 0
-    FadeDuration: 1.5
+  - EventName: "\uB3CC\uC544\uAC00\uC2EC"
+    StartID: 1
+    EndID: 6
+    BGMIndex: 1
+    BGMClip: {fileID: 8300000, guid: 2f4ac6393d50f0b45a8d90798b3a2e0d, type: 3}
+    FadeDuration: 0.5
+  - EventName: "\uCCAB\uB9CC\uB0A8"
+    StartID: 7
+    EndID: 12
+    BGMIndex: 1
+    BGMClip: {fileID: 8300000, guid: 674e5835107a49d49801a94f36f43266, type: 3}
+    FadeDuration: 0.5

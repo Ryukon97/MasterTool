@@ -15,5 +15,8 @@ public class BGMEvent
     public int StartID;
     public int EndID;
     public int BGMIndex;
+    public AudioClip BGMClip;
     public float FadeDuration = 1.5f;
+
+    
 }
