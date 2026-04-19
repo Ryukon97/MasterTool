@@ -22,7 +22,12 @@ public class BGMManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
- 
+    public void PlayOneShotSE(AudioClip clip, float volume)
+    {
+        if (clip == null) return;
+        AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position, volume);
+    }
+
     public void CheckAndPlayBGM(int currentID)
     {
         if (SoundData == null)

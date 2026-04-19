@@ -20,28 +20,19 @@ public class MainScenario : EditorWindow
 
         if (currentSO == null)
         {
-            //EditorGUILayout.HelpBox("편집할 다이얼로그 데이터 SO를 드래그하거나 새로 생성하세요.", MessageType.Info);
             if (GUILayout.Button("새 시나리오 파일 생성")) CreateNewSO();
             return;
         }
 
-        //EditorGUILayout.Space();
-        //scrollpos = EditorGUILayout.BeginScrollView(scrollpos);
-
-        //SerializedObject serializedObject = new SerializedObject(currentSO);
-        //serializedObject.Update();
         SerializedObject serializedObject = new SerializedObject(currentSO);
         serializedObject.Update();
 
         scrollpos = EditorGUILayout.BeginScrollView(scrollpos);
 
-      
-
         SerializedProperty entriesProperty = serializedObject.FindProperty("entries");
 
         if (entriesProperty != null)
         {
-          
             EditorGUILayout.BeginHorizontal();
             {
                 entriesProperty.isExpanded = EditorGUILayout.Foldout(entriesProperty.isExpanded, "전체 대사 리스트 (Entries)", true);
@@ -65,8 +56,6 @@ public class MainScenario : EditorWindow
 
                 for (int i = 0; i < entriesProperty.arraySize; i++)
                 {
-
-
                     SerializedProperty element = entriesProperty.GetArrayElementAtIndex(i);
                     SerializedProperty idProp = element.FindPropertyRelative("id");
                     SerializedProperty nameProp = element.FindPropertyRelative("speakerName");
@@ -81,25 +70,32 @@ public class MainScenario : EditorWindow
                     {
                         EditorGUI.indentLevel++;
 
-                        
                         if (idProp != null) EditorGUILayout.PropertyField(idProp, new GUIContent("고유 ID"));
                         EditorGUILayout.PropertyField(nameProp, new GUIContent("화자 이름"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("dialogueText"), new GUIContent("대사 내용"));
 
                         EditorGUILayout.Space(10);
-          
+
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("characterIllust"), new GUIContent("캐릭터 통 일러스트"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPNG"), new GUIContent("캐릭터 전용 PNG"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("BackGroundSprit"), new GUIContent("배경 이미지"));
 
+                        // --- [여기에 사운드 연출 칸 추가!] ---
+                        EditorGUILayout.Space(5);
+                        EditorGUILayout.LabelField("사운드 연출", EditorStyles.boldLabel);
+                        
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSound"), new GUIContent("효과음(SE)"));
+                        EditorGUILayout.PropertyField(element.FindPropertyRelative("seVolune"), new GUIContent("SE 볼륨"));
+                        // ------------------------------------
+
                         EditorGUILayout.Space(10);
-                   
+
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPos"), new GUIContent("위치 (X, Y)"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterRotation"), new GUIContent("회전 (Z축)"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("moveDuration"), new GUIContent("이동 시간(초)"));
 
                         EditorGUILayout.Space(10);
-                     
+
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSprite"), new GUIContent("이펙트 PNG"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectPos"), new GUIContent("이펙트 위치"));
                         EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectScale"), new GUIContent("이펙트 크기"));
@@ -112,13 +108,12 @@ public class MainScenario : EditorWindow
                     }
                 }
 
-            
+              
                 EditorGUILayout.EndScrollView();
 
                 EditorGUILayout.Space();
 
-
-                if(serializedObject.hasModifiedProperties)
+                if (serializedObject.hasModifiedProperties)
                 {
                     serializedObject.ApplyModifiedProperties();
                 }

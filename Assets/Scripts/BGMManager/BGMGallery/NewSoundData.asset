@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoundDataSO
   BGMEvents:
   - EventName: "\uB3CC\uC544\uAC00\uC2EC"
-    StartID: 0
+    StartID: 1
     EndID: 6
-    BGMIndex: 6
+    BGMIndex: 8
     BGMClip: {fileID: 8300000, guid: 2f4ac6393d50f0b45a8d90798b3a2e0d, type: 3}
     FadeDuration: 1.22
   - EventName: "\uCCAB\uB9CC\uB0A8"

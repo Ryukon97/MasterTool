@@ -43,6 +43,12 @@ public class ChatManager : MonoBehaviour
         {
 
             CheckBGMEvent(currentEntry.id);
+
+            if (currentEntry.EffectSound != null && BGMManager.instance != null)
+            {
+                
+                BGMManager.instance.PlayOneShotSE(currentEntry.EffectSound, currentEntry.seVolune);
+            }
             if (BackgroundImage != null)
             {
                 if (currentEntry.BackGroundSprit != null)
