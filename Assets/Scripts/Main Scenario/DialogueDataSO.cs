@@ -8,7 +8,7 @@ public class DialogueDataSO : ScriptableObject
     public List<DialogueEntry> entries = new List<DialogueEntry>();
 }
 
-[CreateAssetMenu(fileName = "NewSoiundData",menuName = "Scenario/SoundData")]
+[CreateAssetMenu(fileName = "NewSoundData",menuName = "Scenario/SoundData")]
 public class SoundDataSO : ScriptableObject
 {
     public List<BGMEvent> BGMEvents = new List<BGMEvent>();
