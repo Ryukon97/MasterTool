@@ -3358,6 +3358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChatManager
   currentScenario: {fileID: 11400000, guid: 9324fe8bf0e1b7e4496f22889f14d11f, type: 2}
+  bgmSetting: {fileID: 0}
   ChatText: {fileID: 984630787}
   CharacterName: {fileID: 1558901556}
   choicePanel: {fileID: 72045048}
@@ -3366,6 +3367,7 @@ MonoBehaviour:
   - {fileID: 458461745}
   CharacterImage: {fileID: 941290623}
   BackgroundImage: {fileID: 1099186125}
+  EffectImage: {fileID: 0}
   isPausedByMenu: 0
 --- !u!1 &941290621
 GameObject:

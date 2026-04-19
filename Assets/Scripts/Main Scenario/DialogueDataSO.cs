@@ -8,21 +8,21 @@ public class DialogueDataSO : ScriptableObject
     public List<DialogueEntry> entries = new List<DialogueEntry>();
 }
 
-[CreateAssetMenu(fileName = "NewSoundData",menuName = "Scenario/SoundData")]
-public class SoundDataSO : ScriptableObject
-{
-    public List<BGMEvent> BGMEvents = new List<BGMEvent>();
-}
+//[CreateAssetMenu(fileName = "NewSoundData", menuName = "Scenario/SoundData")]
+//public class SoundDataSO : ScriptableObject
+//{
+//    public List<BGMEvent> BGMEvents = new List<BGMEvent>();
+//}
 
-[System.Serializable]
-public class  BGMEvent
-{
-    public string eventName;
-    public int StartID;
-    public int endID;
-    public int bgmIndex;
-    public float FadeDuration = 1.5f;
-}
+//[System.Serializable]
+//public class BGMEvent
+//{
+//    public string eventName;
+//    public int StartID;
+//    public int endID;
+//    public int bgmIndex;
+//    public float FadeDuration = 1.5f;
+//}
 
 
 

@@ -242,10 +242,10 @@ public class ChatManager : MonoBehaviour
     void CheckBGMEvent(int currentID)
     {
 
-        var bgmEvent = bgmSetting.BGMEvents.Find(e => currentID >= e.StartID && currentID <= e.endID);
+        var bgmEvent = bgmSetting.BGMEvents.Find(e => currentID >= e.StartID && currentID <= e.EndID);
         if(bgmEvent !=null)
         {
-            BGMManager.instance.PlayBGMByIndex(bgmEvent.bgmIndex, bgmEvent.FadeDuration);
+            BGMManager.instance.PlayBGMByIndex(bgmEvent.BGMIndex, bgmEvent.FadeDuration);
         }
     }
 } 

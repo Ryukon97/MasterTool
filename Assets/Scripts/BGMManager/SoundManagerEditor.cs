@@ -34,7 +34,7 @@ public class SoundManagerEditor : EditorWindow
             EditorGUILayout.BeginVertical("Box");
 
             EditorGUILayout.BeginHorizontal();
-            e.eventName = EditorGUILayout.TextField("이름",e.eventName);
+            e.EventName = EditorGUILayout.TextField("이름",e.EventName);
             if(GUILayout.Button("X",GUILayout.Width(20)))
             {
                 SoundData.BGMEvents.RemoveAt(i);
@@ -46,10 +46,10 @@ public class SoundManagerEditor : EditorWindow
             EditorGUILayout.LabelField("ID범위", GUILayout.Width(50));
             e.StartID = EditorGUILayout.IntField(e.StartID);
             EditorGUILayout.LabelField("~",GUILayout.Width(15));
-            e.endID = EditorGUILayout.IntField(e.endID);
+            e.EndID = EditorGUILayout.IntField(e.EndID);
             EditorGUILayout.EndHorizontal();
 
-            e.bgmIndex = EditorGUILayout.IntField("BGM인덱스",e.bgmIndex);
+            e.BGMIndex = EditorGUILayout.IntField("BGM인덱스",e.BGMIndex);
             e.FadeDuration = EditorGUILayout.Slider("디졸브 시간",e.FadeDuration,0f,5f);
 
             EditorGUILayout.EndVertical();
@@ -59,6 +59,10 @@ public class SoundManagerEditor : EditorWindow
         {
             EditorUtility.SetDirty(SoundData);
             AssetDatabase.SaveAssets();
+        }
+        if(GUI.changed || Event.current.type == EventType.DragPerform)
+        {
+            Repaint();
         }
     }
 }
