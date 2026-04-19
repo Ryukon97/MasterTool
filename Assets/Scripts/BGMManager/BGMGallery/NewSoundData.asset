@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720e887efb9f37940828b07ff70d9686, type: 3}
   m_Name: NewSoundData
   m_EditorClassIdentifier: Assembly-CSharp::SoundDataSO
-  BGMEvents: []
+  BGMEvents:
+  - EventName: 
+    StartID: 0
+    EndID: 0
+    BGMIndex: 0
+    FadeDuration: 1.5
