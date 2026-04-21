@@ -6,27 +6,17 @@ using System.Collections.Generic;
 public class DialogueDataSO : ScriptableObject
 {
     public List<DialogueEntry> entries = new List<DialogueEntry>();
+    [Header("챕터내 다음 시나리오 설정 * 씬안에서만 들어갈 시나리오를 뜻 합니다")]
+    [Tooltip("어느 씬에 넣을지 확인후 다음 이야기의 SO파일을 넣어주세요!")]
+    public DialogueDataSO nextStorySO;
 }
 
-//[CreateAssetMenu(fileName = "NewSoundData", menuName = "Scenario/SoundData")]
-//public class SoundDataSO : ScriptableObject
-//{
-//    public List<BGMEvent> BGMEvents = new List<BGMEvent>();
-//}
-
-//[System.Serializable]
-//public class BGMEvent
-//{
-//    public string eventName;
-//    public int StartID;
-//    public int endID;
-//    public int bgmIndex;
-//    public float FadeDuration = 1.5f;
-//}
-
-
-
-
+[System.Serializable]
+public class DialogueGroup
+{
+    public string GroupName;
+    public List<DialogueEntry> entries = new List<DialogueEntry>();
+}
 
 [System.Serializable]
 public class DialogueEntry

@@ -46,7 +46,7 @@ public class ChatManager : MonoBehaviour
 
             if (currentEntry.EffectSound != null && BGMManager.instance != null)
             {
-                
+
                 BGMManager.instance.PlayOneShotSE(currentEntry.EffectSound, currentEntry.seVolune);
             }
             if (BackgroundImage != null)
@@ -56,43 +56,43 @@ public class ChatManager : MonoBehaviour
                     BackgroundImage.gameObject.SetActive(true);
                     BackgroundImage.sprite = currentEntry.BackGroundSprit;
                 }
-               
+
             }
 
-          
+
             if (CharacterImage != null)
             {
-                if (currentEntry.CharacterPNG != null) 
+                if (currentEntry.CharacterPNG != null)
                 {
                     CharacterImage.gameObject.SetActive(true);
                     CharacterImage.sprite = currentEntry.CharacterPNG;
                     CharacterImage.SetNativeSize();
 
-                  
+
                     //CharacterImage.rectTransform.localRotation = Quaternion.Euler(0, 0, currentEntry.CharacterRotation);
 
                     if (CharacterMoveCoroutine != null) StopCoroutine(CharacterMoveCoroutine); // XY축으로 움직이는거
                     CharacterMoveCoroutine = StartCoroutine(AnimateCharacter(currentEntry.CharacterPos, currentEntry.moveDuration));
 
-                    if(RotationCoroutine != null) StopCoroutine(RotationCoroutine);
-                    RotationCoroutine = StartCoroutine(AnimationRotation(currentEntry.CharacterRotation,currentEntry.moveDuration));
+                    if (RotationCoroutine != null) StopCoroutine(RotationCoroutine);
+                    RotationCoroutine = StartCoroutine(AnimationRotation(currentEntry.CharacterRotation, currentEntry.moveDuration));
                 }
-                else if (currentEntry.characterIllust != null) 
+                else if (currentEntry.characterIllust != null)
                 {
                     CharacterImage.gameObject.SetActive(true);
                     CharacterImage.sprite = currentEntry.characterIllust;
 
-                   
+
                     CharacterImage.rectTransform.anchoredPosition = Vector2.zero;
                     CharacterImage.rectTransform.localRotation = Quaternion.identity;
                 }
-                else 
+                else
                 {
                     CharacterImage.gameObject.SetActive(false);
                 }
             }
 
-      
+
             if (EffectImage != null)
             {
                 if (currentEntry.EffectSprite != null)
@@ -109,7 +109,7 @@ public class ChatManager : MonoBehaviour
                 }
             }
 
-            
+
             yield return StartCoroutine(NormalChatOnlyText(currentEntry.speakerName, currentEntry.dialogueText));
             yield return StartCoroutine(WaitForInput());
 
@@ -129,7 +129,7 @@ public class ChatManager : MonoBehaviour
                 nextID = currentEntry.id + 1;
             }
 
-         
+
             currentEntry = currentScenario.entries.Find(x => x.id == nextID);
 
             if (currentEntry == null)
@@ -141,9 +141,9 @@ public class ChatManager : MonoBehaviour
         }
     }
 
-   
 
-    IEnumerator AnimateCharacter(Vector2 TargetPos,float duration)
+
+    IEnumerator AnimateCharacter(Vector2 TargetPos, float duration)
     {
         RectTransform rect = CharacterImage.rectTransform;
         Vector2 startPos = rect.anchoredPosition;
@@ -245,6 +245,18 @@ public class ChatManager : MonoBehaviour
                    (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame);
         });
     }
+    void EndOfDialogue()
+    {
+        if (currentScenario.nextStorySO !=null);
+        {
+            LoadChapter(currentScenario.nextStorySO);
+        }
+    else
+    {
+            FinishGame();
+    }
+    }
+
 
     void CheckBGMEvent(int currentID)
     {

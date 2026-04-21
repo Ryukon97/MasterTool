@@ -24,6 +24,8 @@ public class MainScenario : EditorWindow
             return;
         }
 
+
+
         SerializedObject serializedObject = new SerializedObject(currentSO);
         serializedObject.Update();
 
