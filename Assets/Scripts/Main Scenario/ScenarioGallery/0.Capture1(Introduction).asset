@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd63ed5494271e14d9b35d236d5d0cca, type: 3}
-  m_Name: Capture1
+  m_Name: 0.Capture1(Introduction)
   m_EditorClassIdentifier: Assembly-CSharp::DialogueDataSO
   entries:
   - id: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
     EffectSound: {fileID: 8300000, guid: 71c075d4b697f724bb376dd42de0c8bb, type: 3}
     seVolune: 1
     CharacterPos: {x: 0, y: -100}
-    moveDuration: 0.5
+    moveDuration: 0.289
     CharacterRotation: 0
     EffectSprite: {fileID: 0}
     EffectPos: {x: 0, y: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
     EffectSound: {fileID: 0}
     seVolune: 0
     CharacterPos: {x: 0, y: -200}
-    moveDuration: 0.5
+    moveDuration: 0.672
     CharacterRotation: 0
     EffectSprite: {fileID: 0}
     EffectPos: {x: 0, y: 0}
