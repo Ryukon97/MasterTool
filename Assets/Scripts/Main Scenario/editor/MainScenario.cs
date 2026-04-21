@@ -24,15 +24,55 @@ public class MainScenario : EditorWindow
             return;
         }
 
+        EditorGUILayout.Space(5);
+        GUILayout.BeginVertical("box");
+        {
+            GUILayout.Label("📂 그룹 관리", EditorStyles.miniBoldLabel);
 
+            if (currentSO.groups == null || currentSO.groups.Count == 0)
+            {
+                if (GUILayout.Button("+ 첫 번째 그룹 생성"))
+                {
+                    currentSO.groups = new List<DialogueGroup> { new DialogueGroup { GroupName = "기본 그룹" } };
+                }
+                return; // 그룹이 없으면 아래 로직 진행 불가
+            }
+
+            // 그룹 선택 툴바 (상단 탭 형식)
+            string[] groupNames = new string[currentSO.groups.Count];
+            for (int i = 0; i < currentSO.groups.Count; i++)
+                groupNames[i] = string.IsNullOrEmpty(currentSO.groups[i].GroupName) ? $"그룹 {i}" : currentSO.groups[i].GroupName;
+
+            selectedGroupIndex = GUILayout.Toolbar(selectedGroupIndex, groupNames);
+
+            EditorGUILayout.BeginHorizontal();
+            if (GUILayout.Button("그룹 추가")) currentSO.groups.Add(new DialogueGroup { GroupName = "새 그룹" });
+            if (GUILayout.Button("현재 그룹 삭제") && currentSO.groups.Count > 1)
+            {
+                currentSO.groups.RemoveAt(selectedGroupIndex);
+                selectedGroupIndex = Mathf.Clamp(selectedGroupIndex - 1, 0, currentSO.groups.Count - 1);
+            }
+            EditorGUILayout.EndHorizontal();
+        }
+        GUILayout.EndVertical();
+        // ---------------------------------------------------------
 
         SerializedObject serializedObject = new SerializedObject(currentSO);
         serializedObject.Update();
 
+        // [중요 수정] 현재 선택된 그룹의 이름을 수정할 수 있게 함
+        SerializedProperty groupsProp = serializedObject.FindProperty("groups");
+        SerializedProperty currentGroupProp = groupsProp.GetArrayElementAtIndex(selectedGroupIndex);
+        EditorGUILayout.PropertyField(currentGroupProp.FindPropertyRelative("GroupName"), new GUIContent("현재 그룹 이름"));
+
         scrollpos = EditorGUILayout.BeginScrollView(scrollpos);
 
-        SerializedProperty entriesProperty = serializedObject.FindProperty("entries");
-
+        // ---------------------------------------------------------
+        // [추가 포인트 2: 'entries' 경로 수정]
+        // 기존: serializedObject.FindProperty("entries")
+        // 변경: 현재 선택된 그룹 내의 entries를 찾아야 함
+        // ---------------------------------------------------------
+        SerializedProperty entriesProperty = currentGroupProp.FindPropertyRelative("entries");
         if (entriesProperty != null)
         {
             EditorGUILayout.BeginHorizontal();
