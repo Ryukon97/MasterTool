@@ -17,8 +17,8 @@ MonoBehaviour:
     GroupName: "\uCCAB\uB9CC\uB0A8"
     entries:
     - id: 0
-      speakerName: "\uB098"
-      dialogueText: 
+      speakerName: "\uD55C\uC11C\uC544"
+      dialogueText: "\uD14C\uC2A4\uD2B8"
       characterIllust: {fileID: 0}
       BackGroundSprit: {fileID: 0}
       EffectSound: {fileID: 0}
@@ -32,17 +32,17 @@ MonoBehaviour:
       - choiceText: 
         choiceIndex: 0
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: -100}
+        CharacterPNG: {fileID: -6407887315191105737, guid: 310b85db2dada9546b94ef72e77ddf6e, type: 3}
+        CharacterPos: {x: -400, y: -150}
         CharacterScale: 1
         CharacterRotation: 0
-        moveDuration: 0.5
+        moveDuration: 0
       Char2:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: -100}
+        CharacterPNG: {fileID: -4297706649009758931, guid: 18311393cfa780342830ef2f76b8e62c, type: 3}
+        CharacterPos: {x: 400, y: -150}
         CharacterScale: 1
         CharacterRotation: 0
-        moveDuration: 0.5
+        moveDuration: 0
       nextIndexOverride: -1
   - id: 0
     GroupName: 'BadEnding1 [ID:100]'

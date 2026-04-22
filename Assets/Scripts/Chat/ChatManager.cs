@@ -75,38 +75,47 @@ public class ChatManager : MonoBehaviour
             }
 
 
-            if (CharacterImage != null) // 캐릭터 관련 값조절하는 거
+            if (CharacterImage != null)
             {
                 if (currentEntry.Char1 != null && currentEntry.Char1.CharacterPNG != null)
                 {
                     CharacterImage.gameObject.SetActive(true);
                     CharacterImage.sprite = currentEntry.Char1.CharacterPNG;
                     CharacterImage.SetNativeSize();
+                    CharacterImage.rectTransform.localScale = Vector3.one * currentEntry.Char1.CharacterScale;
 
-                    CharacterImage.rectTransform.localScale = Vector3.one*currentEntry.Char1.CharacterScale; //캐릭터 스케일값
-                    //CharacterImage.rectTransform.localRotation = Quaternion.Euler(0, 0, currentEntry.CharacterRotation);
+                    if (CharacterMoveCoroutine != null) StopCoroutine(CharacterMoveCoroutine);
+                    CharacterMoveCoroutine = StartCoroutine(AnimateCharacter(CharacterImage, currentEntry.Char1.CharacterPos, currentEntry.Char1.moveDuration));
 
-                    if (CharacterMoveCoroutine != null) StopCoroutine(CharacterMoveCoroutine); // XY축으로 움직이는거
-                    CharacterMoveCoroutine = StartCoroutine(AnimateCharacter(currentEntry.Char1.CharacterPos, currentEntry.Char1.moveDuration));
-
-                    if (RotationCoroutine != null) StopCoroutine(RotationCoroutine); //Z축 회전
-                    RotationCoroutine = StartCoroutine(AnimationRotation(currentEntry.Char1.CharacterRotation, currentEntry.Char1.moveDuration));
+                    if (RotationCoroutine != null) StopCoroutine(RotationCoroutine);
+                    RotationCoroutine = StartCoroutine(AnimationRotation(CharacterImage, currentEntry.Char1.CharacterRotation, currentEntry.Char1.moveDuration));
                 }
                 else if (currentEntry.characterIllust != null)
                 {
                     CharacterImage.gameObject.SetActive(true);
                     CharacterImage.sprite = currentEntry.characterIllust;
-
-
                     CharacterImage.rectTransform.anchoredPosition = Vector2.zero;
                     CharacterImage.rectTransform.localRotation = Quaternion.identity;
                 }
-                else
-                {
-                    CharacterImage.gameObject.SetActive(false);
-                }
+                else { CharacterImage.gameObject.SetActive(false); }
             }
 
+           
+            if (CharacterImage2 != null)
+            {
+                if (currentEntry.Char2 != null && currentEntry.Char2.CharacterPNG != null)
+                {
+                    CharacterImage2.gameObject.SetActive(true);
+                    CharacterImage2.sprite = currentEntry.Char2.CharacterPNG;
+                    CharacterImage2.SetNativeSize();
+                    CharacterImage2.rectTransform.localScale = Vector3.one * currentEntry.Char2.CharacterScale;
+
+                   
+                    StartCoroutine(AnimateCharacter(CharacterImage2, currentEntry.Char2.CharacterPos, currentEntry.Char2.moveDuration));
+                    StartCoroutine(AnimationRotation(CharacterImage2, currentEntry.Char2.CharacterRotation, currentEntry.Char2.moveDuration));
+                }
+                else { CharacterImage2.gameObject.SetActive(false); }
+            }
 
             if (EffectImage != null) // 이펙트 관련
             {
@@ -176,12 +185,12 @@ public class ChatManager : MonoBehaviour
 
 
 
-    IEnumerator AnimateCharacter(Vector2 TargetPos, float duration)
+    IEnumerator AnimateCharacter(UnityEngine.UI.Image targetImage, Vector2 TargetPos, float duration)
     {
-        RectTransform rect = CharacterImage.rectTransform;
+        if (targetImage == null) yield break;
+        RectTransform rect = targetImage.rectTransform;
         Vector2 startPos = rect.anchoredPosition;
         float elapsed = 0f;
-
 
         if (duration <= 0f)
         {
@@ -198,9 +207,10 @@ public class ChatManager : MonoBehaviour
         rect.anchoredPosition = TargetPos;
     }
 
-    IEnumerator AnimationRotation(float TragetZRotation, float Duration)
+    IEnumerator AnimationRotation(UnityEngine.UI.Image targetImage, float TragetZRotation, float Duration)
     {
-        RectTransform rect = CharacterImage.rectTransform;
+        if (targetImage == null) yield break;
+        RectTransform rect = targetImage.rectTransform;
         Quaternion StartRot = rect.localRotation;
         Quaternion TargetRot = Quaternion.Euler(0, 0, TragetZRotation);
         float elapsed = 0f;

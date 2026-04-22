@@ -8,6 +8,8 @@ public class MainScenario : EditorWindow
     private DialogueDataSO currentSO;
     private Vector2 scrollpos;
     private int selectedGroupindex = 0;
+    //public Image CharacterImage1;
+    //public Image CharacterImage2;
 
     [MenuItem("MasterTools/Scenario Editor")]
     public static void ShowWindow()
@@ -189,9 +191,10 @@ public class MainScenario : EditorWindow
                             }
 
                         }
-                        EditorGUI.indentLevel--;
+
 
                     }
+                    EditorGUI.indentLevel--;
                 }
 
             }
