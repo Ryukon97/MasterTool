@@ -64,6 +64,9 @@ public class DialogueEntry
     [Header("효과음")]
     public AudioClip EffectSound;
     [Range(0f, 1f)] public float seVolune = 1f;
+    [Header("캐릭터 크기조절")]
+    [Range(0f, 3f)]
+    public float CharacterScale = 1f;
     [Header("캐릭터 애니메이션칸 X는 +하면 오른쪽으로이동 Y는+하면 위로이동합니다 ")]
     public Vector2 CharacterPos = new Vector2(0, -100);
     [Header(" 왼쪽에 가까우면 속도가 빨라지고 오른쪽에 당기면 속도가 느려집니다")]

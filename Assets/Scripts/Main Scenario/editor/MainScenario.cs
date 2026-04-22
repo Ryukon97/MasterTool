@@ -124,6 +124,7 @@ public class MainScenario : EditorWindow
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("seVolune"), new GUIContent("SE 볼륨"));
                             EditorGUILayout.Space(10);
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPos"), new GUIContent("위치 (X, Y)"));
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterScale "),new GUIContent("캐릭터 크기값"));
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterRotation"), new GUIContent("회전 (Z축)"));
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("moveDuration"), new GUIContent("이동 시간(초)"));
                             EditorGUILayout.Space(10);

@@ -20,11 +20,11 @@ MonoBehaviour:
       speakerName: "\uB098"
       dialogueText: 
       characterIllust: {fileID: 0}
-      CharacterPNG: {fileID: 0}
+      CharacterPNG: {fileID: -6407887315191105737, guid: 310b85db2dada9546b94ef72e77ddf6e, type: 3}
       BackGroundSprit: {fileID: 0}
       EffectSound: {fileID: 0}
       seVolune: 0
-      CharacterPos: {x: 0, y: 0}
+      CharacterPos: {x: -600, y: -200}
       moveDuration: 0
       CharacterRotation: 0
       EffectSprite: {fileID: 0}
@@ -32,7 +32,7 @@ MonoBehaviour:
       EffectScale: 0
       choices: []
       nextIndexOverride: -1
-    - id: 0
+    - id: 1
       speakerName: "\uB098"
       dialogueText: 
       characterIllust: {fileID: 0}

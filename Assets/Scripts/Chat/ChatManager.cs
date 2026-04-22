@@ -74,7 +74,7 @@ public class ChatManager : MonoBehaviour
             }
 
 
-            if (CharacterImage != null)
+            if (CharacterImage != null) // 캐릭터 관련 값조절하는 거
             {
                 if (currentEntry.CharacterPNG != null)
                 {
@@ -82,13 +82,13 @@ public class ChatManager : MonoBehaviour
                     CharacterImage.sprite = currentEntry.CharacterPNG;
                     CharacterImage.SetNativeSize();
 
-
+                    CharacterImage.rectTransform.localScale = Vector3.one*currentEntry.CharacterScale; //캐릭터 스케일값
                     //CharacterImage.rectTransform.localRotation = Quaternion.Euler(0, 0, currentEntry.CharacterRotation);
 
                     if (CharacterMoveCoroutine != null) StopCoroutine(CharacterMoveCoroutine); // XY축으로 움직이는거
                     CharacterMoveCoroutine = StartCoroutine(AnimateCharacter(currentEntry.CharacterPos, currentEntry.moveDuration));
 
-                    if (RotationCoroutine != null) StopCoroutine(RotationCoroutine);
+                    if (RotationCoroutine != null) StopCoroutine(RotationCoroutine); //Z축 회전
                     RotationCoroutine = StartCoroutine(AnimationRotation(currentEntry.CharacterRotation, currentEntry.moveDuration));
                 }
                 else if (currentEntry.characterIllust != null)
@@ -107,7 +107,7 @@ public class ChatManager : MonoBehaviour
             }
 
 
-            if (EffectImage != null)
+            if (EffectImage != null) // 이펙트 관련
             {
                 if (currentEntry.EffectSprite != null)
                 {
@@ -151,11 +151,9 @@ public class ChatManager : MonoBehaviour
             foreach (var group in currentScenario.groups)
             {
                 NextfoundEntry = group.entries.Find(x => x.id == nextID);
-                Debug.Log($"<color=lime>성공: {group.GroupName} 그룹에서 {nextID}번 대사를 찾았습니다!</color>");
+               
                 if (NextfoundEntry != null) break;
-                {
-                    Debug.LogError($"<color=red>실패: {nextID}번 대사를 어떤 그룹에서도 찾을 수 없습니다!</color>");
-                }
+               
             }
 
             currentEntry = NextfoundEntry;
