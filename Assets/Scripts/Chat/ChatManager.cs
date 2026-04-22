@@ -35,20 +35,23 @@ public class ChatManager : MonoBehaviour
         }
     }
 
-    IEnumerator PlayDialogue(int startID)
+    public IEnumerator PlayDialogue(int startID)
     {
         //int currentGroupIdx = 0;
         //currentEntry = currentScenario.groups[currentGroupIdx].entries.Find(x => x.id == startID);
-        DialogueEntry foundEntry = null;
+
+        DialogueEntry EntryToPlay = null;
 
        
         foreach (var group in currentScenario.groups)
         {
-            foundEntry = group.entries.Find(x => x.id == startID);
-            if (foundEntry != null) break; 
+            EntryToPlay = group.entries.Find(x => x.id == startID);
+            if (EntryToPlay != null)
+                break; 
         }
 
-        currentEntry = foundEntry;
+        currentEntry = EntryToPlay;
+
         while (currentEntry != null)
         {
 
@@ -141,12 +144,27 @@ public class ChatManager : MonoBehaviour
 
 
             //currentEntry = currentScenario.groups[currentGroupIdx].entries.Find(x => x.id == nextID);
-            currentEntry = foundEntry;
+            DialogueEntry NextfoundEntry = null;
+
+
+            foreach (var group in currentScenario.groups)
+            {
+                NextfoundEntry = group.entries.Find(x => x.id == startID);
+                if (NextfoundEntry != null) break;
+            }
+
+            currentEntry = NextfoundEntry;
 
             if (currentEntry == null)
             {
                 if (CharacterImage != null) CharacterImage.gameObject.SetActive(false);
                 Debug.Log("<color=yellow>시나리오가 끝났습니다!</color>");
+
+                ScenarioController controller = FindAnyObjectByType<ScenarioController>();
+                if (controller != null)
+                {
+                    controller.EndOfDialogue();
+                }
                 break;
             }
         }

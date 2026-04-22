@@ -6,7 +6,7 @@ public class MainScenario : EditorWindow
 {
     private DialogueDataSO currentSO;
     private Vector2 scrollpos;
-    private int selectedGroupindex = 0; 
+    private int selectedGroupindex = 0;
 
     [MenuItem("MasterTools/Scenario Editor")]
     public static void ShowWindow()
@@ -27,7 +27,7 @@ public class MainScenario : EditorWindow
 
         EditorGUILayout.Space(5);
 
-     
+
         GUILayout.BeginVertical("box");
         {
             GUILayout.Label(" 그룹 관리", EditorStyles.miniBoldLabel);
@@ -39,7 +39,7 @@ public class MainScenario : EditorWindow
                     currentSO.groups = new List<DialogueGroup> { new DialogueGroup { GroupName = "기본 그룹" } };
                 }
 
-         
+
                 GUILayout.EndVertical();
                 return;
             }
@@ -69,8 +69,8 @@ public class MainScenario : EditorWindow
         SerializedProperty currentGroupProp = groupsProp.GetArrayElementAtIndex(selectedGroupindex);
         EditorGUILayout.PropertyField(currentGroupProp.FindPropertyRelative("GroupName"), new GUIContent("현재 그룹 이름"));
 
-       
-        scrollpos = EditorGUILayout.BeginScrollView(scrollpos); 
+
+        scrollpos = EditorGUILayout.BeginScrollView(scrollpos);
         {
             SerializedProperty entriesProperty = currentGroupProp.FindPropertyRelative("entries");
             if (entriesProperty != null)
@@ -155,8 +155,13 @@ public class MainScenario : EditorWindow
             AssetDatabase.SaveAssets();
             Debug.Log("<color=cyan>시나리오 데이터 저장 완료!</color>");
         }
-    }
+        serializedObject.ApplyModifiedProperties();
+        EditorUtility.SetDirty(currentSO);
 
+
+
+    } // 시나리오 에디터 UI그리는 칸
+    
     private void CreateNewSO()
     {
         DialogueDataSO asset = ScriptableObject.CreateInstance<DialogueDataSO>();
@@ -178,6 +183,6 @@ public class MainScenario : EditorWindow
         Debug.Log($"<color=green>새 시나리오 생성 완료: {fullPath}</color>");
     }
 
-   
-
 }
+
+ 
