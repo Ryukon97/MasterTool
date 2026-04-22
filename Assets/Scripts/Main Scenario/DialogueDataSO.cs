@@ -1,5 +1,9 @@
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 
 [CreateAssetMenu(fileName = "NewScenario", menuName = "Scenario/DialogueData")] //t시나리오 에디터
@@ -11,7 +15,27 @@ public class DialogueDataSO : ScriptableObject
     [Header("챕터내 다음 시나리오 설정 * 씬안에서만 들어갈 시나리오를 뜻 합니다")]
     [Tooltip("어느 씬에 넣을지 확인후 다음 이야기의 SO파일을 넣어주세요!")]
     public DialogueDataSO nextStorySO;
+#if UNITY_EDITOR
+
+    [ContextMenu("ID 일괄 재정렬")]
+    public void ReorderIDs()
+    {
+        int currentID = 0;
+        foreach (var group in groups)
+        {
+            foreach (var entry in group.entries)
+            {
+                entry.id = currentID++;
+            }
+        }
+        EditorUtility.SetDirty(this);
+        Debug.Log("<color=lime>모든 대사 ID가 순차적으로 재정렬되었습니다!</color>");
+    }
+#endif
 }
+
+
+
 
 [System.Serializable]
 public class DialogueGroup
@@ -39,7 +63,7 @@ public class DialogueEntry
 
     [Header("효과음")]
     public AudioClip EffectSound;
-    [Range(0f, 1f)] public float seVolune =1f;
+    [Range(0f, 1f)] public float seVolune = 1f;
     [Header("캐릭터 애니메이션칸 X는 +하면 오른쪽으로이동 Y는+하면 위로이동합니다 ")]
     public Vector2 CharacterPos = new Vector2(0, -100);
     [Header(" 왼쪽에 가까우면 속도가 빨라지고 오른쪽에 당기면 속도가 느려집니다")]
@@ -52,11 +76,18 @@ public class DialogueEntry
     public Vector2 EffectPos;
     public float EffectScale = 1f;
     [Header(" 선택지 전용칸 해당 id숫자를 넣으면 클릭시 이동합니다")]
-    public List<ChoiceData> choices = new List<ChoiceData> ();
+    public List<ChoiceData> choices = new List<ChoiceData>();
 
     [Header("이 대사 이후 이동할 번호 (기본 값 -1은 순차진행)")]
     public int nextIndexOverride = -1;
 }
+
+
+
+
+
+
+
 
 [System.Serializable]
 public class ChoiceData
@@ -64,3 +95,5 @@ public class ChoiceData
     public string choiceText;
     public int choiceIndex;
 }
+
+
