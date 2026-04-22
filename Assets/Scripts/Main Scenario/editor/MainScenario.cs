@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 public class MainScenario : EditorWindow
 {
@@ -115,36 +116,59 @@ public class MainScenario : EditorWindow
                             EditorGUILayout.PropertyField(nameProp, new GUIContent("화자 이름"));
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("dialogueText"), new GUIContent("대사 내용"));
                             EditorGUILayout.Space(10);
-                            EditorGUILayout.PropertyField(element.FindPropertyRelative("characterIllust"), new GUIContent("캐릭터 통 일러스트"));
-                            EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPNG"), new GUIContent("캐릭터 전용 PNG"));
-                            EditorGUILayout.PropertyField(element.FindPropertyRelative("BackGroundSprit"), new GUIContent("배경 이미지"));
-                            EditorGUILayout.Space(5);
-                            EditorGUILayout.LabelField("사운드 연출", EditorStyles.boldLabel);
-                            EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSound"), new GUIContent("효과음(SE)"));
-                            EditorGUILayout.PropertyField(element.FindPropertyRelative("seVolune"), new GUIContent("SE 볼륨"));
-                            EditorGUILayout.Space(10);
-                            SerializedProperty CharFolderProp = element.FindPropertyRelative("CharacterPNG"); //캐릭터 삼각형
-                            CharFolderProp.isExpanded = EditorGUILayout.Foldout(CharFolderProp.isExpanded, " 캐릭터 연출 설정 (이미지/트랜스폼)", true);
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("nextIndexOverride"), new GUIContent("강제 이동 ID"));
 
+
+                            EditorGUILayout.Space(10);// 효과음관련
+                            SerializedProperty SoundFolderProp = element.FindPropertyRelative("EffectSound"); 
+                            SoundFolderProp.isExpanded = EditorGUILayout.Foldout(SoundFolderProp.isExpanded, " 사운드설정(효과음)", true);
+                            if (SoundFolderProp.isExpanded)
+                            {
+                                EditorGUI.indentLevel++;
+                                EditorGUILayout.Space(5);
+                                EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSprite"), new GUIContent("이펙트 PNG"));
+                                EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectPos"), new GUIContent("이펙트 위치"));
+                                EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectScale"), new GUIContent("이펙트 크기"));
+                                EditorGUILayout.Space(5);
+                                EditorGUILayout.LabelField("사운드 연출", EditorStyles.boldLabel);
+                                EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSound"), new GUIContent("효과음(SE)"));
+                                EditorGUILayout.PropertyField(element.FindPropertyRelative("seVolune"), new GUIContent("SE 볼륨"));
+                                EditorGUI.indentLevel--;
+                            }
+
+                            EditorGUILayout.Space(10);//캐릭터 설정관련
+                            SerializedProperty CharFolderProp = element.FindPropertyRelative("CharacterPNG"); 
+                            CharFolderProp.isExpanded = EditorGUILayout.Foldout(CharFolderProp.isExpanded, " 이미지 총합 설정", true);
                             if (CharFolderProp.isExpanded)
                             {
 
                                 EditorGUI.indentLevel++;
                                 EditorGUILayout.Space(5);
+                                EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPNG"), new GUIContent("캐릭터 전용 PNG"));
                                 EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPos"), new GUIContent("위치 (X, Y)"));
                                 EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterScale"), new GUIContent("캐릭터 크기값"));
                                 EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterRotation"), new GUIContent("회전 (Z축)"));
                                 EditorGUILayout.PropertyField(element.FindPropertyRelative("moveDuration"), new GUIContent("이동 시간(초)"));
+                                EditorGUILayout.Space(5);
+                                EditorGUILayout.PropertyField(element.FindPropertyRelative("characterIllust"), new GUIContent("캐릭터 통 일러스트"));
+                                EditorGUILayout.PropertyField(element.FindPropertyRelative("BackGroundSprit"), new GUIContent("배경 이미지"));
                                 EditorGUI.indentLevel--;
                             }
                             EditorGUILayout.Space(10);
-                            EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSprite"), new GUIContent("이펙트 PNG"));
-                            EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectPos"), new GUIContent("이펙트 위치"));
-                            EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectScale"), new GUIContent("이펙트 크기"));
-                            EditorGUILayout.Space(10);
-                            EditorGUILayout.PropertyField(element.FindPropertyRelative("choices"), new GUIContent("분기점 선택지"), true);
-                            EditorGUILayout.PropertyField(element.FindPropertyRelative("nextIndexOverride"), new GUIContent("강제 이동 ID"));
-                            EditorGUI.indentLevel--;
+                         
+                            EditorGUILayout.Space(5);
+                            
+                            SerializedProperty SelectForderProp = element.FindPropertyRelative("choices");
+                            SelectForderProp.isExpanded = EditorGUILayout.Foldout(SelectForderProp.isExpanded, " 선택지설정", true);            
+                            if (SelectForderProp.isExpanded)
+                            {
+                                EditorGUI.indentLevel++;
+                                EditorGUILayout.Space(10);
+                                EditorGUILayout.PropertyField(element.FindPropertyRelative("choices"), new GUIContent("분기점 선택지"), true);
+                           
+                                EditorGUI.indentLevel--;
+                            }
+                                EditorGUI.indentLevel--;
                         }
                     }
                     EditorGUI.indentLevel--;
