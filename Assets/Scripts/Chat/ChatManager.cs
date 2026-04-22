@@ -17,7 +17,8 @@ public class ChatManager : MonoBehaviour
     public TextMeshProUGUI CharacterName;
     public GameObject choicePanel;
     public TextMeshProUGUI[] choiceButtonsText;
-    public Image CharacterImage;
+    public UnityEngine.UI.Image CharacterImage;
+    public UnityEngine.UI.Image CharacterImage2;
     public Image BackgroundImage;
     public Image EffectImage;
 
@@ -76,20 +77,20 @@ public class ChatManager : MonoBehaviour
 
             if (CharacterImage != null) // 캐릭터 관련 값조절하는 거
             {
-                if (currentEntry.CharacterPNG != null)
+                if (currentEntry.Char1 != null && currentEntry.Char1.CharacterPNG != null)
                 {
                     CharacterImage.gameObject.SetActive(true);
-                    CharacterImage.sprite = currentEntry.CharacterPNG;
+                    CharacterImage.sprite = currentEntry.Char1.CharacterPNG;
                     CharacterImage.SetNativeSize();
 
-                    CharacterImage.rectTransform.localScale = Vector3.one*currentEntry.CharacterScale; //캐릭터 스케일값
+                    CharacterImage.rectTransform.localScale = Vector3.one*currentEntry.Char1.CharacterScale; //캐릭터 스케일값
                     //CharacterImage.rectTransform.localRotation = Quaternion.Euler(0, 0, currentEntry.CharacterRotation);
 
                     if (CharacterMoveCoroutine != null) StopCoroutine(CharacterMoveCoroutine); // XY축으로 움직이는거
-                    CharacterMoveCoroutine = StartCoroutine(AnimateCharacter(currentEntry.CharacterPos, currentEntry.moveDuration));
+                    CharacterMoveCoroutine = StartCoroutine(AnimateCharacter(currentEntry.Char1.CharacterPos, currentEntry.moveDuration));
 
                     if (RotationCoroutine != null) StopCoroutine(RotationCoroutine); //Z축 회전
-                    RotationCoroutine = StartCoroutine(AnimationRotation(currentEntry.CharacterRotation, currentEntry.moveDuration));
+                    RotationCoroutine = StartCoroutine(AnimationRotation(currentEntry.Char1.CharacterRotation, currentEntry.moveDuration));
                 }
                 else if (currentEntry.characterIllust != null)
                 {

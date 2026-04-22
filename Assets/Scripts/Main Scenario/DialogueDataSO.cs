@@ -95,12 +95,12 @@ public class CharaterData // 캐릭터를 더 추가해야 할수있기 떄문�
     [Header("캐릭터 전용 PNG(배경투명도 꼭 확인!)")]
     public Sprite CharacterPNG;
     [Header("캐릭터 애니메이션칸 X는 +하면 오른쪽으로이동 Y는+하면 위로이동합니다 ")]
-    public Vector2 pos;
+    public Vector2 CharacterPos = new Vector2(0,-100);
     [Header("캐릭터 크기조절")]
     [Range (0f, 1f)]
-    public float scale =1f;
+    public float CharacterScale = 1f;
     [Header("캐릭터의 회전을 넣을 수있습니다")]
-    public float rotation;
+    public float CharacterRotation;
 }
 
 
