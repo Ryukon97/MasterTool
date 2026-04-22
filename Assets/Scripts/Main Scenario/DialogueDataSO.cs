@@ -7,7 +7,7 @@ public class DialogueDataSO : ScriptableObject
 {
     public List<DialogueGroup> groups = new List<DialogueGroup>();
 
-    public List<DialogueEntry> entries = new List<DialogueEntry>();
+    //public List<DialogueEntry> entries = new List<DialogueEntry>();
     [Header("챕터내 다음 시나리오 설정 * 씬안에서만 들어갈 시나리오를 뜻 합니다")]
     [Tooltip("어느 씬에 넣을지 확인후 다음 이야기의 SO파일을 넣어주세요!")]
     public DialogueDataSO nextStorySO;
@@ -16,6 +16,7 @@ public class DialogueDataSO : ScriptableObject
 [System.Serializable]
 public class DialogueGroup
 {
+    public int id;
     public string GroupName;
     public List<DialogueEntry> entries = new List<DialogueEntry>();
 }

@@ -28,17 +28,27 @@ public class ChatManager : MonoBehaviour
 
     void Start()
     {
-        if (currentScenario != null && currentScenario.entries.Count > 0)
+        if (currentScenario != null && currentScenario.groups.Count > 0)
         {
-            int firstID = currentScenario.entries[0].id;
+            int firstID = currentScenario.groups[0].entries[0].id;
             StartCoroutine(PlayDialogue(firstID));
         }
     }
 
     IEnumerator PlayDialogue(int startID)
     {
-        currentEntry = currentScenario.entries.Find(x => x.id == startID);
+        //int currentGroupIdx = 0;
+        //currentEntry = currentScenario.groups[currentGroupIdx].entries.Find(x => x.id == startID);
+        DialogueEntry foundEntry = null;
 
+       
+        foreach (var group in currentScenario.groups)
+        {
+            foundEntry = group.entries.Find(x => x.id == startID);
+            if (foundEntry != null) break; 
+        }
+
+        currentEntry = foundEntry;
         while (currentEntry != null)
         {
 
@@ -130,7 +140,8 @@ public class ChatManager : MonoBehaviour
             }
 
 
-            currentEntry = currentScenario.entries.Find(x => x.id == nextID);
+            //currentEntry = currentScenario.groups[currentGroupIdx].entries.Find(x => x.id == nextID);
+            currentEntry = foundEntry;
 
             if (currentEntry == null)
             {
