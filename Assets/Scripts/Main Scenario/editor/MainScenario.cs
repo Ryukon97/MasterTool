@@ -6,6 +6,7 @@ public class MainScenario : EditorWindow
 {
     private DialogueDataSO currentSO;
     private Vector2 scrollpos;
+    private int selectedGroupindex = 0; 
 
     [MenuItem("MasterTools/Scenario Editor")]
     public static void ShowWindow()
@@ -25,9 +26,11 @@ public class MainScenario : EditorWindow
         }
 
         EditorGUILayout.Space(5);
+
+     
         GUILayout.BeginVertical("box");
         {
-            GUILayout.Label("📂 그룹 관리", EditorStyles.miniBoldLabel);
+            GUILayout.Label(" 그룹 관리", EditorStyles.miniBoldLabel);
 
             if (currentSO.groups == null || currentSO.groups.Count == 0)
             {
@@ -35,139 +38,122 @@ public class MainScenario : EditorWindow
                 {
                     currentSO.groups = new List<DialogueGroup> { new DialogueGroup { GroupName = "기본 그룹" } };
                 }
-                return; // 그룹이 없으면 아래 로직 진행 불가
+
+         
+                GUILayout.EndVertical();
+                return;
             }
 
-            // 그룹 선택 툴바 (상단 탭 형식)
             string[] groupNames = new string[currentSO.groups.Count];
             for (int i = 0; i < currentSO.groups.Count; i++)
                 groupNames[i] = string.IsNullOrEmpty(currentSO.groups[i].GroupName) ? $"그룹 {i}" : currentSO.groups[i].GroupName;
 
-            selectedGroupIndex = GUILayout.Toolbar(selectedGroupIndex, groupNames);
+            if (selectedGroupindex >= currentSO.groups.Count) selectedGroupindex = 0;
+            selectedGroupindex = GUILayout.Toolbar(selectedGroupindex, groupNames);
 
             EditorGUILayout.BeginHorizontal();
             if (GUILayout.Button("그룹 추가")) currentSO.groups.Add(new DialogueGroup { GroupName = "새 그룹" });
             if (GUILayout.Button("현재 그룹 삭제") && currentSO.groups.Count > 1)
             {
-                currentSO.groups.RemoveAt(selectedGroupIndex);
-                selectedGroupIndex = Mathf.Clamp(selectedGroupIndex - 1, 0, currentSO.groups.Count - 1);
+                currentSO.groups.RemoveAt(selectedGroupindex);
+                selectedGroupindex = Mathf.Clamp(selectedGroupindex - 1, 0, currentSO.groups.Count - 1);
             }
             EditorGUILayout.EndHorizontal();
         }
         GUILayout.EndVertical();
-        // ---------------------------------------------------------
 
         SerializedObject serializedObject = new SerializedObject(currentSO);
         serializedObject.Update();
 
-        // [중요 수정] 현재 선택된 그룹의 이름을 수정할 수 있게 함
         SerializedProperty groupsProp = serializedObject.FindProperty("groups");
-        SerializedProperty currentGroupProp = groupsProp.GetArrayElementAtIndex(selectedGroupIndex);
+        SerializedProperty currentGroupProp = groupsProp.GetArrayElementAtIndex(selectedGroupindex);
         EditorGUILayout.PropertyField(currentGroupProp.FindPropertyRelative("GroupName"), new GUIContent("현재 그룹 이름"));
 
-        scrollpos = EditorGUILayout.BeginScrollView(scrollpos);
-
-        // ---------------------------------------------------------
-        // [추가 포인트 2: 'entries' 경로 수정]
-        // 기존: serializedObject.FindProperty("entries")
-        // 변경: 현재 선택된 그룹 내의 entries를 찾아야 함
-        // ---------------------------------------------------------
-        SerializedProperty entriesProperty = currentGroupProp.FindPropertyRelative("entries");
-        if (entriesProperty != null)
+       
+        scrollpos = EditorGUILayout.BeginScrollView(scrollpos); 
         {
-            EditorGUILayout.BeginHorizontal();
+            SerializedProperty entriesProperty = currentGroupProp.FindPropertyRelative("entries");
+            if (entriesProperty != null)
             {
-                entriesProperty.isExpanded = EditorGUILayout.Foldout(entriesProperty.isExpanded, "전체 대사 리스트 (Entries)", true);
-                GUILayout.FlexibleSpace();
-
-                int currentSize = entriesProperty.arraySize;
-                EditorGUILayout.LabelField("Size", GUILayout.Width(35));
-                int newSize = EditorGUILayout.IntField(currentSize, GUILayout.Width(50));
-
-                if (GUILayout.Button("+", GUILayout.Width(25))) newSize++;
-                if (GUILayout.Button("-", GUILayout.Width(25)) && newSize > 0) newSize--;
-
-                if (newSize != currentSize) entriesProperty.arraySize = newSize;
-            }
-            EditorGUILayout.EndHorizontal();
-
-            if (entriesProperty.isExpanded)
-            {
-                EditorGUILayout.Space(5);
-                EditorGUI.indentLevel++;
-
-                for (int i = 0; i < entriesProperty.arraySize; i++)
+                EditorGUILayout.BeginHorizontal();
                 {
-                    SerializedProperty element = entriesProperty.GetArrayElementAtIndex(i);
-                    SerializedProperty idProp = element.FindPropertyRelative("id");
-                    SerializedProperty nameProp = element.FindPropertyRelative("speakerName");
+                    entriesProperty.isExpanded = EditorGUILayout.Foldout(entriesProperty.isExpanded, "전체 대사 리스트 (Entries)", true);
+                    GUILayout.FlexibleSpace();
 
-                    int displayID = (idProp != null) ? idProp.intValue : i;
-                    string sName = (nameProp != null) ? nameProp.stringValue : "";
-                    string label = $"[ID: {displayID}] " + (string.IsNullOrEmpty(sName) ? "이름 없음" : sName);
+                    int currentSize = entriesProperty.arraySize;
+                    EditorGUILayout.LabelField("Size", GUILayout.Width(35));
+                    int newSize = EditorGUILayout.IntField(currentSize, GUILayout.Width(50));
 
-                    element.isExpanded = EditorGUILayout.Foldout(element.isExpanded, label, true);
+                    if (GUILayout.Button("+", GUILayout.Width(25))) newSize++;
+                    if (GUILayout.Button("-", GUILayout.Width(25)) && newSize > 0) newSize--;
 
-                    if (element.isExpanded)
+                    if (newSize != currentSize) entriesProperty.arraySize = newSize;
+                }
+                EditorGUILayout.EndHorizontal();
+
+                if (entriesProperty.isExpanded)
+                {
+                    EditorGUILayout.Space(5);
+                    EditorGUI.indentLevel++;
+
+                    for (int i = 0; i < entriesProperty.arraySize; i++)
                     {
-                        EditorGUI.indentLevel++;
+                        SerializedProperty element = entriesProperty.GetArrayElementAtIndex(i);
+                        SerializedProperty idProp = element.FindPropertyRelative("id");
+                        SerializedProperty nameProp = element.FindPropertyRelative("speakerName");
 
-                        if (idProp != null) EditorGUILayout.PropertyField(idProp, new GUIContent("고유 ID"));
-                        EditorGUILayout.PropertyField(nameProp, new GUIContent("화자 이름"));
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("dialogueText"), new GUIContent("대사 내용"));
+                        int displayID = (idProp != null) ? idProp.intValue : i;
+                        string sName = (nameProp != null) ? nameProp.stringValue : "";
+                        string label = $"[ID: {displayID}] " + (string.IsNullOrEmpty(sName) ? "이름 없음" : sName);
 
-                        EditorGUILayout.Space(10);
+                        element.isExpanded = EditorGUILayout.Foldout(element.isExpanded, label, true);
 
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("characterIllust"), new GUIContent("캐릭터 통 일러스트"));
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPNG"), new GUIContent("캐릭터 전용 PNG"));
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("BackGroundSprit"), new GUIContent("배경 이미지"));
-
-                        
-                        EditorGUILayout.Space(5);
-                        EditorGUILayout.LabelField("사운드 연출", EditorStyles.boldLabel);
-                        
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSound"), new GUIContent("효과음(SE)"));
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("seVolune"), new GUIContent("SE 볼륨"));
-                    
-
-                        EditorGUILayout.Space(10);
-
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPos"), new GUIContent("위치 (X, Y)"));
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterRotation"), new GUIContent("회전 (Z축)"));
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("moveDuration"), new GUIContent("이동 시간(초)"));
-
-                        EditorGUILayout.Space(10);
-
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSprite"), new GUIContent("이펙트 PNG"));
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectPos"), new GUIContent("이펙트 위치"));
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectScale"), new GUIContent("이펙트 크기"));
-
-                        EditorGUILayout.Space(10);
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("choices"), new GUIContent("분기점 선택지"), true);
-                        EditorGUILayout.PropertyField(element.FindPropertyRelative("nextIndexOverride"), new GUIContent("강제 이동 ID"));
-
-                        EditorGUI.indentLevel--;
+                        if (element.isExpanded)
+                        {
+                            EditorGUI.indentLevel++;
+                            EditorGUILayout.PropertyField(idProp, new GUIContent("고유 ID"));
+                            EditorGUILayout.PropertyField(nameProp, new GUIContent("화자 이름"));
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("dialogueText"), new GUIContent("대사 내용"));
+                            EditorGUILayout.Space(10);
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("characterIllust"), new GUIContent("캐릭터 통 일러스트"));
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPNG"), new GUIContent("캐릭터 전용 PNG"));
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("BackGroundSprit"), new GUIContent("배경 이미지"));
+                            EditorGUILayout.Space(5);
+                            EditorGUILayout.LabelField("사운드 연출", EditorStyles.boldLabel);
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSound"), new GUIContent("효과음(SE)"));
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("seVolune"), new GUIContent("SE 볼륨"));
+                            EditorGUILayout.Space(10);
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPos"), new GUIContent("위치 (X, Y)"));
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterRotation"), new GUIContent("회전 (Z축)"));
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("moveDuration"), new GUIContent("이동 시간(초)"));
+                            EditorGUILayout.Space(10);
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSprite"), new GUIContent("이펙트 PNG"));
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectPos"), new GUIContent("이펙트 위치"));
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectScale"), new GUIContent("이펙트 크기"));
+                            EditorGUILayout.Space(10);
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("choices"), new GUIContent("분기점 선택지"), true);
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("nextIndexOverride"), new GUIContent("강제 이동 ID"));
+                            EditorGUI.indentLevel--;
+                        }
                     }
-                }
-
-              
-                EditorGUILayout.EndScrollView();
-
-                EditorGUILayout.Space();
-
-                if (serializedObject.hasModifiedProperties)
-                {
-                    serializedObject.ApplyModifiedProperties();
-                }
-
-                if (GUILayout.Button("저장(Force Save)", GUILayout.Height(30)))
-                {
-                    EditorUtility.SetDirty(currentSO);
-                    AssetDatabase.SaveAssets();
-                
-                    Debug.Log("<color=cyan>시나리오 데이터 저장 완료!</color>");
+                    EditorGUI.indentLevel--;
                 }
             }
+        }
+        EditorGUILayout.EndScrollView();
+
+        EditorGUILayout.Space();
+
+        if (serializedObject.hasModifiedProperties)
+        {
+            serializedObject.ApplyModifiedProperties();
+        }
+
+        if (GUILayout.Button("저장(Force Save)", GUILayout.Height(30)))
+        {
+            EditorUtility.SetDirty(currentSO);
+            AssetDatabase.SaveAssets();
+            Debug.Log("<color=cyan>시나리오 데이터 저장 완료!</color>");
         }
     }
 

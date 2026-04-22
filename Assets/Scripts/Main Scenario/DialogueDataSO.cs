@@ -5,8 +5,8 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "NewScenario", menuName = "Scenario/DialogueData")] //t시나리오 에디터
 public class DialogueDataSO : ScriptableObject
 {
-    public List<DialogueDataSO> groups = new List<DialogueGroup>
-        ;
+    public List<DialogueGroup> groups = new List<DialogueGroup>();
+
     public List<DialogueEntry> entries = new List<DialogueEntry>();
     [Header("챕터내 다음 시나리오 설정 * 씬안에서만 들어갈 시나리오를 뜻 합니다")]
     [Tooltip("어느 씬에 넣을지 확인후 다음 이야기의 SO파일을 넣어주세요!")]

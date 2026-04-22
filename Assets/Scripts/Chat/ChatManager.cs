@@ -245,26 +245,16 @@ public class ChatManager : MonoBehaviour
                    (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame);
         });
     }
-    void EndOfDialogue()
-    {
-        if (currentScenario.nextStorySO !=null);
-        {
-            LoadChapter(currentScenario.nextStorySO);
-        }
-    else
-    {
-            FinishGame();
-    }
-    }
+   
 
 
     void CheckBGMEvent(int currentID)
     {
 
         var bgmEvent = bgmSetting.BGMEvents.Find(e => currentID >= e.StartID && currentID <= e.EndID);
-        if(bgmEvent !=null)
+        if (bgmEvent != null)
         {
             BGMManager.instance.CheckAndPlayBGM(currentID);
         }
     }
-} 
+}
