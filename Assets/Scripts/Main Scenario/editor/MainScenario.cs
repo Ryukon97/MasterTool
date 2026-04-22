@@ -123,10 +123,20 @@ public class MainScenario : EditorWindow
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSound"), new GUIContent("효과음(SE)"));
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("seVolune"), new GUIContent("SE 볼륨"));
                             EditorGUILayout.Space(10);
-                            EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPos"), new GUIContent("위치 (X, Y)"));
-                            EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterScale "),new GUIContent("캐릭터 크기값"));
-                            EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterRotation"), new GUIContent("회전 (Z축)"));
-                            EditorGUILayout.PropertyField(element.FindPropertyRelative("moveDuration"), new GUIContent("이동 시간(초)"));
+                            SerializedProperty CharFolderProp = element.FindPropertyRelative("CharacterPNG"); //캐릭터 삼각형
+                            CharFolderProp.isExpanded = EditorGUILayout.Foldout(CharFolderProp.isExpanded, " 캐릭터 연출 설정 (이미지/트랜스폼)", true);
+
+                            if (CharFolderProp.isExpanded)
+                            {
+
+                                EditorGUI.indentLevel++;
+                                EditorGUILayout.Space(5);
+                                EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPos"), new GUIContent("위치 (X, Y)"));
+                                EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterScale"), new GUIContent("캐릭터 크기값"));
+                                EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterRotation"), new GUIContent("회전 (Z축)"));
+                                EditorGUILayout.PropertyField(element.FindPropertyRelative("moveDuration"), new GUIContent("이동 시간(초)"));
+                                EditorGUI.indentLevel--;
+                            }
                             EditorGUILayout.Space(10);
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSprite"), new GUIContent("이펙트 PNG"));
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectPos"), new GUIContent("이펙트 위치"));

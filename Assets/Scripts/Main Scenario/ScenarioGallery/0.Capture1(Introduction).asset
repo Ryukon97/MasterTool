@@ -24,6 +24,7 @@ MonoBehaviour:
       BackGroundSprit: {fileID: 0}
       EffectSound: {fileID: 0}
       seVolune: 0
+      CharacterScale: 1.5
       CharacterPos: {x: -600, y: -200}
       moveDuration: 0
       CharacterRotation: 0
@@ -40,6 +41,7 @@ MonoBehaviour:
       BackGroundSprit: {fileID: 0}
       EffectSound: {fileID: 0}
       seVolune: 0
+      CharacterScale: 1
       CharacterPos: {x: 0, y: 0}
       moveDuration: 0
       CharacterRotation: 0
@@ -59,6 +61,7 @@ MonoBehaviour:
       BackGroundSprit: {fileID: -976680405709189291, guid: a7ecffb38cd93164795c0dd46cdaf065, type: 3}
       EffectSound: {fileID: 0}
       seVolune: 0
+      CharacterScale: 1
       CharacterPos: {x: 0, y: 0}
       moveDuration: 0
       CharacterRotation: 0
@@ -76,6 +79,7 @@ MonoBehaviour:
       BackGroundSprit: {fileID: 0}
       EffectSound: {fileID: 0}
       seVolune: 0
+      CharacterScale: 1
       CharacterPos: {x: 0, y: 0}
       moveDuration: 0
       CharacterRotation: 0
@@ -97,6 +101,7 @@ MonoBehaviour:
       BackGroundSprit: {fileID: 0}
       EffectSound: {fileID: 0}
       seVolune: 0
+      CharacterScale: 1
       CharacterPos: {x: 0, y: 0}
       moveDuration: 0
       CharacterRotation: 0
@@ -113,6 +118,7 @@ MonoBehaviour:
       BackGroundSprit: {fileID: 0}
       EffectSound: {fileID: 0}
       seVolune: 0
+      CharacterScale: 1
       CharacterPos: {x: 0, y: 0}
       moveDuration: 0
       CharacterRotation: 0
@@ -129,6 +135,7 @@ MonoBehaviour:
       BackGroundSprit: {fileID: 0}
       EffectSound: {fileID: 0}
       seVolune: 0
+      CharacterScale: 1
       CharacterPos: {x: 0, y: 0}
       moveDuration: 0
       CharacterRotation: 0
