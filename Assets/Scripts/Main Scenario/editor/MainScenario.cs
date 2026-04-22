@@ -117,10 +117,8 @@ public class MainScenario : EditorWindow
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("dialogueText"), new GUIContent("대사 내용"));
                             EditorGUILayout.Space(10);
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("nextIndexOverride"), new GUIContent("강제 이동 ID"));
-
-
-                            EditorGUILayout.Space(10);// 효과음관련
-                            SerializedProperty SoundFolderProp = element.FindPropertyRelative("EffectSound"); 
+                            EditorGUILayout.Space(2);// 효과음관련
+                            SerializedProperty SoundFolderProp = element.FindPropertyRelative("EffectSound");
                             SoundFolderProp.isExpanded = EditorGUILayout.Foldout(SoundFolderProp.isExpanded, " 사운드설정(효과음)", true);
                             if (SoundFolderProp.isExpanded)
                             {
@@ -135,46 +133,71 @@ public class MainScenario : EditorWindow
                                 EditorGUILayout.PropertyField(element.FindPropertyRelative("seVolune"), new GUIContent("SE 볼륨"));
                                 EditorGUI.indentLevel--;
                             }
-
-                            EditorGUILayout.Space(10);//캐릭터 설정관련
-                            SerializedProperty CharFolderProp = element.FindPropertyRelative("CharacterPNG"); 
-                            CharFolderProp.isExpanded = EditorGUILayout.Foldout(CharFolderProp.isExpanded, " 이미지 총합 설정", true);
-                            if (CharFolderProp.isExpanded)
-                            {
-
-                                EditorGUI.indentLevel++;
-                                EditorGUILayout.Space(5);
-                                EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPNG"), new GUIContent("캐릭터 전용 PNG"));
-                                EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterPos"), new GUIContent("위치 (X, Y)"));
-                                EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterScale"), new GUIContent("캐릭터 크기값"));
-                                EditorGUILayout.PropertyField(element.FindPropertyRelative("CharacterRotation"), new GUIContent("회전 (Z축)"));
-                                EditorGUILayout.PropertyField(element.FindPropertyRelative("moveDuration"), new GUIContent("이동 시간(초)"));
-                                EditorGUILayout.Space(5);
-                                EditorGUILayout.PropertyField(element.FindPropertyRelative("characterIllust"), new GUIContent("캐릭터 통 일러스트"));
-                                EditorGUILayout.PropertyField(element.FindPropertyRelative("BackGroundSprit"), new GUIContent("배경 이미지"));
-                                EditorGUI.indentLevel--;
-                            }
-                            EditorGUILayout.Space(10);
-                         
-                            EditorGUILayout.Space(5);
-                            
-                            SerializedProperty SelectForderProp = element.FindPropertyRelative("choices");
-                            SelectForderProp.isExpanded = EditorGUILayout.Foldout(SelectForderProp.isExpanded, " 선택지설정", true);            
-                            if (SelectForderProp.isExpanded)
+                            EditorGUILayout.Space(2);
+                            // 캐릭터 설정칸
+                            SerializedProperty char1Prop = element.FindPropertyRelative("Char1");
+                            SerializedProperty char2Prop = element.FindPropertyRelative("Char2");
+                            char1Prop.isExpanded = EditorGUILayout.Foldout(char1Prop.isExpanded, " 전체 캐릭터 및 이미지 설정", true);
+                            if (char1Prop.isExpanded)
                             {
                                 EditorGUI.indentLevel++;
-                                EditorGUILayout.Space(10);
-                                EditorGUILayout.PropertyField(element.FindPropertyRelative("choices"), new GUIContent("분기점 선택지"), true);
-                           
+                                EditorGUILayout.Space(5);
+                                SerializedProperty char1FolderKey = char1Prop.FindPropertyRelative("CharacterPNG");
+                                char1FolderKey.isExpanded = EditorGUILayout.Foldout(char1FolderKey.isExpanded, " 메인 캐릭터 (Char 1)", true);
+                                if (char1FolderKey.isExpanded)
+                                {
+                                    EditorGUI.indentLevel++;
+                                    DrawCharacterData(char1Prop);
+                                    EditorGUI.indentLevel--;
+                                }
+                                EditorGUILayout.Space(2);
+                                SerializedProperty char2FolderKey = char2Prop.FindPropertyRelative("CharacterPNG");
+                                char2FolderKey.isExpanded = EditorGUILayout.Foldout(char2FolderKey.isExpanded, " 서브 캐릭터 (Char 2)", true);
+                                if (char2FolderKey.isExpanded)
+                                {
+                                    EditorGUI.indentLevel++;
+                                    DrawCharacterData(char2Prop);
+                                    EditorGUI.indentLevel--;
+                                }
                                 EditorGUI.indentLevel--;
                             }
+
+                            EditorGUILayout.Space(2);
+                            SerializedProperty Backgroundimage = element.FindPropertyRelative("characterIllust");
+                            Backgroundimage.isExpanded = EditorGUILayout.Foldout(Backgroundimage.isExpanded, "1장 일러스트 설정칸", true);
+                            {
+                                if (Backgroundimage.isExpanded)
+                                {
+                                    EditorGUILayout.Space(5);
+                                    EditorGUI.indentLevel++;
+                                    EditorGUILayout.PropertyField(element.FindPropertyRelative("characterIllust"), new GUIContent("캐릭터 통 일러스트"));
+                                    EditorGUILayout.PropertyField(element.FindPropertyRelative("BackGroundSprit"), new GUIContent("배경 이미지"));
+
+                                    EditorGUI.indentLevel--;
+                                }
+                            }
+
+                            SerializedProperty selectFolderProp = element.FindPropertyRelative("choices");
+                            selectFolderProp.isExpanded = EditorGUILayout.Foldout(selectFolderProp.isExpanded, " 선택지 설정", true);
+
+                            if (selectFolderProp.isExpanded)
+                            {
+                                EditorGUI.indentLevel++;
+                                EditorGUILayout.Space(5);
+                                EditorGUILayout.PropertyField(selectFolderProp, new GUIContent("분기점 선택지"), true);
                                 EditorGUI.indentLevel--;
+                            }
+
                         }
+                        EditorGUI.indentLevel--;
+
                     }
-                    EditorGUI.indentLevel--;
                 }
+
             }
         }
+
+
         EditorGUILayout.EndScrollView();
 
         EditorGUILayout.Space();
@@ -196,7 +219,16 @@ public class MainScenario : EditorWindow
 
 
     } // 시나리오 에디터 UI그리는 칸
-    
+
+    void DrawCharacterData(SerializedProperty CharProp) // 캐릭터 설정값을 밖으로 빼고 함수로 변경
+    {
+        EditorGUILayout.PropertyField(CharProp.FindPropertyRelative("CharacterPNG"), new GUIContent("캐릭터 전용 PNG"));
+        EditorGUILayout.PropertyField(CharProp.FindPropertyRelative("CharacterPos"), new GUIContent("위치 (X, Y)"));
+        EditorGUILayout.PropertyField(CharProp.FindPropertyRelative("CharacterScale"), new GUIContent("캐릭터 크기값"));
+        EditorGUILayout.PropertyField(CharProp.FindPropertyRelative("CharacterRotation"), new GUIContent("회전 (Z축)"));
+        EditorGUILayout.PropertyField(CharProp.FindPropertyRelative("moveDuration"), new GUIContent("이동 시간(초)"));
+
+    }
     private void CreateNewSO()
     {
         DialogueDataSO asset = ScriptableObject.CreateInstance<DialogueDataSO>();
@@ -220,4 +252,3 @@ public class MainScenario : EditorWindow
 
 }
 
- 

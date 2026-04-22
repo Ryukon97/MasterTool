@@ -87,10 +87,10 @@ public class ChatManager : MonoBehaviour
                     //CharacterImage.rectTransform.localRotation = Quaternion.Euler(0, 0, currentEntry.CharacterRotation);
 
                     if (CharacterMoveCoroutine != null) StopCoroutine(CharacterMoveCoroutine); // XY축으로 움직이는거
-                    CharacterMoveCoroutine = StartCoroutine(AnimateCharacter(currentEntry.Char1.CharacterPos, currentEntry.moveDuration));
+                    CharacterMoveCoroutine = StartCoroutine(AnimateCharacter(currentEntry.Char1.CharacterPos, currentEntry.Char1.moveDuration));
 
                     if (RotationCoroutine != null) StopCoroutine(RotationCoroutine); //Z축 회전
-                    RotationCoroutine = StartCoroutine(AnimationRotation(currentEntry.Char1.CharacterRotation, currentEntry.moveDuration));
+                    RotationCoroutine = StartCoroutine(AnimationRotation(currentEntry.Char1.CharacterRotation, currentEntry.Char1.moveDuration));
                 }
                 else if (currentEntry.characterIllust != null)
                 {
