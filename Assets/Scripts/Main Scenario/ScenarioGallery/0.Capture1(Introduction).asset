@@ -32,7 +32,7 @@ MonoBehaviour:
       EffectPos: {x: 0, y: 0}
       EffectScale: 0
       choices: []
-      nextIndexOverride: 0
+      nextIndexOverride: -1
     - id: 1
       speakerName: "\uB098"
       dialogueText: "\uC61B\uB0A0\uC5D0\uB294 \uBA4B\uC9C4\uD48D\uACBD\uC774\uB2E4
@@ -83,7 +83,7 @@ MonoBehaviour:
       EffectScale: 0
       choices: []
       nextIndexOverride: -1
-    - id: 4
+    - id: 5
       speakerName: "\uB098"
       dialogueText: "\uC544\uBB34\uB3C4 \uAE30\uB2E4\uB9AC\uC9C0 \uC54A\uB294 \uC9D1\uC73C\uB85C
         \uB3CC\uC544\uAC00\uB294\uAC74 \uAF64 \uD798\uB4E0\uC77C\uC774\uB2E4"
@@ -100,7 +100,7 @@ MonoBehaviour:
       EffectScale: 0
       choices: []
       nextIndexOverride: -1
-    - id: 5
+    - id: 6
       speakerName: "\uB098"
       dialogueText: "\uC660\uC9C0 \uC9D1\uC73C\uB85C \uAC00\uAE30 \uAEBC\uB824\uC9C4\uB2E4,\uC220\uC774\uB098
         \uBA39\uC73C\uB7EC \uAC08\uAE4C?"
@@ -117,11 +117,11 @@ MonoBehaviour:
       EffectScale: 0
       choices:
       - choiceText: "\uC9D1\uC73C\uB85C \uB3CC\uC544\uAC04\uB2E4"
-        choiceIndex: 6
+        choiceIndex: 7
       - choiceText: "\uBA39\uC790\uACE8\uBAA9\uC73C\uB85C \uD5A5\uD55C\uB2E4"
         choiceIndex: 100
       nextIndexOverride: -1
-    - id: 6
+    - id: 7
       speakerName: "\uB098"
       dialogueText: "3\uC77C\uB3D9\uC548 \uADF8\uB300\uB85C \uB194\uB454,\uC2DD\uAE30..\uCCAD\uC18C\uD560\uAC70\uB9AC..."
       characterIllust: {fileID: 0}
@@ -135,13 +135,9 @@ MonoBehaviour:
       EffectSprite: {fileID: 0}
       EffectPos: {x: 0, y: 0}
       EffectScale: 0
-      choices:
-      - choiceText: "\uC9D1\uC73C\uB85C \uB3CC\uC544\uAC04\uB2E4"
-        choiceIndex: 6
-      - choiceText: "\uBA39\uC790\uACE8\uBAA9\uC73C\uB85C \uD5A5\uD55C\uB2E4"
-        choiceIndex: 100
+      choices: []
       nextIndexOverride: -1
-    - id: 7
+    - id: 8
       speakerName: "\uB098"
       dialogueText: "\uB054\uCC0D\uD558\uB2E4 \uC5B4\uC11C \uC9D1\uC73C\uB85C \uB3CC\uC544\uAC00\uC790"
       characterIllust: {fileID: 0}
@@ -155,13 +151,9 @@ MonoBehaviour:
       EffectSprite: {fileID: 0}
       EffectPos: {x: 0, y: 0}
       EffectScale: 0
-      choices:
-      - choiceText: "\uC9D1\uC73C\uB85C \uB3CC\uC544\uAC04\uB2E4"
-        choiceIndex: 6
-      - choiceText: "\uBA39\uC790\uACE8\uBAA9\uC73C\uB85C \uD5A5\uD55C\uB2E4"
-        choiceIndex: 100
+      choices: []
       nextIndexOverride: -1
-    - id: 8
+    - id: 9
       speakerName: "\uB098"
       dialogueText: "\uC9D1 \uC55E\uC5D0 \uB3C4\uCC29\uD588\uB2E4, \uADF8\uB7F0\uB370
         \uC774\uC0C1\uD55C\uAC83(?)\uC774 \uC788\uB2E4"
@@ -176,11 +168,7 @@ MonoBehaviour:
       EffectSprite: {fileID: 0}
       EffectPos: {x: 0, y: 0}
       EffectScale: 0
-      choices:
-      - choiceText: "\uC9D1\uC73C\uB85C \uB3CC\uC544\uAC04\uB2E4"
-        choiceIndex: 6
-      - choiceText: "\uBA39\uC790\uACE8\uBAA9\uC73C\uB85C \uD5A5\uD55C\uB2E4"
-        choiceIndex: 100
+      choices: []
       nextIndexOverride: -1
   - id: 0
     GroupName: 'BadEnding1 [ID:100]'

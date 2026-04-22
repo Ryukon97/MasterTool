@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+//using UnityEngine.UIElements;
 
 public class ChatManager : MonoBehaviour
 {
@@ -149,8 +150,12 @@ public class ChatManager : MonoBehaviour
 
             foreach (var group in currentScenario.groups)
             {
-                NextfoundEntry = group.entries.Find(x => x.id == startID);
+                NextfoundEntry = group.entries.Find(x => x.id == nextID);
+                Debug.Log($"<color=lime>성공: {group.GroupName} 그룹에서 {nextID}번 대사를 찾았습니다!</color>");
                 if (NextfoundEntry != null) break;
+                {
+                    Debug.LogError($"<color=red>실패: {nextID}번 대사를 어떤 그룹에서도 찾을 수 없습니다!</color>");
+                }
             }
 
             currentEntry = NextfoundEntry;
@@ -267,12 +272,28 @@ public class ChatManager : MonoBehaviour
     IEnumerator WaitForInput()
     {
         yield return new WaitForSeconds(0.1f);
-        yield return new WaitUntil(() =>
+        bool cliked = false;
+        while (!cliked)
         {
-            if (isPausedByMenu) return false;
-            return (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
-                   (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame);
-        });
+            if(isPausedByMenu)
+            {
+                yield return null;
+                continue;
+
+            }
+            if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) cliked = true;
+            if(Keyboard.current !=null && Keyboard.current.anyKey.wasPressedThisFrame)cliked = true;
+            //if(Input.GetButtonDown(0)) cliked = true;
+
+            yield return null;
+        }
+        Debug.Log("<color=white>입력 감지됨: 다음 대사로 진행합니다.</color>");
+        //yield return new WaitUntil(() =>
+        //{
+        //    if (isPausedByMenu) return false;
+        //    return (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
+        //           (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame);
+        //});
     }
    
 
