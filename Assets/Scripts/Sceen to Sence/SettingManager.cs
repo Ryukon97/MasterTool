@@ -10,8 +10,7 @@ public class SettingManager : MonoBehaviour
     public GameObject Settingpanel;  // 전체 설정창 패널 (ConfigButton)
     public GameObject panelVolume;   // 1. 음량 탭 콘텐츠 (Panel_Volume)
     public GameObject panelOther;    // 2. 기타 탭 콘텐츠 (Panel_other)
-    public bool IswaitingForResumeClick = false; //3. 설정창을 닫을시 바로 시작하는게 아닌 한번더 클릭 후 시작할수 있게한다
-    public bool IsPausedByMenu = false;
+    public bool IsPausedByMenu;
 
     //[Header("Content Panels (Only Sliders)")]
     //public GameObject volumeContent;
@@ -32,22 +31,7 @@ public class SettingManager : MonoBehaviour
 
     void Update()
     {
-       
-        if (IswaitingForResumeClick)
-        {
-            if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
-            {
-                
-                if (!EventSystem.current.IsPointerOverGameObject())
-                {
-                    IswaitingForResumeClick = false;
-                    Time.timeScale = 1f;
-                    Debug.Log("Master! 시간을 다시 흐르게 했습니다!");
-                }
-            }
-            return;
-        }
-
+    
       
         if (IsPausedByMenu)
         {
@@ -169,9 +153,13 @@ public class SettingManager : MonoBehaviour
         if (Settingpanel != null)
         {
             Settingpanel.SetActive(true);
-            if (chatManager != null) chatManager.isPausedByMenu = true;
+            IsPausedByMenu = true;
 
-            Time.timeScale = 0f; // 설정 누르면 게임 멈춤
+            if (chatManager != null)
+                chatManager.isPausedByMenu = true;
+
+            Time.timeScale = 0f;
+            Debug.Log("<color=red>Master! 게임이 일시정지되었습니다.</color>");
         }
     }
 
@@ -193,13 +181,14 @@ public class SettingManager : MonoBehaviour
 
     private void ResumeGame()
     {
-        if(chatManager != null)
-        {
-            chatManager.isPausedByMenu = false;
-           
-        }
-        IswaitingForResumeClick = false;
-        //Time.timeScale = 1f;
+        if (Settingpanel != null) Settingpanel.SetActive(false);
+
+       
+        IsPausedByMenu = false;
+        if (chatManager != null) chatManager.isPausedByMenu = false;
+
+        
+        Time.timeScale = 1f;
     }
 
     public void StopIntroBGM()

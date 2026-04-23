@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 //using UnityEngine.UIElements;
@@ -281,27 +282,38 @@ public class ChatManager : MonoBehaviour
     IEnumerator WaitForInput()
     {
         yield return new WaitForSeconds(0.1f);
-        bool cliked = false;
-        while (!cliked)
+        bool clicked = false;
+        while (!clicked)
         {
+            Debug.Log("<color=orange>ChatManager: 설정창 열림 감지, 대기 중...</color>");
             if (isPausedByMenu)
             {
                 yield return null;
+                Debug.Log("<color=lime>ChatManager: 설정창 닫힘, 입력 감지 재개!</color>");
                 continue;
 
             } // 대사클릭 관련은 여기있음
             if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
             {
-                if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+                if (EventSystem.current.IsPointerOverGameObject())
                 {
-                    cliked = true;
+                    // [중요] 여기서 마스타를 괴롭히는 범인의 이름을 로그로 찍어봅시다!
+                    PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = Mouse.current.position.ReadValue() };
+                    List<RaycastResult> results = new List<RaycastResult>();
+                    EventSystem.current.RaycastAll(pointerData, results);
+                    if (results.Count > 0)
+                    {
+                        Debug.Log("<color=red>클릭을 막는 범인 발견: " + results[0].gameObject.name + "</color>");
+                    }
                 }
-
-
+                else
+                {
+                    clicked = true; // UI가 아닌 곳(빨간색 영역 등)을 클릭하면 정상 작동
+                }
             }
             if (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame)
             {
-                cliked = true;
+                clicked = true;
             }
             //if(Input.GetButtonDown(0)) cliked = true;
 
