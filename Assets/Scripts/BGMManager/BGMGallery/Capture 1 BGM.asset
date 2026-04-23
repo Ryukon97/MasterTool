@@ -24,4 +24,4 @@ MonoBehaviour:
     EndID: 103
     BGMIndex: 5
     BGMClip: {fileID: 8300000, guid: b88a7caa6989fa145af54af750a5acff, type: 3}
-    FadeDuration: 0.59
+    FadeDuration: 1.27
