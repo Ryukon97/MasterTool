@@ -17,28 +17,275 @@ MonoBehaviour:
     GroupName: "\uCCAB\uB9CC\uB0A8"
     entries:
     - id: 0
-      speakerName: "\uD55C\uC11C\uC544"
-      dialogueText: "\uD14C\uC2A4\uD2B8"
+      speakerName: "\uB098"
+      dialogueText: "(\uC870\uAE08 \uC774\uB978 \uC2DC\uAC04\uC778 \uC624\uD6C4 5\uC2DC)"
       characterIllust: {fileID: 0}
-      BackGroundSprit: {fileID: 0}
+      BackGroundSprit: {fileID: -1386689652380381152, guid: 593c94cc7c038d24aa43f8d5833e5afa, type: 3}
+      EffectSound: {fileID: 0}
+      seVolune: 0
+      EffectSprite: {fileID: 0}
+      EffectPos: {x: 0, y: 0}
+      EffectScale: 0
+      choices: []
+      Char1:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: -400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      Char2:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: 400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      nextIndexOverride: -1
+    - id: 1
+      speakerName: "\uB098"
+      dialogueText: "(\uC5B4\uBA38\uB2C8\uC758 \uC7A5\uB808\uB97C\uCE58\uB8E8\uACE0
+        \uCCAB \uB0A0)"
+      characterIllust: {fileID: 0}
+      BackGroundSprit: {fileID: -1386689652380381152, guid: 593c94cc7c038d24aa43f8d5833e5afa, type: 3}
+      EffectSound: {fileID: 0}
+      seVolune: 0
+      EffectSprite: {fileID: 0}
+      EffectPos: {x: 0, y: 0}
+      EffectScale: 0
+      choices: []
+      Char1:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: -400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      Char2:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: 400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      nextIndexOverride: -1
+    - id: 2
+      speakerName: "\uB098"
+      dialogueText: "(\uD68C\uC0AC\uC758 \uBC30\uB824\uB85C \uC870\uAE30\uD1F4\uADFC\uC744
+        \uC2DC\uCF1C\uC8FC\uC5C8\uB2E4)"
+      characterIllust: {fileID: 0}
+      BackGroundSprit: {fileID: -1386689652380381152, guid: 593c94cc7c038d24aa43f8d5833e5afa, type: 3}
+      EffectSound: {fileID: 0}
+      seVolune: 0
+      EffectSprite: {fileID: 0}
+      EffectPos: {x: 0, y: 0}
+      EffectScale: 0
+      choices: []
+      Char1:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: -400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      Char2:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: 400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      nextIndexOverride: -1
+    - id: 3
+      speakerName: "\uB098"
+      dialogueText: "(\uC624\uB298\uC740 \uC9D1\uC5D0 \uAC00\uAE30\uC2EB\uC5B4 \uC57C\uADFC\uAE4C\uC9C0
+        \uD558\uACE0\uC2F6\uC5C8\uC73C\uB098)"
+      characterIllust: {fileID: 0}
+      BackGroundSprit: {fileID: -1386689652380381152, guid: 593c94cc7c038d24aa43f8d5833e5afa, type: 3}
+      EffectSound: {fileID: 0}
+      seVolune: 0
+      EffectSprite: {fileID: 0}
+      EffectPos: {x: 0, y: 0}
+      EffectScale: 0
+      choices: []
+      Char1:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: -400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      Char2:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: 400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      nextIndexOverride: -1
+    - id: 4
+      speakerName: "\uB098"
+      dialogueText: "(\uC6D0\uCE58 \uC54A\uAC8C \uC9D1\uC73C\uB85C \uAC00\uC57C\uD558\uB294
+        \uC774 \uC0C1\uD669\uC774)"
+      characterIllust: {fileID: 0}
+      BackGroundSprit: {fileID: -1386689652380381152, guid: 593c94cc7c038d24aa43f8d5833e5afa, type: 3}
+      EffectSound: {fileID: 0}
+      seVolune: 0
+      EffectSprite: {fileID: 0}
+      EffectPos: {x: 0, y: 0}
+      EffectScale: 0
+      choices: []
+      Char1:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: -400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      Char2:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: 400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      nextIndexOverride: -1
+    - id: 5
+      speakerName: "\uB098"
+      dialogueText: "(\uC544\uB9C8 \uC26C\uC5B4\uC57C \uD558\uB294 \uACB0\uC815\uC801\uC778
+        \uC774\uC720\uACA0\uC9C0)"
+      characterIllust: {fileID: 0}
+      BackGroundSprit: {fileID: -1386689652380381152, guid: 593c94cc7c038d24aa43f8d5833e5afa, type: 3}
+      EffectSound: {fileID: 0}
+      seVolune: 0
+      EffectSprite: {fileID: 0}
+      EffectPos: {x: 0, y: 0}
+      EffectScale: 0
+      choices: []
+      Char1:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: -400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      Char2:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: 400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      nextIndexOverride: -1
+    - id: 6
+      speakerName: "\uB098"
+      dialogueText: "(\uD558\uC9C0\uB9CC \uC9D1\uC5D0\uB294 \uB4E4\uC5B4\uAC00\uACE0
+        \uC2F6\uC740 \uB9C8\uC74C\uC774 \uC5C6\uB2E4 \uC5B4\uB5BB\uAC8C \uD574\uC57C\uD560\uAE4C?)"
+      characterIllust: {fileID: 0}
+      BackGroundSprit: {fileID: -1386689652380381152, guid: 593c94cc7c038d24aa43f8d5833e5afa, type: 3}
       EffectSound: {fileID: 0}
       seVolune: 0
       EffectSprite: {fileID: 0}
       EffectPos: {x: 0, y: 0}
       EffectScale: 0
       choices:
-      - choiceText: 
-        choiceIndex: 0
-      - choiceText: 
-        choiceIndex: 0
+      - choiceText: "\uC220\uC9D1\uC73C\uB85C \uD5A5\uD55C\uB2E4"
+        choiceIndex: 100
+      - choiceText: "\uC9D1\uC73C\uB85C \uD5A5\uD55C\uB2E4"
+        choiceIndex: 7
       Char1:
-        CharacterPNG: {fileID: -6407887315191105737, guid: 310b85db2dada9546b94ef72e77ddf6e, type: 3}
+        CharacterPNG: {fileID: 0}
         CharacterPos: {x: -400, y: -150}
         CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       Char2:
-        CharacterPNG: {fileID: -4297706649009758931, guid: 18311393cfa780342830ef2f76b8e62c, type: 3}
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: 400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      nextIndexOverride: -1
+    - id: 7
+      speakerName: "\uB098"
+      dialogueText: "(3\uC77C\uB3D9\uC548 \uBC00\uB9B0 \uC124\uAC70\uC9C0...\uCCAD\uC18C\uD560\uAC70\uB9AC...\uC815\uB77C\uC548\uB41C\uC9D1\uC548....)"
+      characterIllust: {fileID: 0}
+      BackGroundSprit: {fileID: -1386689652380381152, guid: 593c94cc7c038d24aa43f8d5833e5afa, type: 3}
+      EffectSound: {fileID: 0}
+      seVolune: 0
+      EffectSprite: {fileID: 0}
+      EffectPos: {x: 0, y: 0}
+      EffectScale: 0
+      choices: []
+      Char1:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: -400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      Char2:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: 400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      nextIndexOverride: -1
+    - id: 8
+      speakerName: "\uB098"
+      dialogueText: "(\uB3CC\uC544 \uAC00\uACE0 \uC2F6\uC740\uB9C8\uC74C\uC774 \uC804\uD600
+        \uC548\uB4E4\uC9C0\uB9CC \uB3CC\uC544\uAC00\uC9C0 \uC54A\uC73C\uBA74 \uC548\uB400\uB2E4...)"
+      characterIllust: {fileID: 0}
+      BackGroundSprit: {fileID: -1386689652380381152, guid: 593c94cc7c038d24aa43f8d5833e5afa, type: 3}
+      EffectSound: {fileID: 0}
+      seVolune: 0
+      EffectSprite: {fileID: 0}
+      EffectPos: {x: 0, y: 0}
+      EffectScale: 0
+      choices: []
+      Char1:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: -400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      Char2:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: 400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      nextIndexOverride: -1
+    - id: 9
+      speakerName: "\uB098"
+      dialogueText: "(\uC9D1\uC73C\uB85C \uD5A5\uD558\uC790)"
+      characterIllust: {fileID: 0}
+      BackGroundSprit: {fileID: -1386689652380381152, guid: 593c94cc7c038d24aa43f8d5833e5afa, type: 3}
+      EffectSound: {fileID: 0}
+      seVolune: 0
+      EffectSprite: {fileID: 0}
+      EffectPos: {x: 0, y: 0}
+      EffectScale: 0
+      choices: []
+      Char1:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: -400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      Char2:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: 400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      nextIndexOverride: -1
+    - id: 10
+      speakerName: "\uB098"
+      dialogueText: "(\uC9D1\uC73C\uB85C \uD5A5\uD558\uC790)"
+      characterIllust: {fileID: 0}
+      BackGroundSprit: {fileID: -1386689652380381152, guid: 593c94cc7c038d24aa43f8d5833e5afa, type: 3}
+      EffectSound: {fileID: 0}
+      seVolune: 0
+      EffectSprite: {fileID: 0}
+      EffectPos: {x: 0, y: 0}
+      EffectScale: 0
+      choices: []
+      Char1:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: -400, y: -150}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      Char2:
+        CharacterPNG: {fileID: 0}
         CharacterPos: {x: 400, y: -150}
         CharacterScale: 1
         CharacterRotation: 0
@@ -47,11 +294,11 @@ MonoBehaviour:
   - id: 0
     GroupName: 'BadEnding1 [ID:100]'
     entries:
-    - id: 10
+    - id: 100
       speakerName: "\uB098"
       dialogueText: "\uD55C\uC794...\uB450\uC794...\uC138\uC794..."
       characterIllust: {fileID: 0}
-      BackGroundSprit: {fileID: -976680405709189291, guid: a7ecffb38cd93164795c0dd46cdaf065, type: 3}
+      BackGroundSprit: {fileID: -705014119812928537, guid: acd324bdcdfde9544a0b550bf59b5058, type: 3}
       EffectSound: {fileID: 0}
       seVolune: 0
       EffectSprite: {fileID: 0}
@@ -71,12 +318,12 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0.5
       nextIndexOverride: -1
-    - id: 11
+    - id: 101
       speakerName: "\uB098"
       dialogueText: "\uC870\uAE08 \uCDE8\uD560\uC815\uB3C4\uB85C \uB9C8\uC168\uB2E4
         \uC9D1\uC5D0\uAC08\uAE4C?"
       characterIllust: {fileID: 0}
-      BackGroundSprit: {fileID: 0}
+      BackGroundSprit: {fileID: -705014119812928537, guid: acd324bdcdfde9544a0b550bf59b5058, type: 3}
       EffectSound: {fileID: 0}
       seVolune: 0
       EffectSprite: {fileID: 0}
@@ -100,7 +347,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0.5
       nextIndexOverride: -1
-    - id: 12
+    - id: 102
       speakerName: "\uB098"
       dialogueText: "\uC9D1\uC5D0\uAC00\uB3C4 \uCCAD\uC18C\uD560\uAC70\uB9AC \uBC16\uC5D0
         \uC5C6\uACE0..."
@@ -125,11 +372,11 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0.5
       nextIndexOverride: -1
-    - id: 13
+    - id: 103
       speakerName: "\uB098"
       dialogueText: "\uC774\uB300\uB85C\uAC00 \uC88B\uC740\uAC70 \uAC19\uB2E4"
       characterIllust: {fileID: 0}
-      BackGroundSprit: {fileID: 0}
+      BackGroundSprit: {fileID: 6894061090809994034, guid: 906026f10dc96724fac345b8da4d8d4c, type: 3}
       EffectSound: {fileID: 0}
       seVolune: 0
       EffectSprite: {fileID: 0}
@@ -149,11 +396,11 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0.5
       nextIndexOverride: -1
-    - id: 14
+    - id: 104
       speakerName: "\uB098"
       dialogueText: "BadEnding(1) : \uD604\uC2E4\uC678\uBA74"
       characterIllust: {fileID: 0}
-      BackGroundSprit: {fileID: 0}
+      BackGroundSprit: {fileID: 6894061090809994034, guid: 906026f10dc96724fac345b8da4d8d4c, type: 3}
       EffectSound: {fileID: 0}
       seVolune: 0
       EffectSprite: {fileID: 0}

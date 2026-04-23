@@ -18,10 +18,10 @@ MonoBehaviour:
     EndID: 8
     BGMIndex: 8
     BGMClip: {fileID: 8300000, guid: 2f4ac6393d50f0b45a8d90798b3a2e0d, type: 3}
-    FadeDuration: 1.22
+    FadeDuration: 0.49
   - EventName: "\uCCAB\uB9CC\uB0A8"
     StartID: 100
-    EndID: 104
+    EndID: 103
     BGMIndex: 5
-    BGMClip: {fileID: 8300000, guid: 674e5835107a49d49801a94f36f43266, type: 3}
-    FadeDuration: 1.67
+    BGMClip: {fileID: 8300000, guid: b88a7caa6989fa145af54af750a5acff, type: 3}
+    FadeDuration: 0.59

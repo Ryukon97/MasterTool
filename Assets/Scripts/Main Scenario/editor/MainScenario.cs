@@ -55,11 +55,29 @@ public class MainScenario : EditorWindow
             selectedGroupindex = GUILayout.Toolbar(selectedGroupindex, groupNames);
 
             EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button("그룹 추가")) currentSO.groups.Add(new DialogueGroup { GroupName = "새 그룹" });
+            if (GUILayout.Button("그룹 추가"))
+            {
+                Undo.RecordObject(currentSO, "그룹 추가");
+                currentSO.groups.Add(new DialogueGroup { GroupName = "새 그룹" });
+                EditorUtility.SetDirty(currentSO);
+            }
             if (GUILayout.Button("현재 그룹 삭제") && currentSO.groups.Count > 1)
             {
-                currentSO.groups.RemoveAt(selectedGroupindex);
-                selectedGroupindex = Mathf.Clamp(selectedGroupindex - 1, 0, currentSO.groups.Count - 1);
+               
+                if (EditorUtility.DisplayDialog("시나리오 그룹 삭제 경고",
+                   $"정말로 '{currentSO.groups[selectedGroupindex].GroupName}' 그룹을 삭제하시겠습니까?", "삭제", "취소"))
+                {
+                    
+                    Undo.RecordObject(currentSO, "그룹 삭제");
+
+                    currentSO.groups.RemoveAt(selectedGroupindex);
+
+                 
+                    selectedGroupindex = Mathf.Clamp(selectedGroupindex - 1, 0, currentSO.groups.Count - 1);
+
+                   
+                    EditorUtility.SetDirty(currentSO);
+                }
             }
             EditorGUILayout.EndHorizontal();
         }
