@@ -32,28 +32,27 @@ public class SettingManager : MonoBehaviour
 
     void Update()
     {
-        if (IsPausedByMenu || IswaitingForResumeClick)
+       
+        if (IswaitingForResumeClick)
         {
+            if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
+            {
+                
+                if (!EventSystem.current.IsPointerOverGameObject())
+                {
+                    IswaitingForResumeClick = false;
+                    Time.timeScale = 1f;
+                    Debug.Log("Master! 시간을 다시 흐르게 했습니다!");
+                }
+            }
             return;
         }
 
-        //if(Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
-        //{
-        //    IswaitingForResumeClick = false;
-        //    Time.timeScale = 1f;
-        //    Debug.Log("플레이어 확인 받음 한번 더 누르면 다시시작!");
-        //}
-        //return;
-        if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
+      
+        if (IsPausedByMenu)
         {
-            if (!EventSystem.current.IsPointerOverGameObject()) // 차후 모바일 포팅 생각하면 이안에 ID관련 값을넣어야함 
-            {
-                IswaitingForResumeClick = false;
-                Time.timeScale = 1;
-            }
+            return;
         }
-        return;
-
     }
     void Start()
     {
@@ -197,9 +196,10 @@ public class SettingManager : MonoBehaviour
         if(chatManager != null)
         {
             chatManager.isPausedByMenu = false;
-            IswaitingForResumeClick =false;
+           
         }
-        Time.timeScale = 1f;
+        IswaitingForResumeClick = false;
+        //Time.timeScale = 1f;
     }
 
     public void StopIntroBGM()
