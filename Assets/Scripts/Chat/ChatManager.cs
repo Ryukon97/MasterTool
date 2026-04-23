@@ -44,12 +44,12 @@ public class ChatManager : MonoBehaviour
 
         DialogueEntry EntryToPlay = null;
 
-       
+
         foreach (var group in currentScenario.groups)
         {
             EntryToPlay = group.entries.Find(x => x.id == startID);
             if (EntryToPlay != null)
-                break; 
+                break;
         }
 
         currentEntry = EntryToPlay;
@@ -100,7 +100,7 @@ public class ChatManager : MonoBehaviour
                 else { CharacterImage.gameObject.SetActive(false); }
             }
 
-           
+
             if (CharacterImage2 != null)
             {
                 if (currentEntry.Char2 != null && currentEntry.Char2.CharacterPNG != null)
@@ -110,7 +110,7 @@ public class ChatManager : MonoBehaviour
                     CharacterImage2.SetNativeSize();
                     CharacterImage2.rectTransform.localScale = Vector3.one * currentEntry.Char2.CharacterScale;
 
-                   
+
                     StartCoroutine(AnimateCharacter(CharacterImage2, currentEntry.Char2.CharacterPos, currentEntry.Char2.moveDuration));
                     StartCoroutine(AnimationRotation(CharacterImage2, currentEntry.Char2.CharacterRotation, currentEntry.Char2.moveDuration));
                 }
@@ -161,9 +161,9 @@ public class ChatManager : MonoBehaviour
             foreach (var group in currentScenario.groups)
             {
                 NextfoundEntry = group.entries.Find(x => x.id == nextID);
-               
+
                 if (NextfoundEntry != null) break;
-               
+
             }
 
             currentEntry = NextfoundEntry;
@@ -284,14 +284,25 @@ public class ChatManager : MonoBehaviour
         bool cliked = false;
         while (!cliked)
         {
-            if(isPausedByMenu)
+            if (isPausedByMenu)
             {
                 yield return null;
                 continue;
 
+            } // 대사클릭 관련은 여기있음
+            if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+                {
+                    cliked = true;
+                }
+
+
             }
-            if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) cliked = true;
-            if(Keyboard.current !=null && Keyboard.current.anyKey.wasPressedThisFrame)cliked = true;
+            if (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame)
+            {
+                cliked = true;
+            }
             //if(Input.GetButtonDown(0)) cliked = true;
 
             yield return null;
@@ -304,7 +315,7 @@ public class ChatManager : MonoBehaviour
         //           (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame);
         //});
     }
-   
+
 
 
     void CheckBGMEvent(int currentID)

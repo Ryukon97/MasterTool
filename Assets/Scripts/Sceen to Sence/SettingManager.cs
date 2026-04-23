@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class SettingManager : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class SettingManager : MonoBehaviour
     public GameObject Settingpanel;  // 전체 설정창 패널 (ConfigButton)
     public GameObject panelVolume;   // 1. 음량 탭 콘텐츠 (Panel_Volume)
     public GameObject panelOther;    // 2. 기타 탭 콘텐츠 (Panel_other)
+    public bool IswaitingForResumeClick = false; //3. 설정창을 닫을시 바로 시작하는게 아닌 한번더 클릭 후 시작할수 있게한다
+    public bool IsPausedByMenu = false;
 
     //[Header("Content Panels (Only Sliders)")]
     //public GameObject volumeContent;
@@ -26,6 +30,31 @@ public class SettingManager : MonoBehaviour
 
     public ChatManager chatManager;
 
+    void Update()
+    {
+        if (IsPausedByMenu || IswaitingForResumeClick)
+        {
+            return;
+        }
+
+        //if(Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
+        //{
+        //    IswaitingForResumeClick = false;
+        //    Time.timeScale = 1f;
+        //    Debug.Log("플레이어 확인 받음 한번 더 누르면 다시시작!");
+        //}
+        //return;
+        if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
+        {
+            if (!EventSystem.current.IsPointerOverGameObject()) // 차후 모바일 포팅 생각하면 이안에 ID관련 값을넣어야함 
+            {
+                IswaitingForResumeClick = false;
+                Time.timeScale = 1;
+            }
+        }
+        return;
+
+    }
     void Start()
     {
         Debug.Log($"<color=cyan>[Start] 연결 확인 - PanelOther: {panelOther != null}, SettingPanel: {Settingpanel != null}</color>");
@@ -67,7 +96,7 @@ public class SettingManager : MonoBehaviour
         soundSlider.onValueChanged.AddListener(Setsound);
         if (sfxSlider != null) sfxSlider.onValueChanged.AddListener(SetSFXVolume);
 
-        
+
         if (panelVolume != null) panelVolume.SetActive(false);
 
         if (panelOther != null) panelOther.SetActive(false);
@@ -86,13 +115,13 @@ public class SettingManager : MonoBehaviour
         if (panelOther != null) panelOther.SetActive(false);
     }
 
-  
-     public void ShowOtherTab()
+
+    public void ShowOtherTab()
     {
         if (panelVolume != null) panelVolume.SetActive(false); // 음량 슬라이더들 퇴장!
         if (panelOther != null) panelOther.SetActive(true);    // 기타 슬라이더들 등장!
 
-      
+
         panelOther.transform.SetAsLastSibling();
 
         Debug.Log(" 기타 슬라이더로 교체했습니다.");
@@ -125,13 +154,15 @@ public class SettingManager : MonoBehaviour
         if (sfxManager != null) sfxManager.SetVolume(value);
     }
 
-    public void SaveSettings()
+    public void SaveSettings() //저장버튼 연결되어있음
     {
         PlayerPrefs.SetFloat("SavedBrightness", BrightnessSlider.value);
         PlayerPrefs.SetFloat("SavedSound", soundSlider.value);
         PlayerPrefs.SetFloat("SavedSFX", sfxSlider.value);
         PlayerPrefs.SetFloat("SavedVoice", voiceSlider.value);
         PlayerPrefs.Save();
+        ResumeGame();
+        
     }
 
     public void OpenSettingPanel()
@@ -149,11 +180,26 @@ public class SettingManager : MonoBehaviour
     {
         if (Settingpanel != null)
         {
-            Settingpanel.SetActive(false);
-            if (chatManager != null) chatManager.isPausedByMenu = false;
+            //Settingpanel.SetActive(false);
+            //if (chatManager != null)
+            //{
+            //    chatManager.isPausedByMenu = false;
+            //    IswaitingForResumeClick = true;
+            //}
 
-            Time.timeScale = 1f; //설정나가면 게임 다시시작
+            Settingpanel.SetActive(false);
+            ResumeGame();
         }
+    }
+
+    private void ResumeGame()
+    {
+        if(chatManager != null)
+        {
+            chatManager.isPausedByMenu = false;
+            IswaitingForResumeClick =false;
+        }
+        Time.timeScale = 1f;
     }
 
     public void StopIntroBGM()
