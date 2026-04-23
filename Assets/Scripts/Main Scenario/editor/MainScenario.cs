@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Codice.Client.BaseCommands.WkStatus.Printers;
 
 public class MainScenario : EditorWindow
 {
@@ -61,21 +62,39 @@ public class MainScenario : EditorWindow
                 currentSO.groups.Add(new DialogueGroup { GroupName = "새 그룹" });
                 EditorUtility.SetDirty(currentSO);
             }
+
+            GUI.enabled = selectedGroupindex > 0; // 0값보다 작으면 왼쪽으로감 
+            if (GUILayout.Button("◀", GUILayout.Width(30)))
+            {
+                MoveGroup(selectedGroupindex, selectedGroupindex - 1);
+            }
+            GUI.enabled = true;
+
+            GUI.enabled = selectedGroupindex < currentSO.groups.Count - 1;// 0이상 이면 오른쪽 이동 오른쪽에 그룹없으면 버튼 비활성화
+            if (GUILayout.Button("▶", GUILayout.Width(30)))
+            {
+                MoveGroup(selectedGroupindex, selectedGroupindex + 1);
+            }
+            GUI.enabled = true;
+
             if (GUILayout.Button("현재 그룹 삭제") && currentSO.groups.Count > 1)
             {
-               
+
+
+
+
                 if (EditorUtility.DisplayDialog("시나리오 그룹 삭제 경고",
                    $"정말로 '{currentSO.groups[selectedGroupindex].GroupName}' 그룹을 삭제하시겠습니까?", "삭제", "취소"))
                 {
-                    
+
                     Undo.RecordObject(currentSO, "그룹 삭제");
 
                     currentSO.groups.RemoveAt(selectedGroupindex);
 
-                 
+
                     selectedGroupindex = Mathf.Clamp(selectedGroupindex - 1, 0, currentSO.groups.Count - 1);
 
-                   
+
                     EditorUtility.SetDirty(currentSO);
                 }
             }
@@ -249,6 +268,18 @@ public class MainScenario : EditorWindow
         EditorGUILayout.PropertyField(CharProp.FindPropertyRelative("CharacterRotation"), new GUIContent("회전 (Z축)"));
         EditorGUILayout.PropertyField(CharProp.FindPropertyRelative("moveDuration"), new GUIContent("이동 시간(초)"));
 
+    }
+
+    private void MoveGroup(int OldIndex, int NewIndex) //그룹 순서 변경칸을위한 메서드
+    {
+        Undo.RecordObject(currentSO,"그룹 순서 변경");
+        DialogueGroup Item = currentSO.groups[OldIndex];
+        currentSO.groups.RemoveAt(OldIndex);
+        currentSO.groups.Insert(NewIndex, Item);
+        selectedGroupindex = NewIndex;
+
+        EditorUtility.SetDirty(currentSO);
+           
     }
     private void CreateNewSO()
     {
