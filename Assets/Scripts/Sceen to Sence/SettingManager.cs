@@ -140,6 +140,8 @@ public class SettingManager : MonoBehaviour
         {
             Settingpanel.SetActive(true);
             if (chatManager != null) chatManager.isPausedByMenu = true;
+
+            Time.timeScale = 0f; // 설정 누르면 게임 멈춤
         }
     }
 
@@ -149,6 +151,8 @@ public class SettingManager : MonoBehaviour
         {
             Settingpanel.SetActive(false);
             if (chatManager != null) chatManager.isPausedByMenu = false;
+
+            Time.timeScale = 1f; //설정나가면 게임 다시시작
         }
     }
 
