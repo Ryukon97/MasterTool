@@ -90,14 +90,18 @@ public class Slot : MonoBehaviour // 슬롯 구현을 위해 있는것
     public void ConfirmDelete() // 삭제확인 네 에 연결할 함수
     {
         saveManager.DeletGame(PendingDeleteIndex);
-        Slot[] allSlots = Object.FindObjectsOfType<Slot>();
+        Slot[] allSlots = Object.FindObjectsByType<Slot>(FindObjectsSortMode.None);
 
         foreach (Slot s in allSlots)
         {
             if (s != null)
             {
-                s.UpdateSlotUI(); // 's' 대신 'slotItem'이라는 명확한 이름을 썼어요!
+                s.UpdateSlotUI();
             }
+        }
+        if(DeleteConfirmPanel !=null) //패널 닫는 거
+        {
+            DeleteConfirmPanel.SetActive(false);
         }
     }
     public void CancelDelete() //아니요에 연결할 함수 
