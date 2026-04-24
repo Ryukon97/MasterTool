@@ -11,6 +11,10 @@ public class Slot : MonoBehaviour // 슬롯 구현을 위해 있는것
     public TextMeshProUGUI infoText; // save버튼안에있는 날짜나 요약표시용 
     private SaveManager saveManager;
     private string savePath;
+
+    public GameObject DeleteConfirmPanel; //게임 삭제 
+    private static int PendingDeleteIndex;
+
     void Start()
     {
         saveManager = FindAnyObjectByType<SaveManager>(); // 차후 덮어쓰기 형식같은 느낌의 로직구현하면 좋을듯?
@@ -72,4 +76,33 @@ public class Slot : MonoBehaviour // 슬롯 구현을 위해 있는것
         saveManager.DeletGame(slotIndex);
         UpdateSlotUI();
     }
+
+    public void OnclickDeleteRequest() // 삭제전 패널띄우는것 
+    {
+        PendingDeleteIndex = slotIndex;
+
+        if(DeleteConfirmPanel !=null)
+        {
+            DeleteConfirmPanel.SetActive(true);
+        }
+    }
+
+    public void ConfirmDelete() // 삭제확인 네 에 연결할 함수
+    {
+        saveManager.DeletGame(PendingDeleteIndex);
+        Slot[] allSlots = Object.FindObjectsOfType<Slot>();
+
+        foreach (Slot s in allSlots)
+        {
+            if (s != null)
+            {
+                s.UpdateSlotUI(); // 's' 대신 'slotItem'이라는 명확한 이름을 썼어요!
+            }
+        }
+    }
+    public void CancelDelete() //아니요에 연결할 함수 
+    {
+        DeleteConfirmPanel.SetActive(false);
+    }
+
 }
