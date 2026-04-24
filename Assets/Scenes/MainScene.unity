@@ -3661,6 +3661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Slot
   slotIndex: 1
   infoText: {fileID: 2007874486}
+  DeleteConfirmPanel: {fileID: 557451523}
 --- !u!1 &683677742
 GameObject:
   m_ObjectHideFlags: 0
@@ -4158,6 +4159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Slot
   slotIndex: 2
   infoText: {fileID: 695819195}
+  DeleteConfirmPanel: {fileID: 557451523}
 --- !u!1 &791171911
 GameObject:
   m_ObjectHideFlags: 0
