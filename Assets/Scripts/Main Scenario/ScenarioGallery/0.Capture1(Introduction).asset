@@ -222,7 +222,7 @@ MonoBehaviour:
         moveDuration: 0
       nextIndexOverride: -1
   - id: 0
-    GroupName: "\uCCAB\uB9CC\uB0A8 ID:N~"
+    GroupName: "\uCCAB\uB9CC\uB0A8 ID:8~"
     entries:
     - id: 8
       speakerName: "\uB098"
@@ -347,6 +347,31 @@ MonoBehaviour:
         CharacterPNG: {fileID: 0}
         CharacterPos: {x: 0, y: 0}
         CharacterScale: 0
+        CharacterRotation: 0
+        moveDuration: 0
+      nextIndexOverride: -1
+    - id: 13
+      speakerName: ???
+      dialogueText: "\uC9C0\uAE08 \uC74C\uD749\uD55C \uC0C1\uC0C1\uD558\uACE0 \uC788\uC9C0?
+        \uC5BC\uAD74\uC5D0 \uB2E4 \uC368\uC788\uB2E4?"
+      characterIllust: {fileID: 0}
+      BackGroundSprit: {fileID: 2624535729187482174, guid: f4cd51aaa3bb22d49928f707b7fff37c, type: 3}
+      EffectSound: {fileID: 0}
+      seVolune: 0
+      EffectSprite: {fileID: 0}
+      EffectPos: {x: 0, y: 0}
+      EffectScale: 0
+      choices: []
+      Char1:
+        CharacterPNG: {fileID: -8336689936160784555, guid: cb1b04cf9a7e3b541af7c7e24b9dfb64, type: 3}
+        CharacterPos: {x: 0, y: 0}
+        CharacterScale: 1
+        CharacterRotation: 0
+        moveDuration: 0
+      Char2:
+        CharacterPNG: {fileID: -4297706649009758931, guid: 18311393cfa780342830ef2f76b8e62c, type: 3}
+        CharacterPos: {x: 0, y: 0}
+        CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
