@@ -15,6 +15,10 @@ public class Slot : MonoBehaviour // 슬롯 구현을 위해 있는것
     public GameObject DeleteConfirmPanel; //게임 삭제 
     private static int PendingDeleteIndex;
 
+    [Header("UI 패널 연결")]
+    public GameObject DeleteSlotButtonGroup;
+    public GameObject GameSlotAll;
+
     void Start()
     {
         saveManager = FindAnyObjectByType<SaveManager>(); // 차후 덮어쓰기 형식같은 느낌의 로직구현하면 좋을듯?
@@ -83,6 +87,7 @@ public class Slot : MonoBehaviour // 슬롯 구현을 위해 있는것
 
         if(DeleteConfirmPanel !=null)
         {
+            if (DeleteSlotButtonGroup != null) DeleteSlotButtonGroup.SetActive(false);
             DeleteConfirmPanel.SetActive(true);
         }
     }
@@ -107,6 +112,8 @@ public class Slot : MonoBehaviour // 슬롯 구현을 위해 있는것
     public void CancelDelete() //아니요에 연결할 함수 
     {
         DeleteConfirmPanel.SetActive(false);
+
+        if (GameSlotAll != null) GameSlotAll.SetActive(true);
     }
 
 }
