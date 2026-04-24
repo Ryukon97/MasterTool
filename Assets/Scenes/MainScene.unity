@@ -1725,7 +1725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43037802722137d4ca4a0e27e791e776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Slot
-  slotIndex: 2
+  slotIndex: 1
   infoText: {fileID: 47667698}
 --- !u!1 &296239688
 GameObject:
