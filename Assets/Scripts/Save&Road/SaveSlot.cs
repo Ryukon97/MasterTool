@@ -36,12 +36,24 @@ public class Slot : MonoBehaviour // 슬롯 구현을 위해 있는것
         }
     }
 
+ 
+
+   
     public void OnClickSave()
     {
         saveManager.SaveGame(slotIndex);
         UpdateSlotUI();
+        Debug.Log($"<color=cyan>{slotIndex}번 슬롯에 저장 완료!</color>");
     }
-
+    //public void OnclickSave()
+    //{
+    //    if (File.Exists(savePath))
+    //    {
+    //        Debug.Log($"{slotIndex}");
+    //    }
+    //    saveManager.SaveGame(slotIndex);
+    //    UpdateSlotUI();
+    //}
     public void OnclickLoad()
     {
         if (File.Exists(savePath))
@@ -52,22 +64,10 @@ public class Slot : MonoBehaviour // 슬롯 구현을 위해 있는것
         {
             Debug.Log($"{slotIndex}번 슬롯이 비어있어 불러올 수 없습니다");
         }
-    
-        //void Update()
-        //{
 
-        //}
+       
     }
-    public void OnclickSave()
-    {
-        if (File.Exists(savePath))
-        {
-            Debug.Log($"{slotIndex}");
-        }
-        saveManager.SaveGame(slotIndex);
-        UpdateSlotUI();
-    }
-    public void OnclickDelet()
+    public void OnclickDelete()
     {
         saveManager.DeletGame(slotIndex);
         UpdateSlotUI();
