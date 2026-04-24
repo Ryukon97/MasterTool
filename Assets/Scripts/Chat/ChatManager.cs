@@ -22,10 +22,11 @@ public class ChatManager : MonoBehaviour
     public UnityEngine.UI.Image CharacterImage2;
     public Image BackgroundImage;
     public Image EffectImage;
+    public DialogueEntry currentEntry;
 
     private Coroutine RotationCoroutine;
     private Coroutine CharacterMoveCoroutine;
-    private DialogueEntry currentEntry;
+    
     public bool isPausedByMenu = false;
     private int nextIDResult = -1;
 
