@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class SettingManager : MonoBehaviour
 {
-    [Header("UI Panels")]
+    [Header("UI 패널")]
     public GameObject Settingpanel;  // 전체 설정창 패널 (ConfigButton)
     public GameObject panelVolume;   // 1. 음량 탭 콘텐츠 (Panel_Volume)
     public GameObject panelOther;    // 2. 기타 탭 콘텐츠 (Panel_other)
@@ -16,11 +16,11 @@ public class SettingManager : MonoBehaviour
     //public GameObject volumeContent;
     //public GameObject otherContent;
 
-    [Header("Brightness")]
+    [Header("밝기 조절")]
     public Image BrightnessOverlay;  // BrightOverlay 이미지
     public Slider BrightnessSlider;  // 화면밝기 슬라이더
 
-    [Header("Sound Setting")]
+    [Header("사운드 조절")]
     public Slider soundSlider;       // BGM 슬라이더
     public Slider sfxSlider;         // 효과음 슬라이더 (SoundEffectSlider)
     public Slider voiceSlider;       // 보이스 슬라이더 (추후용)
@@ -28,6 +28,9 @@ public class SettingManager : MonoBehaviour
     public SoundEffect sfxManager;   // SoundEffect 스크립트 연결
 
     public ChatManager chatManager;
+
+    [Header("세이브 & 로드")]
+    public GameObject SaveLoadPanel;
 
     void Update()
     {
@@ -82,8 +85,12 @@ public class SettingManager : MonoBehaviour
 
         if (panelVolume != null) panelVolume.SetActive(false);
 
-        if (panelOther != null) panelOther.SetActive(false);
+        if (panelOther != null) panelOther.SetActive(false); //시작시패널끔
         if (Settingpanel != null) Settingpanel.SetActive(false);
+        if(SaveLoadPanel !=null)
+        {
+            SaveLoadPanel.SetActive(false);
+        }
         ShowVolumeTab();
     }
 
@@ -189,6 +196,31 @@ public class SettingManager : MonoBehaviour
 
         
         Time.timeScale = 1f;
+    }
+
+    public void OpenSaveLoadPanel() // 새이브로드 화면 열고닫기
+
+    {
+        if (SaveLoadPanel != null)
+        {
+            SaveLoadPanel.SetActive(true);
+
+           
+            Slot[] slots = SaveLoadPanel.GetComponentsInChildren<Slot>(true);
+            foreach (Slot slot in slots)
+            {
+                slot.UpdateSlotUI();
+            }
+        }
+    }
+
+  
+    public void CloseSaveLoadPanel()
+    {
+        if (SaveLoadPanel != null)
+        {
+            SaveLoadPanel.SetActive(true); // 패널 끄기!
+        }
     }
 
     public void StopIntroBGM()

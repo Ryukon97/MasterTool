@@ -2,6 +2,7 @@ using NUnit.Framework.Constraints;
 using System.Collections; //start Coroutine; ->이거쓸려면 써야함
 using System.Drawing;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.UI;
@@ -109,6 +110,19 @@ public class SaveManager :MonoBehaviour
 
         cm.StartCoroutine(cm.PlayDialogue(Data.CurrentID)); // 대화시작
     }
+
+    public void DeletGame(int SlotIndex)
+    {
+        string path = Path.Combine(Application.persistentDataPath, $"save_slot_{SlotIndex}.json");
+
+        if(File.Exists(path))
+        {
+            File.Delete(path);
+            Debug.Log($"<color=red>{SlotIndex}번 슬롯의 데이터를 삭제했습니다</color>");
+        }
+    }
+ 
 }
+
 
 
