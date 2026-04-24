@@ -84,7 +84,8 @@ public class SaveManager :MonoBehaviour
 
 
         cm.StopAllCoroutines();
-        
+        Data.MasterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f); // 사운드 저장값
+    
 
         // [저장 시]
         Data.Char1Pos = cm.CharacterImage.rectTransform.anchoredPosition;
