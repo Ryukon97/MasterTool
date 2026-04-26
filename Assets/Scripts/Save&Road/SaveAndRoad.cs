@@ -4,6 +4,9 @@ using System.Numerics;
 [System.Serializable]
 public class SaveAndLoad
 {
+    // 오늘 날짜 저장용 / SOdata를 이름화
+    public string SaveToday;
+    public string SOdataName;
     // [설정값]
     public float MasterVolume; // 배경음
     public float Brightness; // 밝기
