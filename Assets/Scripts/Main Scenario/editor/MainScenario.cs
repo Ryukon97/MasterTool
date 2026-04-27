@@ -154,6 +154,11 @@ public class MainScenario : EditorWindow
                             EditorGUILayout.PropertyField(idProp, new GUIContent("고유 ID"));
                             EditorGUILayout.PropertyField(nameProp, new GUIContent("화자 이름"));
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("dialogueText"), new GUIContent("대사 내용"));
+
+
+                            EditorGUILayout.PropertyField(element.FindPropertyRelative("showChatUI"), new GUIContent("채팅창 표시 여부: 체크하면 켜지고 해제하면 꺼집니다"));              
+
+                            EditorGUILayout.Space(10);
                             EditorGUILayout.Space(10);
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("nextIndexOverride"), new GUIContent("강제 이동 ID"));
                             EditorGUILayout.Space(2);// 효과음관련
