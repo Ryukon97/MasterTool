@@ -4453,6 +4453,7 @@ MonoBehaviour:
     dialogueText: 
     characterIllust: {fileID: 0}
     BackGroundSprit: {fileID: 0}
+    showChatUI: 1
     EffectSound: {fileID: 0}
     seVolune: 1
     EffectSprite: {fileID: 0}
@@ -4472,6 +4473,7 @@ MonoBehaviour:
       CharacterRotation: 0
       moveDuration: 0.5
     nextIndexOverride: -1
+  ChatImage: {fileID: 0}
   isPausedByMenu: 0
 --- !u!1 &941290621
 GameObject:

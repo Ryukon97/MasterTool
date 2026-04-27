@@ -215,31 +215,9 @@ public class MainScenario : EditorWindow
                                     EditorGUI.indentLevel--;
                                 }
                             }
-                            EditorGUILayout.Space(2);
-                            SerializedProperty fadeEffectProp = element.FindPropertyRelative("FadeTime"); //페이드 인아웃을 위한 칸
-                            bool isFadeExpanded = EditorGUILayout.Foldout(fadeEffectProp.isExpanded, " 배경 연출 설정 (Fade)", true);
-                            fadeEffectProp.isExpanded = isFadeExpanded;
+                          
 
-                            if (isFadeExpanded)
-                            {
-                                EditorGUI.indentLevel++;
-                                EditorGUILayout.BeginVertical("box"); 
-
-                              
-                                SerializedProperty durationProp = element.FindPropertyRelative("FadeTime");
-                                durationProp.floatValue = EditorGUILayout.Slider("지속 시간(Duration)", durationProp.floatValue, 0f, 5f);
-
-                               
-                                SerializedProperty whiteOutProp = element.FindPropertyRelative("UseWhiteOut");
-                                whiteOutProp.boolValue = EditorGUILayout.Toggle("화이트 아웃 여부", whiteOutProp.boolValue);
-
-                              
-                                SerializedProperty intensityProp = element.FindPropertyRelative("Intensity");
-                                intensityProp.floatValue = EditorGUILayout.Slider("효과 강도(Intensity)", intensityProp.floatValue, 0f, 1f);
-
-                                EditorGUILayout.EndVertical();
-                                EditorGUI.indentLevel--;
-                            }
+                          
                             EditorGUILayout.Space(2);
 
                             SerializedProperty selectFolderProp = element.FindPropertyRelative("choices");

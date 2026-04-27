@@ -24,8 +24,9 @@ public class ChatManager : MonoBehaviour
     public Image EffectImage;
     public DialogueEntry currentEntry;
 
-    [Header("ScreenManager")]
-    public FaidInAndOutManager FaidManager;
+
+    [Header("UI References")]
+    public UnityEngine.UI.Image ChatImage;
 
     private Coroutine RotationCoroutine;
     private Coroutine CharacterMoveCoroutine;
@@ -50,13 +51,7 @@ public class ChatManager : MonoBehaviour
         DialogueEntry EntryToPlay = null;
 
         DialogueEntry entry = GetEntryById(startID);
-        if (currentEntry != null)
-        {
-           
-            Color tColor = currentEntry.UseWhiteOut ? Color.white : Color.black;
-        
-            StartCoroutine(FaidManager.ColorFade(tColor, currentEntry.FadeTime, true));
-        }
+       
 
         foreach (var group in currentScenario.groups)
         {
@@ -86,6 +81,14 @@ public class ChatManager : MonoBehaviour
                 }
 
             }
+
+            if (ChatImage != null)
+                ChatImage.gameObject.SetActive(currentEntry.showChatUI);
+
+
+
+            //yield return StartCoroutine(NormalChatOnlyText(currentEntry.speakerName, currentEntry.dialogueText));
+            //yield return StartCoroutine(WaitForInput());
 
 
             if (CharacterImage != null)

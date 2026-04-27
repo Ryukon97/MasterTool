@@ -59,12 +59,12 @@ public class DialogueEntry
 
     [Header("배경 페이드 인아웃 연출 설정")]
 
-    [Range(0, 5)] public float FadeTime = 1.0f; //페이즈 지속시간  
-    public bool UseWhiteOut = false; // 검정과 하얀색 바꾸는 칸 체크하면 흰색,해제시 검정
-    [Range(0, 1)] public float Intensity = 1.0f; // 투명도 수치 조절
+  
     //public Sprite CharacterPNG;
     [Header(" 뒷 배경 전용")]
     public Sprite BackGroundSprit;
+    [Header("ChatUI 관련 체크시 켜져 있고 체크해제시 꺼져있습니다")]
+    public bool showChatUI = true; // 캐릭터 채팅창 켜고 끄기
 
     [Header("효과음")]
     public AudioClip EffectSound;
