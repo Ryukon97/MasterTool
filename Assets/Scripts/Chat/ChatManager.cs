@@ -24,9 +24,12 @@ public class ChatManager : MonoBehaviour
     public Image EffectImage;
     public DialogueEntry currentEntry;
 
+    [Header("ScreenManager")]
+    public FaidInAndOutManager FaidManager;
+
     private Coroutine RotationCoroutine;
     private Coroutine CharacterMoveCoroutine;
-    
+
     public bool isPausedByMenu = false;
     private int nextIDResult = -1;
 
@@ -46,6 +49,14 @@ public class ChatManager : MonoBehaviour
 
         DialogueEntry EntryToPlay = null;
 
+        DialogueEntry entry = GetEntryById(startID);
+        if (currentEntry != null)
+        {
+           
+            Color tColor = currentEntry.UseWhiteOut ? Color.white : Color.black;
+        
+            StartCoroutine(FaidManager.ColorFade(tColor, currentEntry.FadeTime, true));
+        }
 
         foreach (var group in currentScenario.groups)
         {
@@ -186,7 +197,15 @@ public class ChatManager : MonoBehaviour
     }
 
 
-
+    public DialogueEntry GetEntryById(int targetID)
+    {
+        foreach (var group in currentScenario.groups)
+        {
+            var entry = group.entries.Find(x => x.id == targetID);
+            if (entry != null) return entry;
+        }
+        return null;
+    }
     IEnumerator AnimateCharacter(UnityEngine.UI.Image targetImage, Vector2 TargetPos, float duration)
     {
         if (targetImage == null) yield break;
