@@ -57,7 +57,7 @@ public class DialogueEntry
     [Header("캐릭터 통 일러스트(1980x1080)")]
     public Sprite characterIllust;
 
-    [Header("배경 페이드 인아웃 연출 설정")]
+    
 
   
     //public Sprite CharacterPNG;
