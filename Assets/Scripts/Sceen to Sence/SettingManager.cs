@@ -1,6 +1,7 @@
-#if UNITY_EDITOR
+
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
@@ -238,4 +239,3 @@ public class SettingManager : MonoBehaviour
 #endif
     }
 }
-#endif

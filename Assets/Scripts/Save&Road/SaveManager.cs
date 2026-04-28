@@ -12,7 +12,7 @@ using UnityEngine.UI;
 
 public class SaveManager : MonoBehaviour
 {
-#if UNITY_EDITOR
+
     private string SavePath;
 
     private string GetSavePath(int index)
@@ -145,7 +145,7 @@ public class SaveManager : MonoBehaviour
         }
 
     }
-#endif
+
 }
 
 
