@@ -1,11 +1,14 @@
 using System.IO;
 using TMPro;
+#if UNITY_EDITOR
 using UnityEditor.Overlays;
+#endif
 using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
 
 public class Slot : MonoBehaviour // 슬롯 구현을 위해 있는것 
 {
+#if UNITY_EDITOR
     [Header("슬롯 세팅")]
     public int slotIndex = 0;
     public TextMeshProUGUI infoText; // save버튼안에있는 날짜나 요약표시용 
@@ -191,4 +194,5 @@ public class Slot : MonoBehaviour // 슬롯 구현을 위해 있는것
             DeleteConfirmPanel.SetActive(false);
         }
     }
+#endif
 }

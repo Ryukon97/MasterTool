@@ -1,9 +1,11 @@
 using UnityEditor;
+#if UNITY_EDITOR
 using UnityEngine;
 using System.Collections.Generic;
 
 public class SoundManagerEditor : EditorWindow
 {
+
     private SoundDataSO SoundData;
 
     [MenuItem("MasterTools/Background Music Manager")]
@@ -104,4 +106,6 @@ public class SoundManagerEditor : EditorWindow
             Repaint();
         }
     }
+
 }
+#endif

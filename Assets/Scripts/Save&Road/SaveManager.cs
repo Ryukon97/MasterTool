@@ -2,13 +2,17 @@ using NUnit.Framework.Constraints;
 using System.Collections; //start Coroutine; ->이거쓸려면 써야함
 using System.Drawing;
 using System.IO;
+#if UNITY_EDITOR
+using UnityEditor;
 using Unity.VisualScripting;
 using UnityEditor.Overlays;
+#endif
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SaveManager : MonoBehaviour
 {
+#if UNITY_EDITOR
     private string SavePath;
 
     private string GetSavePath(int index)
@@ -141,6 +145,7 @@ public class SaveManager : MonoBehaviour
         }
 
     }
+#endif
 }
 
 

@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
@@ -237,3 +238,4 @@ public class SettingManager : MonoBehaviour
 #endif
     }
 }
+#endif
