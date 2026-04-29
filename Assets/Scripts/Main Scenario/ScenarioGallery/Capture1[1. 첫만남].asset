@@ -18,8 +18,8 @@ MonoBehaviour:
     entries:
     - id: 0
       speakerName: ???
-      dialogueText: "\uCD95\uD558\uD569\uB2C8\uB2E4 \uB2F9\uC2E0\uC740 \uC624\uB298\uBD80\uD130
-        \n\uC6B0\uB9AC\uC758 \uC77C\uC6D0\uC774 \uB418\uC168\uC2B5\uB2C8\uB2E4"
+      dialogueText: "\" \uB2F9\uC2E0\uC740 \uC624\uB298\uBD80\uD130 \uC6B0\uB9AC\uC758
+        \uC77C\uC6D0\uC774 \uB418\uC168\uC2B5\uB2C8\uB2E4 \""
       characterIllust: {fileID: 0}
       BackGroundSprit: {fileID: 6894061090809994034, guid: 906026f10dc96724fac345b8da4d8d4c, type: 3}
       showChatUI: 1
@@ -209,7 +209,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
-      effectVideoClip: {fileID: 32900000, guid: 1c2a6cd9c137eb94d940db2d3f2f50de, type: 3}
+      effectVideoClip: {fileID: 0}
     - id: 8
       speakerName: "\uB098"
       dialogueText: "( \uBD80\uBAA8\uB2D8\uC758 \uC7A5\uB840\uC2DD\uC744 \uCE58\uB904\uC8FC\uACE0
@@ -420,9 +420,9 @@ MonoBehaviour:
       seVolune: 0
       choices: []
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
-        CharacterScale: 0
+        CharacterPNG: {fileID: 5622823425331532494, guid: 36acd42009055014eb9c00e9d904e4a3, type: 3}
+        CharacterPos: {x: 0, y: -500}
+        CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       Char2:
@@ -443,9 +443,9 @@ MonoBehaviour:
       seVolune: 0
       choices: []
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
-        CharacterScale: 0
+        CharacterPNG: {fileID: 5622823425331532494, guid: 36acd42009055014eb9c00e9d904e4a3, type: 3}
+        CharacterPos: {x: 0, y: -500}
+        CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       Char2:
@@ -494,15 +494,15 @@ MonoBehaviour:
       - choiceText: "(\uBE60\uB974\uAC8C \uC790\uB9AC\uB97C \uD53C\uD55C\uB2E4)"
         choiceIndex: 19
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
-        CharacterScale: 0
+        CharacterPNG: {fileID: 5622823425331532494, guid: 36acd42009055014eb9c00e9d904e4a3, type: 3}
+        CharacterPos: {x: 0, y: -500}
+        CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       Char2:
         CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
-        CharacterScale: 0
+        CharacterPos: {x: 0, y: -500}
+        CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
@@ -518,9 +518,9 @@ MonoBehaviour:
       seVolune: 0
       choices: []
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
-        CharacterScale: 0
+        CharacterPNG: {fileID: 5622823425331532494, guid: 36acd42009055014eb9c00e9d904e4a3, type: 3}
+        CharacterPos: {x: 0, y: -500}
+        CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       Char2:
@@ -542,8 +542,8 @@ MonoBehaviour:
       seVolune: 0
       choices: []
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
+        CharacterPNG: {fileID: 5622823425331532494, guid: 36acd42009055014eb9c00e9d904e4a3, type: 3}
+        CharacterPos: {x: 0, y: -500}
         CharacterScale: 0
         CharacterRotation: 0
         moveDuration: 0
@@ -611,9 +611,9 @@ MonoBehaviour:
       seVolune: 0
       choices: []
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
-        CharacterScale: 0
+        CharacterPNG: {fileID: 5622823425331532494, guid: 36acd42009055014eb9c00e9d904e4a3, type: 3}
+        CharacterPos: {x: 0, y: -500}
+        CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       Char2:
@@ -625,7 +625,7 @@ MonoBehaviour:
       nextIndexOverride: -1
       effectVideoClip: {fileID: 0}
     - id: 24
-      speakerName: "\uB098"
+      speakerName: ???
       dialogueText: "....\uC774\uB807\uAC8C \uCD08\uCDCC\uD574\uBCF4\uC774\uB294
         \uC544\uC800\uC528\uAC00...?"
       characterIllust: {fileID: 0}
@@ -639,9 +639,9 @@ MonoBehaviour:
       - choiceText: "( \uAFC0\uBC24\uC744 \uBA39\uC778\uB2E4)"
         choiceIndex: 25
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
-        CharacterScale: 0
+        CharacterPNG: {fileID: 5622823425331532494, guid: 36acd42009055014eb9c00e9d904e4a3, type: 3}
+        CharacterPos: {x: 0, y: -500}
+        CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       Char2:
@@ -664,9 +664,9 @@ MonoBehaviour:
       seVolune: 0
       choices: []
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
-        CharacterScale: 0
+        CharacterPNG: {fileID: 5622823425331532494, guid: 36acd42009055014eb9c00e9d904e4a3, type: 3}
+        CharacterPos: {x: 0, y: -500}
+        CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       Char2:
@@ -712,9 +712,9 @@ MonoBehaviour:
       seVolune: 0
       choices: []
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
-        CharacterScale: 0
+        CharacterPNG: {fileID: -580087719673131425, guid: d99745f19c695bd4685cb9e446b25a83, type: 3}
+        CharacterPos: {x: 0, y: -500}
+        CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       Char2:
@@ -760,9 +760,9 @@ MonoBehaviour:
       seVolune: 0
       choices: []
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
-        CharacterScale: 0
+        CharacterPNG: {fileID: -580087719673131425, guid: d99745f19c695bd4685cb9e446b25a83, type: 3}
+        CharacterPos: {x: 0, y: -500}
+        CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       Char2:
@@ -854,9 +854,9 @@ MonoBehaviour:
       seVolune: 0
       choices: []
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
-        CharacterScale: 0
+        CharacterPNG: {fileID: -580087719673131425, guid: d99745f19c695bd4685cb9e446b25a83, type: 3}
+        CharacterPos: {x: 0, y: -500}
+        CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       Char2:
@@ -879,9 +879,9 @@ MonoBehaviour:
       seVolune: 0
       choices: []
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
-        CharacterScale: 0
+        CharacterPNG: {fileID: -580087719673131425, guid: d99745f19c695bd4685cb9e446b25a83, type: 3}
+        CharacterPos: {x: 0, y: -500}
+        CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       Char2:
@@ -926,9 +926,9 @@ MonoBehaviour:
       seVolune: 0
       choices: []
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
-        CharacterScale: 0
+        CharacterPNG: {fileID: -580087719673131425, guid: d99745f19c695bd4685cb9e446b25a83, type: 3}
+        CharacterPos: {x: 0, y: -500}
+        CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       Char2:
@@ -954,9 +954,9 @@ MonoBehaviour:
       - choiceText: "( \uAFC0\uBC24\uC744 \uD55C\uBC88 \uB354\uBA39\uC778\uB2E4)"
         choiceIndex: 38
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
-        CharacterScale: 0
+        CharacterPNG: {fileID: -580087719673131425, guid: d99745f19c695bd4685cb9e446b25a83, type: 3}
+        CharacterPos: {x: 0, y: -500}
+        CharacterScale: 1
         CharacterRotation: 0
         moveDuration: 0
       Char2:
@@ -978,11 +978,11 @@ MonoBehaviour:
       seVolune: 0
       choices: []
       Char1:
-        CharacterPNG: {fileID: 0}
-        CharacterPos: {x: 0, y: 0}
-        CharacterScale: 0
-        CharacterRotation: 0
-        moveDuration: 0
+        CharacterPNG: {fileID: -580087719673131425, guid: d99745f19c695bd4685cb9e446b25a83, type: 3}
+        CharacterPos: {x: 0, y: -500}
+        CharacterScale: 1
+        CharacterRotation: -10
+        moveDuration: 0.222
       Char2:
         CharacterPNG: {fileID: 0}
         CharacterPos: {x: 0, y: 0}
@@ -1041,6 +1041,57 @@ MonoBehaviour:
       nextIndexOverride: -1
       effectVideoClip: {fileID: 0}
   - id: 0
+    GroupName: "\uC9D1\uC548 [\uAE30 \uB9C8\uBB34\uB9AC]ID:41~ "
+    entries:
+    - id: 41
+      speakerName: "\uB098"
+      dialogueText: "[ \uAC1C\uBC1C \uC9C4\uD589 \uC911 ]             "
+      characterIllust: {fileID: 0}
+      BackGroundSprit: {fileID: 0}
+      showChatUI: 1
+      EffectSound: {fileID: 0}
+      seVolune: 0
+      choices: []
+      Char1:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: 0, y: 0}
+        CharacterScale: 0
+        CharacterRotation: 0
+        moveDuration: 0
+      Char2:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: 0, y: 0}
+        CharacterScale: 0
+        CharacterRotation: 0
+        moveDuration: 0
+      nextIndexOverride: -1
+      effectVideoClip: {fileID: 32900000, guid: 1c2a6cd9c137eb94d940db2d3f2f50de, type: 3}
+    - id: 41
+      speakerName: "\uB098"
+      dialogueText: "\uB370\uBAA8 \uB9C8\uBB34\uB9AC"
+      characterIllust: {fileID: 0}
+      BackGroundSprit: {fileID: 0}
+      showChatUI: 1
+      EffectSound: {fileID: 0}
+      seVolune: 0
+      choices:
+      - choiceText: "\uB2E4\uC2DC \uCC98\uC74C\uC73C\uB85C"
+        choiceIndex: 0
+      Char1:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: 0, y: 0}
+        CharacterScale: 0
+        CharacterRotation: 0
+        moveDuration: 0
+      Char2:
+        CharacterPNG: {fileID: 0}
+        CharacterPos: {x: 0, y: 0}
+        CharacterScale: 0
+        CharacterRotation: 0
+        moveDuration: 0
+      nextIndexOverride: -1
+      effectVideoClip: {fileID: 32900000, guid: 1c2a6cd9c137eb94d940db2d3f2f50de, type: 3}
+  - id: 0
     GroupName: 'BadEnding1 [ID:100]'
     entries:
     - id: 100
@@ -1079,7 +1130,7 @@ MonoBehaviour:
       - choiceText: "\uB354 \uB9C8\uC2E0\uB2E4"
         choiceIndex: 102
       - choiceText: "\uC9D1\uC5D0 \uAC04\uB2E4"
-        choiceIndex: 8
+        choiceIndex: 13
       Char1:
         CharacterPNG: {fileID: 0}
         CharacterPos: {x: 0, y: -100}
