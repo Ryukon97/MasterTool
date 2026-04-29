@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.Video;
 //using UnityEngine.UIElements;
 
 public class ChatManager : MonoBehaviour
@@ -21,12 +22,19 @@ public class ChatManager : MonoBehaviour
     public UnityEngine.UI.Image CharacterImage;
     public UnityEngine.UI.Image CharacterImage2;
     public Image BackgroundImage;
-    public Image EffectImage;
+    public Transform EffectImage;
     public DialogueEntry currentEntry;
+    public VideoPlayer effectVideoPlayer; // VideoPlayer_Base의 컴포넌트 연결
+    public RawImage videoDisplay;       // 화면에 보여줄 RawImage
 
 
     [Header("UI References")]
     public UnityEngine.UI.Image ChatImage;
+
+    [Header("Effect Settings")]
+    public GameObject EffectParentGroup;
+
+
 
     private Coroutine RotationCoroutine;
     private Coroutine CharacterMoveCoroutine;
@@ -43,6 +51,30 @@ public class ChatManager : MonoBehaviour
         }
     }
 
+    private void HandleVideoEffect(VideoClip clip)
+    {
+        if (effectVideoPlayer == null || videoDisplay == null) return;
+
+        if (clip != null)
+        {
+            // [수정] 부모 오브젝트(All_Effect 등)가 꺼져있는지 확인하고 켭니다.
+            if (EffectParentGroup != null)
+                EffectParentGroup.SetActive(true);
+
+            // 자식인 VideoPlayer 오브젝트도 확실히 켭니다.
+            effectVideoPlayer.gameObject.SetActive(true);
+            videoDisplay.gameObject.SetActive(true);
+
+            effectVideoPlayer.clip = clip;
+            effectVideoPlayer.Prepare();
+            effectVideoPlayer.Play();
+        }
+        else
+        {
+            effectVideoPlayer.Stop();
+            videoDisplay.gameObject.SetActive(false);
+        }
+    }
     public IEnumerator PlayDialogue(int startID)
     {
         //int currentGroupIdx = 0;
@@ -51,7 +83,7 @@ public class ChatManager : MonoBehaviour
         DialogueEntry EntryToPlay = null;
 
         DialogueEntry entry = GetEntryById(startID);
-       
+
 
         foreach (var group in currentScenario.groups)
         {
@@ -72,6 +104,9 @@ public class ChatManager : MonoBehaviour
 
                 BGMManager.instance.PlayOneShotSE(currentEntry.EffectSound, currentEntry.seVolune);
             }
+
+            HandleVideoEffect(currentEntry.effectVideoClip);
+
             if (BackgroundImage != null)
             {
                 if (currentEntry.BackGroundSprit != null)
@@ -85,10 +120,27 @@ public class ChatManager : MonoBehaviour
             if (ChatImage != null)
                 ChatImage.gameObject.SetActive(currentEntry.showChatUI);
 
+            //if (effectVideoPlayer != null && videoDisplay != null)
+            //{
+            //    if (currentEntry.effectVideoClip != null)
+            //    {
+                  
+            //        videoDisplay.gameObject.SetActive(true);
+            //        effectVideoPlayer.gameObject.SetActive(true);
 
+                    
+            //        effectVideoPlayer.clip = currentEntry.effectVideoClip;
+            //        effectVideoPlayer.Stop(); 
+            //        effectVideoPlayer.Play();
+            //    }
+            //    else
+            //    {
+                    
+            //        effectVideoPlayer.Stop();
+            //        videoDisplay.gameObject.SetActive(false);
+            //    }
+            //}
 
-            //yield return StartCoroutine(NormalChatOnlyText(currentEntry.speakerName, currentEntry.dialogueText));
-            //yield return StartCoroutine(WaitForInput());
 
 
             if (CharacterImage != null)
@@ -133,23 +185,6 @@ public class ChatManager : MonoBehaviour
                 else { CharacterImage2.gameObject.SetActive(false); }
             }
 
-            if (EffectImage != null) // 이펙트 관련
-            {
-                if (currentEntry.EffectSprite != null)
-                {
-                    EffectImage.gameObject.SetActive(true);
-                    EffectImage.sprite = currentEntry.EffectSprite;
-                    EffectImage.rectTransform.anchoredPosition = currentEntry.EffectPos;
-                    EffectImage.rectTransform.localScale = Vector3.one * currentEntry.EffectScale;
-                    EffectImage.SetNativeSize();
-                }
-                else
-                {
-                    EffectImage.gameObject.SetActive(false);
-                }
-            }
-
-
             yield return StartCoroutine(NormalChatOnlyText(currentEntry.speakerName, currentEntry.dialogueText));
             yield return StartCoroutine(WaitForInput());
 
@@ -170,8 +205,7 @@ public class ChatManager : MonoBehaviour
             }
 
 
-            //currentEntry = currentScenario.groups[currentGroupIdx].entries.Find(x => x.id == nextID);
-            DialogueEntry NextfoundEntry = null;
+             DialogueEntry NextfoundEntry = null;
 
 
             foreach (var group in currentScenario.groups)
@@ -338,17 +372,10 @@ public class ChatManager : MonoBehaviour
             {
                 clicked = true;
             }
-            //if(Input.GetButtonDown(0)) cliked = true;
-
+         
             yield return null;
         }
         Debug.Log("<color=white>입력 감지됨: 다음 대사로 진행합니다.</color>");
-        //yield return new WaitUntil(() =>
-        //{
-        //    if (isPausedByMenu) return false;
-        //    return (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
-        //           (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame);
-        //});
     }
 
 

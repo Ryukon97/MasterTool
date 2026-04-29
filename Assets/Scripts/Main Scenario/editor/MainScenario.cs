@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using UnityEngine.Video;
 using System.Runtime.InteropServices;
 using Codice.Client.BaseCommands.WkStatus.Printers;
 
@@ -152,25 +153,48 @@ public class MainScenario : EditorWindow
                         {
                             EditorGUI.indentLevel++;
                             EditorGUILayout.PropertyField(idProp, new GUIContent("고유 ID"));
+                            EditorGUILayout.Space(2);
                             EditorGUILayout.PropertyField(nameProp, new GUIContent("화자 이름"));
+                            EditorGUILayout.Space(2);
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("dialogueText"), new GUIContent("대사 내용"));
 
 
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("showChatUI"), new GUIContent("채팅창 표시 여부: 체크하면 켜지고 해제하면 꺼집니다"));              
 
-                            EditorGUILayout.Space(10);
-                            EditorGUILayout.Space(10);
+                            EditorGUILayout.Space(5);
+
+                          
                             EditorGUILayout.PropertyField(element.FindPropertyRelative("nextIndexOverride"), new GUIContent("강제 이동 ID"));
+                            SerializedProperty nextIndexProp = element.FindPropertyRelative("nextIndexOverride");
+                            if (nextIndexProp != null)
+                            {
+                                EditorGUILayout.PropertyField(nextIndexProp, new GUIContent("강제 이동 ID"));
+                            }
+
+                            EditorGUILayout.Space(5);
+                            EditorGUILayout.LabelField("🎥 영상 연출 설정", EditorStyles.boldLabel);
+
+                            // 1. 비디오 클립 할당 칸
+                            SerializedProperty videoClipProp = element.FindPropertyRelative("effectVideoClip");
+                            if (videoClipProp != null)
+                            {
+                                EditorGUILayout.BeginVertical("helpbox"); // 보기 좋게 박스로 감쌉니다.
+                                EditorGUILayout.PropertyField(videoClipProp, new GUIContent("연출용 비디오 클립 (.mp4)", "이 대사에서 재생할 영상 파일을 넣어주세요."));
+
+                                // 팁 제공 (마스타의 편의를 위해!)
+                                if (videoClipProp.objectReferenceValue == null)
+                                {
+                                    EditorGUILayout.HelpBox("영상이 없으면 일반 대사로 진행됩니다.", MessageType.None);
+                                }
+                                EditorGUILayout.EndVertical();
+                            }
+
                             EditorGUILayout.Space(2);// 효과음관련
                             SerializedProperty SoundFolderProp = element.FindPropertyRelative("EffectSound");
                             SoundFolderProp.isExpanded = EditorGUILayout.Foldout(SoundFolderProp.isExpanded, " 사운드설정(효과음)", true);
                             if (SoundFolderProp.isExpanded)
                             {
                                 EditorGUI.indentLevel++;
-                                EditorGUILayout.Space(5);
-                                EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSprite"), new GUIContent("이펙트 PNG"));
-                                EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectPos"), new GUIContent("이펙트 위치"));
-                                EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectScale"), new GUIContent("이펙트 크기"));
                                 EditorGUILayout.Space(5);
                                 EditorGUILayout.LabelField("사운드 연출", EditorStyles.boldLabel);
                                 EditorGUILayout.PropertyField(element.FindPropertyRelative("EffectSound"), new GUIContent("효과음(SE)"));
@@ -290,6 +314,8 @@ public class MainScenario : EditorWindow
         EditorUtility.SetDirty(currentSO);
            
     }
+
+
     private void CreateNewSO()
     {
         DialogueDataSO asset = ScriptableObject.CreateInstance<DialogueDataSO>();

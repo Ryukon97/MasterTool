@@ -25,9 +25,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -42,6 +39,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 1
       speakerName: ???
       dialogueText: "\uC9C0\uAE08\uC740 \uC774 \uB9D0\uC744 \uB4E4\uC5B4\uB3C4 \uC798
@@ -51,9 +49,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -68,6 +63,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 2
       speakerName: ???
       dialogueText: "\uC6B0\uB9B0 \uBA38\uC9C0 \uC54A\uC544 \uB2E4\uC2DC \uB9CC\uB098\uAC8C
@@ -77,9 +73,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -94,6 +87,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 3
       speakerName: ???
       dialogueText: '...
@@ -106,9 +100,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -123,6 +114,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 4
       speakerName: ???
       dialogueText: "\uD558\uACE0 \uC2F6\uC740 \uB9D0\uC740 \uB9CE\uC9C0\uB9CC \uC544\uC27D\uAC8C\uB3C4
@@ -132,9 +124,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -149,18 +138,16 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 5
       speakerName: "\uB098"
-      dialogueText: "\uADF8\uB7FC... \uB2E4\uC2DC \uB9CC\uB0A0\uB0A0\uC744 \uAE30\uB2E4\uB9AC\uACE0
+      dialogueText: "\uADF8\uB7FC... \uB2E4\uC2DC \uB9CC\uB0A0 \uB0A0\uC744 \uAE30\uB2E4\uB9AC\uACE0
         \uC788\uACA0\uC2B5\uB2C8\uB2E4"
       characterIllust: {fileID: 0}
       BackGroundSprit: {fileID: 6894061090809994034, guid: 906026f10dc96724fac345b8da4d8d4c, type: 3}
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -175,6 +162,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 6
       speakerName: "\uB098"
       dialogueText: ... ... ... ?
@@ -183,9 +171,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -200,6 +185,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 7
       speakerName: "\uB098"
       dialogueText: "\uC774\uC0C1\uD55C... \uAFC8.... \n\uC9C4\uC9DC...\uB0B4\uAC00
@@ -209,9 +195,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -226,6 +209,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 32900000, guid: 1c2a6cd9c137eb94d940db2d3f2f50de, type: 3}
     - id: 8
       speakerName: "\uB098"
       dialogueText: "( \uBD80\uBAA8\uB2D8\uC758 \uC7A5\uB840\uC2DD\uC744 \uCE58\uB904\uC8FC\uACE0
@@ -235,9 +219,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -252,6 +233,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 9
       speakerName: "\uB098"
       dialogueText: "( \uB098\uB294 \uC0C1\uD0DC\uAC00 \uC88B\uC9C0 \uC54A\uC544
@@ -262,9 +244,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -279,6 +258,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 10
       speakerName: "\uB098"
       dialogueText: "( \uC624\uD788\uB824 \uD1F4\uADFC\uC744 \uB9C8\uB2E4\uD558\uACE0
@@ -290,9 +270,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -307,6 +284,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 11
       speakerName: "\uB098"
       dialogueText: "\uADFC\uB370... \uC9D1\uC5D0\uAC00\uB3C4 \uD560\uAC74 \uC5C6\uB294\uB370....
@@ -316,9 +294,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices:
       - choiceText: "\uC9D1\uC5D0 \uB3CC\uC544\uAC04\uB2E4"
         choiceIndex: 12
@@ -337,6 +312,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 12
       speakerName: "\uB098"
       dialogueText: "\uC544...\uC124\uAC70\uC9C0\uB791 \uCCAD\uC18C\uAC70\uB9AC...\uB9CE\uACA0\uB124...."
@@ -345,9 +321,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -362,6 +335,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 13
       speakerName: "\uB098"
       dialogueText: "\uC9D1\uC5D0...\uAC00\uC790...."
@@ -370,9 +344,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -387,6 +358,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
   - id: 0
     GroupName: "\uCCAB\uB9CC\uB0A8 ID:13~"
     entries:
@@ -399,9 +371,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -416,6 +385,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 14
       speakerName: "\uB098"
       dialogueText: "\uC800 \uC9D1\uC744 \uC0B0\uB2E4\uACE0 \uBA87\uB144\uC744 \uACE0\uC0DD\uD588\uB294\uB370,\n\uD63C\uC790
@@ -425,9 +395,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -442,6 +409,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 15
       speakerName: ???
       dialogueText: "....\uAE30"
@@ -450,9 +418,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -467,6 +432,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 16
       speakerName: ???
       dialogueText: ".....\uC800\uAE30\uC694"
@@ -475,9 +441,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -492,6 +455,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 17
       speakerName: "\uB098"
       dialogueText: "( \uC660 \uCC98\uC74C \uBCF4\uB294 \uC18C\uB140\uAC00 \uB098\uC5D0\uAC8C
@@ -501,9 +465,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -518,6 +479,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 18
       speakerName: ???
       dialogueText: "\uC800\uAE30 \uB9D0\uC880 \uBB3C\uC744...."
@@ -526,9 +488,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices:
       - choiceText: "\uB3C4 \uC548\uBBFF\uC5B4\uC694"
         choiceIndex: 19
@@ -547,6 +506,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 19
       speakerName: ???
       dialogueText: "\uD558\uC544~?! \uC800\uAE30\uC694 \uC800\uB3C4 \uADF8\uB7F0\uAC74
@@ -556,9 +516,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -573,6 +530,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 20
       speakerName: ???
       dialogueText: "\uB2E4\uB978\uAC8C \uC544\uB2C8\uB77C \uC5EC\uAE30! \uC774 \uC8FC\uC18C\uC5D0
@@ -582,9 +540,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -599,6 +554,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 21
       speakerName: "\uB098"
       dialogueText: "(\uC18C\uB140\uAC00 \uAC74\uB0B4\uC900 \uCABD\uC9C0\uB97C \uBCF4\uC558\uB2E4)"
@@ -607,9 +563,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -624,6 +577,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 22
       speakerName: "\uB098"
       dialogueText: "... ... ... \uC6B0\uB9AC\uC9D1 \uC8FC\uC18C\uC778\uB370...?"
@@ -632,9 +586,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -649,6 +600,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 23
       speakerName: ???
       dialogueText: "....\uB124? \uC544...\uC544...?"
@@ -657,9 +609,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -674,6 +623,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 24
       speakerName: "\uB098"
       dialogueText: "....\uC774\uB807\uAC8C \uCD08\uCDCC\uD574\uBCF4\uC774\uB294
@@ -683,9 +633,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices:
       - choiceText: "( \uB531\uBC24\uC744 \uB54C\uB9B0\uB2E4 )"
         choiceIndex: 25
@@ -704,6 +651,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 25
       speakerName: ???
       dialogueText: "\uC544\uC58F!! \uC65C \uB584\uB9AC\uB294\uAC70\uC5D0\uC694!!
@@ -714,9 +662,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -731,6 +676,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 26
       speakerName: "\uB098"
       dialogueText: "\uACBD\uCC30\uC5D0 \uC2E0\uACE0\uD558\uB294\uAC74 \uB2C8 \uB9D8\uC774\uC9C0\uB9CC
@@ -740,9 +686,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -757,6 +700,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 27
       speakerName: ???
       dialogueText: "\uC544...\uB9DE\uB2E4...!! \uCC98\uC74C\uBD59\uACA0\uC2B5\uB2C8\uB2E4!!
@@ -766,9 +710,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -783,6 +724,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 28
       speakerName: "\uB098"
       dialogueText: "\uADF8...\uB807\uAD6C\uB098....\n\uD0DD\uBC30 \uC628\uAC70\uBA74
@@ -792,9 +734,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -809,6 +748,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 29
       speakerName: "\uD55C\uC11C\uC544"
       dialogueText: "\uC7A0\uAE50\uB9CC\uC694!! \uC800\uB294 \uC624\uB298\uBD80\uD130
@@ -818,9 +758,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -835,6 +772,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 30
       speakerName: "\uB098"
       dialogueText: .... .... ....
@@ -843,9 +781,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -860,6 +795,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 31
       speakerName: "\uB098"
       dialogueText: "\uD558\uC544\uC544\uC544??!!!!!!!"
@@ -868,9 +804,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -885,6 +818,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 32
       speakerName: "\uB098"
       dialogueText: "\uC57C,\uC800\uAE30 300m \uC55E\uC5D0 \uCCAD\uC18C\uB144\uC27C\uD130\uC788\uC73C\uB2C8\uAE4C
@@ -894,9 +828,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -911,6 +842,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 33
       speakerName: "\uD55C\uC11C\uC544"
       dialogueText: "\uC73C\uADF8\uC74F...\uADF8\uB7F0\uAC8C \uC544\uB2C8\uB77C\uAD6C\uC694!
@@ -920,9 +852,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -937,6 +866,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 34
       speakerName: "\uD55C\uC11C\uC544"
       dialogueText: "\uAC15\uB0A8\uB300\uD559\uBCD1\uC6D0!  \uC0AC\uC778 \uB300\uC7A5\uC554!
@@ -947,9 +877,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -964,6 +891,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 35
       speakerName: "\uB098"
       dialogueText: "... \uADF8\uAC78... \uC5B4\uB5BB\uAC8C...\uB0B4 \uC2A4\uD1A0\uCEE4\uB0D0...?"
@@ -972,9 +900,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -989,6 +914,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 36
       speakerName: "\uD55C\uC11C\uC544"
       dialogueText: "\uC81C\uAC00 \uC624\uB298 \uCC98\uC74C \uB2F9\uC2E0\uC744 \uBCF4\uB294\uB370\n\uB9D0\uC774
@@ -998,9 +924,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -1015,6 +938,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 37
       speakerName: "\uD55C\uC11C\uC544"
       dialogueText: "\uC2EC\uC9C0\uC5B4..\uB418\uAC8C..\uBABB\uC0DD\uACBC\uB294..\uB370...."
@@ -1023,9 +947,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices:
       - choiceText: "( \uB531\uBC24\uC744 \uD55C\uBC88 \uB354 \uB54C\uB9B0\uB2E4
           )"
@@ -1045,6 +966,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 38
       speakerName: "\uD55C\uC11C\uC544"
       dialogueText: "\uB044\uC544\uC559!! \uC54C\uC558\uC5B4\uC694 \uADF8\uB9CC\uD560\uAC8C\uC694
@@ -1054,9 +976,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -1071,6 +990,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 39
       speakerName: "\uD55C\uC11C\uC544"
       dialogueText: "\uD558\uC9C0\uB9CC \uD560 \uC774\uC57C\uAE30\uAC00 \uC788\uB294\uAC74
@@ -1081,9 +1001,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -1098,6 +1015,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 40
       speakerName: "\uB098"
       dialogueText: "(\uADF8\uB300\uB85C \uB0B4\uBE44\uB46C \uB450\uAE30\uB3C4 \uADF8\uB807\uAC8C
@@ -1107,9 +1025,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -1124,6 +1039,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
   - id: 0
     GroupName: 'BadEnding1 [ID:100]'
     entries:
@@ -1135,9 +1051,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -1152,6 +1065,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0.5
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 101
       speakerName: "\uB098"
       dialogueText: "\uC870\uAE08 \uCDE8\uD560\uC815\uB3C4\uB85C \uB9C8\uC168\uB2E4
@@ -1161,9 +1075,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices:
       - choiceText: "\uB354 \uB9C8\uC2E0\uB2E4"
         choiceIndex: 102
@@ -1182,6 +1093,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0.5
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 102
       speakerName: "\uB098"
       dialogueText: "\uC9D1\uC5D0\uAC00\uB3C4 \uCCAD\uC18C\uD560\uAC70\uB9AC \uBC16\uC5D0
@@ -1191,9 +1103,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -1208,6 +1117,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0.5
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 103
       speakerName: "\uB098"
       dialogueText: "\uC774\uB300\uB85C\uAC00 \uC88B\uC740\uAC70 \uAC19\uB2E4"
@@ -1216,9 +1126,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices: []
       Char1:
         CharacterPNG: {fileID: 0}
@@ -1233,6 +1140,7 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0.5
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
     - id: 104
       speakerName: "\uB098"
       dialogueText: "BadEnding(1) : \uD604\uC2E4\uC678\uBA74"
@@ -1241,9 +1149,6 @@ MonoBehaviour:
       showChatUI: 1
       EffectSound: {fileID: 0}
       seVolune: 0
-      EffectSprite: {fileID: 0}
-      EffectPos: {x: 0, y: 0}
-      EffectScale: 0
       choices:
       - choiceText: "\uCC98\uC74C\uC73C\uB85C \uB3CC\uC544\uAC04\uB2E4"
         choiceIndex: 0
@@ -1260,4 +1165,5 @@ MonoBehaviour:
         CharacterRotation: 0
         moveDuration: 0.5
       nextIndexOverride: -1
+      effectVideoClip: {fileID: 0}
   nextStorySO: {fileID: 11400000, guid: 52d7cd4dac4c6a342becbcfaf6ff9824, type: 2}

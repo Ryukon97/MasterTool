@@ -4,6 +4,7 @@ using UnityEditor;
 #endif
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.Video;
 
 
 [CreateAssetMenu(fileName = "NewScenario", menuName = "Scenario/DialogueData")] //t시나리오 에디터
@@ -57,9 +58,9 @@ public class DialogueEntry
     [Header("캐릭터 통 일러스트(1980x1080)")]
     public Sprite characterIllust;
 
-    
 
-  
+
+
     //public Sprite CharacterPNG;
     [Header(" 뒷 배경 전용")]
     public Sprite BackGroundSprit;
@@ -70,29 +71,20 @@ public class DialogueEntry
     public AudioClip EffectSound;
     [Range(0f, 1f)] public float seVolune = 1f;
 
-    //[Range(0f, 3f)]
-    //public float CharacterScale = 1f;
-
-    //public Vector2 CharacterPos = new Vector2(0, -100);
-
-
-    //public float CharacterRotation;
-    [Header("이펙트 설정(PNG만 가능)")]
-    public Sprite EffectSprite;
-    public Vector2 EffectPos;
-    public float EffectScale = 1f;
     [Header(" 선택지 전용칸 해당 id숫자를 넣으면 클릭시 이동합니다")]
     public List<ChoiceData> choices = new List<ChoiceData>();
 
+    [Header("캐릭터 개별 데이터")]
     public CharaterData Char1;
     public CharaterData Char2;
 
     [Header("이 대사 이후 이동할 번호 (기본 값 -1은 순차진행)")]
     public int nextIndexOverride = -1;
+    [Header("영상 및 오브젝트 연출")]
+    public VideoClip effectVideoClip;
+
 }
-
-
-[System.Serializable]
+    [System.Serializable]
 public class CharaterData // 캐릭터를 더 추가해야 할수있기 떄문에 따로 분류해둠
 {
     [Header("캐릭터 전용 PNG(배경투명도 꼭 확인!)")]
@@ -119,5 +111,6 @@ public class ChoiceData
     public string choiceText;
     public int choiceIndex;
 }
+
 
 
