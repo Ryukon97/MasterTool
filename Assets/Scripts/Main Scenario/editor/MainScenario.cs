@@ -10,8 +10,27 @@ public class MainScenario : EditorWindow
     private DialogueDataSO currentSO;
     private Vector2 scrollpos;
     private int selectedGroupindex = 0;
+    private GUIStyle entryFoldoutStyle;
     //public Image CharacterImage1;
     //public Image CharacterImage2;
+
+    private GUIStyle EntryFoldoutStyle // 대사 줄 접힘 헤더 스타일 (도메인 리로드 시 null이 되므로 매번 확인)
+    {
+        get
+        {
+            if (entryFoldoutStyle == null)
+            {
+                entryFoldoutStyle = new GUIStyle(EditorStyles.foldout)
+                {
+                    fontSize = 13,
+                    fontStyle = FontStyle.Bold,
+                    fixedHeight = 22
+                };
+                entryFoldoutStyle.padding = new RectOffset(16, 4, 3, 3);
+            }
+            return entryFoldoutStyle;
+        }
+    }
 
     [MenuItem("MasterTools/Scenario Editor")]
     public static void ShowWindow()
@@ -137,6 +156,9 @@ public class MainScenario : EditorWindow
                     EditorGUILayout.Space(5);
                     EditorGUI.indentLevel++;
 
+                    int moveFrom = -1; // 루프 도중 배열을 건드리면 안되므로 예약만 해둠
+                    int moveTo = -1;
+
                     for (int i = 0; i < entriesProperty.arraySize; i++)
                     {
                         SerializedProperty element = entriesProperty.GetArrayElementAtIndex(i);
@@ -147,7 +169,29 @@ public class MainScenario : EditorWindow
                         string sName = (nameProp != null) ? nameProp.stringValue : "";
                         string label = $"[ID: {displayID}] " + (string.IsNullOrEmpty(sName) ? "이름 없음" : sName);
 
-                        element.isExpanded = EditorGUILayout.Foldout(element.isExpanded, label, true);
+                        EditorGUILayout.BeginVertical(EditorStyles.helpBox); // 대사 한 줄을 네모 박스로 감쌈
+
+                        EditorGUILayout.BeginHorizontal();
+                        {
+                            element.isExpanded = EditorGUILayout.Foldout(element.isExpanded, label, true, EntryFoldoutStyle);
+                            GUILayout.FlexibleSpace();
+
+                            GUI.enabled = i > 0; // 맨 위면 올릴 곳이 없음
+                            if (GUILayout.Button("▲", EditorStyles.miniButtonLeft, GUILayout.Width(26)))
+                            {
+                                moveFrom = i;
+                                moveTo = i - 1;
+                            }
+
+                            GUI.enabled = i < entriesProperty.arraySize - 1; // 맨 아래면 내릴 곳이 없음
+                            if (GUILayout.Button("▼", EditorStyles.miniButtonRight, GUILayout.Width(26)))
+                            {
+                                moveFrom = i;
+                                moveTo = i + 1;
+                            }
+                            GUI.enabled = true;
+                        }
+                        EditorGUILayout.EndHorizontal();
 
                         if (element.isExpanded)
                         {
@@ -262,8 +306,18 @@ public class MainScenario : EditorWindow
 
                         }
 
-
+                        EditorGUILayout.EndVertical();
+                        EditorGUILayout.Space(3); // 박스끼리 붙지 않게 간격
                     }
+
+                    if (moveFrom >= 0) // 그리기가 끝난 뒤에 순서 교체 (id 값은 그대로 따라감)
+                    {
+                        entriesProperty.MoveArrayElement(moveFrom, moveTo);
+                        serializedObject.ApplyModifiedProperties();
+                        EditorUtility.SetDirty(currentSO);
+                        Repaint();
+                    }
+
                     EditorGUI.indentLevel--;
                 }
 

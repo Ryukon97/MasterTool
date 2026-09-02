@@ -4,7 +4,6 @@ using TMPro;
 using UnityEditor.Overlays;
 #endif
 using UnityEngine;
-using UnityEngine.ProBuilder.MeshOperations;
 
 public class Slot : MonoBehaviour // 슬롯 구현을 위해 있는것 
 {
